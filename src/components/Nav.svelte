@@ -55,6 +55,7 @@
     font-size: 20px;
     font-weight: 900;
     font-style: italic;
+    line-height: 30px;
   }
 
   .logo a {
@@ -77,7 +78,7 @@
 <header>
   <div class="logo">
     <a href="/">
-      <img src="./images/storms.watch-logo.png" alt="storms.watch" />
+      storms.watch
     </a>
   </div>
 </header>

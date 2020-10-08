@@ -157,6 +157,6 @@
 
 <div class="page">
   <div class="out-of-storm-mode">
-    <h1>We are currently out of storm mode.</h1>
+    <h1>We are entering storm mode shortly.</h1>
   </div>
 </div>
