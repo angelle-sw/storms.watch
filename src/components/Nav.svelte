@@ -78,7 +78,7 @@
 <header>
   <div class="logo">
     <a href="/">
-      storms.watch
+      <img src="./images/storms.watch-logo.png" alt="storms.watch" />
     </a>
   </div>
 </header>
