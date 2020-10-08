@@ -65,7 +65,7 @@
   .logo img {
     position: relative;
     top: 6px;
-    width: 95px;
+    width: 150px;
   }
 
   @media (min-width: 600px) {
