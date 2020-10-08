@@ -143,15 +143,57 @@
 </style>
 
 <svelte:head>
-  <title>Storm Mode / zak.dog</title>
+  <title>Storm Mode / storms.watch</title>
 </svelte:head>
 
 <div class="page">
   <div class="streams">
 
-    <!-- <div class="stream">
-      <h3>Lake Charles, LA (svrweather)</h3>
+    <div class="stream">
+      <h3>NBC</h3>
       <div class="embed-container">
+        <iframe
+          title="NBC"
+          type="text/html"
+          src="https://www.youtube.com/embed/ynxwYtOd2us?autoplay=1&mute=1"
+          frameborder="0"
+          allow="autoplay"
+          allowfullscreen="1" />
+      </div>
+    </div>
+
+    <div class="stream">
+      <h3>Force Thirteen</h3>
+      <div class="embed-container">
+        <iframe
+          title="Force Thirteen"
+          type="text/html"
+          src="https://www.youtube.com/embed/Cn07td78Y3o?autoplay=1&mute=1"
+          frameborder="0"
+          allow="autoplay"
+          allowfullscreen="1" />
+      </div>
+    </div>
+
+    <div class="stream">
+      <h3>Jeff Piotrowski</h3>
+      <!-- <div class="embed-container">
+        <iframe
+          title="Lake Charles, LA"
+          type="text/html"
+          src="https://www.youtube.com/embed/XWPBU1bl5mc?autoplay=1&mute=1"
+          frameborder="0"
+          allow="autoplay"
+          allowfullscreen="1" />
+      </div> -->
+      <div class="offline-container">
+        <span class="offline">(currently offline)</span>
+      </div>
+    </div>
+
+    <div class="stream">
+      <h3>svrweather</h3>
+      <!-- <div class="embed-container">
         <iframe
           title="Lake Charles, LA (svrweather)"
           type="text/html"
@@ -161,84 +203,11 @@
           allowfullscreen="1" />
       </div> -->
 
-    <!-- <div class="offline-container">
-        <span class="offline">(currently offline)</span>
-      </div> -->
-    <!-- </div> -->
-
-    <div class="stream">
-      <h3>KATC</h3>
-      <div class="embed-container">
-        <iframe
-          title="KATC"
-          type="text/html"
-          src="https://www.youtube.com/embed/Cvief7DX450?autoplay=1&mute=1"
-          frameborder="0"
-          allow="autoplay"
-          allowfullscreen="1" />
-      </div>
-    </div>
-
-    <!-- <div class="stream">
-      <h3>Lake Charles, LA (Reed Timmer)</h3>
-      <div class="embed-container">
-        <div
-          class="fb-video"
-          data-href="https://www.facebook.com/reedtimmer2.0/videos/781698219263177/"
-          data-show-text="false"
-          data-width="">
-          <blockquote
-            cite="https://developers.facebook.com/reedtimmer2.0/videos/781698219263177/"
-            class="fb-xfbml-parse-ignore" />
-        </div>
-      </div>
-
       <div class="offline-container">
         <span class="offline">(currently offline)</span>
       </div>
-    </div> -->
-
-    <!-- <div class="stream">
-      <h3>LA Field Mission</h3>
-      <div class="embed-container">
-        <iframe
-          title="LA Field Mission"
-          type="text/html"
-          src="https://www.youtube.com/embed/ItsuEEHEBFQ?autoplay=1&mute=1"
-          frameborder="0"
-          allow="autoplay"
-          allowfullscreen="1" />
-      </div>
-    </div> -->
-
-    <div class="stream">
-      <h3>The Weather Channel</h3>
-      <div class="embed-container">
-        <iframe
-          title="The Weather Channel"
-          type="text/html"
-          src="https://www.youtube.com/embed/59ncghqMj20?autoplay=1&mute=1"
-          frameborder="0"
-          allow="autoplay"
-          allowfullscreen="1" />
-      </div>
     </div>
 
-    <!-- <div class="stream">
-      <h3>Lake Charles, LA (Jeff Piotrowski)</h3>
-      <div class="embed-container">
-        <iframe
-          title="Lake Charles, LA"
-          type="text/html"
-          src="https://www.youtube.com/embed/XWPBU1bl5mc?autoplay=1&mute=1"
-          frameborder="0"
-          allow="autoplay"
-          allowfullscreen="1" />
-      </div>
-      <div class="offline-container">
-        <span class="offline">(currently offline)</span>
-      </div>
-    </div> -->
 
   </div>
 
