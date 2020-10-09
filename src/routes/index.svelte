@@ -190,6 +190,23 @@
     </div>
 
     <div class="stream">
+      <h3>Delta Field Mission</h3>
+      <div class="embed-container">
+        <iframe
+          title="Delta Field Mission"
+          type="text/html"
+          src="https://www.youtube.com/embed/kFp4ShRIi7I?autoplay=1&mute=1"
+          frameborder="0"
+          allow="autoplay"
+          allowfullscreen="1" />
+      </div>
+
+      <!-- <div class="offline-container">
+        <span class="offline">(currently offline)</span>
+      </div> -->
+    </div>
+
+    <div class="stream">
       <h3>New Orleans</h3>
       <div class="embed-container">
         <iframe
@@ -217,23 +234,6 @@
       <div class="offline-container">
         <span class="offline">(currently offline)</span>
       </div>
-    </div>
-
-    <div class="stream">
-      <h3>Delta Field Mission</h3>
-      <div class="embed-container">
-        <iframe
-          title="Delta Field Mission"
-          type="text/html"
-          src="https://www.youtube.com/embed/kFp4ShRIi7I?autoplay=1&mute=1"
-          frameborder="0"
-          allow="autoplay"
-          allowfullscreen="1" />
-      </div>
-
-      <!-- <div class="offline-container">
-        <span class="offline">(currently offline)</span>
-      </div> -->
     </div>
 
     <!-- <div class="stream">
