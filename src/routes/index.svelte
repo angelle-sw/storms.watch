@@ -116,15 +116,15 @@
     .tropical-twitter {
       margin: 1em 1em 0 0;
       width: 22%;
-      height: 1582px;
       height: 1423px;
+      height: 1582px;
     }
 
     .tropical-reddit {
       margin: 16px 0 0 0;
       width: 18%;
-      height: 1582px;
       height: 1423px;
+      height: 1582px;
       border: 1px solid rgba(15, 70, 100, 0.12);
     }
 
@@ -200,18 +200,18 @@
       </div>
     </div> -->
 
-    <!-- <div class="stream">
+    <div class="stream">
       <h3>Jeff Piotrowski</h3>
       <div class="embed-container">
         <iframe
           title="Jeff Piotrowski"
           type="text/html"
-          src="https://www.youtube.com/embed/kTGgE_JfOu0?autoplay=1&mute=1"
+          src="https://www.youtube.com/embed/_NVXgw1nlgA?autoplay=1&mute=1"
           frameborder="0"
           allow="autoplay"
           allowfullscreen="1" />
       </div>
-    </div> -->
+    </div>
 
     <div class="stream">
       <h3>Delta Field Mission</h3>
@@ -325,7 +325,7 @@
       </div> -->
     </div>
 
-    <!-- <div class="stream">
+    <div class="stream">
       <h3>Gulf Coast</h3>
       <div class="embed-container">
         <iframe
@@ -336,7 +336,7 @@
           allow="autoplay"
           allowfullscreen="1" />
       </div>
-    </div> -->
+    </div>
 
   </div>
 
