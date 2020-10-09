@@ -164,6 +164,23 @@
     </div>
 
     <div class="stream">
+      <h3>Jeff Piotrowski</h3>
+      <div class="embed-container">
+        <iframe
+          title="Lake Charles, LA"
+          type="text/html"
+          src="https://www.youtube.com/embed/s5jo3xTaQ0o?autoplay=1&mute=1"
+          frameborder="0"
+          allow="autoplay"
+          allowfullscreen="1" />
+      </div>
+
+      <!-- <div class="offline-container">
+        <span class="offline">(currently offline)</span>
+      </div> -->
+    </div>
+
+    <div class="stream">
       <h3>Delta Field Mission</h3>
       <div class="embed-container">
         <iframe
@@ -247,9 +264,9 @@
       </div> -->
     </div>
 
-    <div class="stream">
+    <!-- <div class="stream">
       <h3>Agenda-Free TV</h3>
-      <!-- <div class="embed-container">
+      <div class="embed-container">
         <iframe
           title="Agenda-Free TV"
           type="text/html"
@@ -257,24 +274,8 @@
           frameborder="0"
           allow="autoplay"
           allowfullscreen="1" />
-      </div> -->
-
-      <div class="offline-container">
-        <span class="offline">(currently offline)</span>
       </div>
-    </div>
 
-    <!-- <div class="stream">
-      <h3>Jeff Piotrowski</h3>
-      <div class="embed-container">
-        <iframe
-          title="Lake Charles, LA"
-          type="text/html"
-          src="https://www.youtube.com/embed/XWPBU1bl5mc?autoplay=1&mute=1"
-          frameborder="0"
-          allow="autoplay"
-          allowfullscreen="1" />
-      </div>
       <div class="offline-container">
         <span class="offline">(currently offline)</span>
       </div>
