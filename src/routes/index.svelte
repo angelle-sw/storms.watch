@@ -154,7 +154,7 @@
       <h3>12News</h3>
       <div class="embed-container">
         <iframe
-          title="Weather Channel"
+          title="12News"
           type="text/html"
           src="https://www.youtube.com/embed/vS9bc5aAqXk?autoplay=1&mute=1"
           frameborder="0"
@@ -167,7 +167,7 @@
       <h3>Jeff Piotrowski</h3>
       <div class="embed-container">
         <iframe
-          title="Lake Charles, LA"
+          title="Jeff Piotrowski"
           type="text/html"
           src="https://www.youtube.com/embed/s5jo3xTaQ0o?autoplay=1&mute=1"
           frameborder="0"
@@ -187,6 +187,23 @@
           title="Delta Field Mission"
           type="text/html"
           src="https://www.youtube.com/embed/kFp4ShRIi7I?autoplay=1&mute=1"
+          frameborder="0"
+          allow="autoplay"
+          allowfullscreen="1" />
+      </div>
+
+      <!-- <div class="offline-container">
+        <span class="offline">(currently offline)</span>
+      </div> -->
+    </div>
+
+    <div class="stream">
+      <h3>StormChasingVideo</h3>
+      <div class="embed-container">
+        <iframe
+          title="StormChasingVideo"
+          type="text/html"
+          src="https://www.youtube.com/embed/y__Aqzi3kRc?autoplay=1&mute=1"
           frameborder="0"
           allow="autoplay"
           allowfullscreen="1" />
@@ -249,23 +266,6 @@
       <!-- <div class="offline-container">
         <span class="offline">(currently offline)</span>
       </div> -->
-    </div>
-
-    <div class="stream">
-      <h3>StormChasingVideo</h3>
-      <!-- <div class="embed-container">
-        <iframe
-          title="StormChasingVideo"
-          type="text/html"
-          src="https://www.youtube.com/embed/R8F3sxM6lCE?autoplay=1&mute=1"
-          frameborder="0"
-          allow="autoplay"
-          allowfullscreen="1" />
-      </div> -->
-
-      <div class="offline-container">
-        <span class="offline">(currently offline)</span>
-      </div>
     </div>
 
     <div class="stream">
