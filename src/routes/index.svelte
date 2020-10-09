@@ -5,6 +5,13 @@
     };
 
     window.setInterval(refreshTropicalReddit, 60000);
+
+    // const resizeFacebookStream = () => {
+    //   console.log('resize');
+    //   const targetSize = [...document.querySelectorAll('.stream')][1].clientWidth;
+    // };
+
+    // window.addEventListener('resize', resizeFacebookStream);
   }
 
 </script>
@@ -34,12 +41,6 @@
     flex: 1 0 calc(100% - 1em);
   }
   
-  .fb-video {
-    max-width: auto;
-    width: auto;
-    height: 100%;
-  }
-
   .embed-container {
     position: relative;
     padding-bottom: 56.25%;
@@ -160,10 +161,11 @@
       <h3>Reed Timmer</h3>
       <div class="embed-container">
         <div
-          class="fb-video"
+          class="fb-video fb-vertical-video"
           data-href="https://www.facebook.com/reedtimmer2.0/videos/731860644338541/"
           data-show-text="false"
-          data-width="">
+          data-height="259"
+          data-width="461">
           <blockquote
             cite="https://developers.facebook.com/reedtimmer2.0/videos/731860644338541/"
             class="fb-xfbml-parse-ignore" />
@@ -236,7 +238,7 @@
       </div> -->
     </div>
 
-    <div class="stream">
+    <!-- <div class="stream">
       <h3>Lake Arthur #2</h3>
       <div class="embed-container">
         <iframe
@@ -248,10 +250,10 @@
           allowfullscreen="1" />
       </div>
 
-      <!-- <div class="offline-container">
+      <div class="offline-container">
         <span class="offline">(currently offline)</span>
-      </div> -->
-    </div>
+      </div>
+    </div> -->
 
     <div class="stream">
       <h3>Lake Charles</h3>
@@ -315,14 +317,14 @@
         <iframe
           title="Gulf Coast"
           type="text/html"
-          src="https://www.youtube.com/embed/MkWfNVpGa6M?autoplay=1&mute=1"
+          src="https://www.youtube.com/embed/RPXNIKM5nPQ?autoplay=1&mute=1"
           frameborder="0"
           allow="autoplay"
           allowfullscreen="1" />
       </div>
     </div>
 
-    <!-- <div class="stream">
+    <div class="stream">
       <h3>New Orleans</h3>
       <div class="embed-container">
         <iframe
@@ -333,7 +335,7 @@
           allow="autoplay"
           allowfullscreen="1" />
       </div>
-    </div> -->
+    </div>
 
     <!-- <div class="stream">
       <h3>Jeff Piotrowski</h3>
