@@ -183,6 +183,21 @@
       </div>
     </div>
 
+    <!-- <div class="stream">
+      <h3>Reed Timmer</h3>
+      <div class="embed-container">
+        <div
+          class="fb-video"
+          data-href="https://www.facebook.com/reedtimmer2.0/videos/977675219403881/"
+          data-show-text="false"
+          data-width="auto">
+          <blockquote
+            cite="https://developers.facebook.com/reedtimmer2.0/videos/977675219403881/"
+            class="fb-xfbml-parse-ignore" />
+        </div>
+      </div>
+    </div> -->
+
     <div class="stream">
       <h3>Delta Field Mission</h3>
       <div class="embed-container">
@@ -245,6 +260,19 @@
     </div>
 
     <div class="stream">
+      <h3>svrweather</h3>
+      <div class="embed-container">
+        <iframe
+          title="svrweather"
+          type="text/html"
+          src="https://www.youtube.com/embed/o1GRBm8OtGo?autoplay=1&mute=1"
+          frameborder="0"
+          allow="autoplay"
+          allowfullscreen="1" />
+      </div>
+    </div>
+
+    <!-- <div class="stream">
       <h3>Lake Charles</h3>
       <div class="embed-container">
         <iframe
@@ -252,11 +280,7 @@
           frameborder="0"
           allowfullscreen="1" />
       </div>
-
-      <!-- <div class="offline-container">
-        <span class="offline">(currently offline)</span>
-      </div> -->
-    </div>
+    </div> -->
 
     <div class="stream">
       <h3>Jennings</h3>
