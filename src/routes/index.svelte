@@ -1,10 +1,10 @@
 <script>
   if (process.browser) {
-    const refreshTropicalTwitter = () => {
+    const refreshTropicalReddit = () => {
       document.querySelector('.tropical-reddit').src = './tropical-reddit.html';
     };
 
-    window.setInterval(refreshTropicalTwitter, 60000);
+    window.setInterval(refreshTropicalReddit, 60000);
   }
 </script>
 
