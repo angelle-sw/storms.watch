@@ -158,26 +158,6 @@
   <div class="streams">
 
     <!-- <div class="stream">
-      <h3>Reed Timmer</h3>
-      <div class="embed-container">
-        <div
-          class="fb-video fb-vertical-video"
-          data-href="https://www.facebook.com/reedtimmer2.0/videos/731860644338541/"
-          data-show-text="false"
-          data-height="259"
-          data-width="461">
-          <blockquote
-            cite="https://developers.facebook.com/reedtimmer2.0/videos/731860644338541/"
-            class="fb-xfbml-parse-ignore" />
-        </div>
-      </div>
-
-      <div class="offline-container">
-        <span class="offline">(currently offline)</span>
-      </div>
-    </div> -->
-
-    <!-- <div class="stream">
       <h3>12News</h3>
       <div class="embed-container">
         <iframe
@@ -201,6 +181,25 @@
           allow="autoplay"
           allowfullscreen="1" />
       </div>
+    </div>
+
+    <div class="stream">
+      <h3>Reed Timmer</h3>
+      <div class="embed-container">
+        <div
+          class="fb-video fb-vertical-video"
+          data-href="https://www.facebook.com/reedtimmer2.0/videos/337035384220964/"
+          data-show-text="false"
+          data-width="auto">
+          <blockquote
+            cite="https://developers.facebook.com/reedtimmer2.0/videos/337035384220964/"
+            class="fb-xfbml-parse-ignore" />
+        </div>
+      </div>
+
+      <!-- <div class="offline-container">
+        <span class="offline">(currently offline)</span>
+      </div> -->
     </div>
 
     <div class="stream">
@@ -324,7 +323,7 @@
       </div> -->
     </div>
 
-    <div class="stream">
+    <!-- <div class="stream">
       <h3>Gulf Coast</h3>
       <div class="embed-container">
         <iframe
@@ -335,7 +334,7 @@
           allow="autoplay"
           allowfullscreen="1" />
       </div>
-    </div>
+    </div> -->
 
     <!-- <div class="stream">
       <h3>Jeff Piotrowski</h3>
