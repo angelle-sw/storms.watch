@@ -283,7 +283,7 @@
       </div>
     </div>
 
-    <div class="stream">
+    <!-- <div class="stream">
       <h3>New Orleans</h3>
       <div class="embed-container">
         <iframe
@@ -294,6 +294,20 @@
           allow="autoplay"
           allowfullscreen="1" />
       </div>
+    </div> -->
+
+    <div class="stream">
+      <h3>Lafayette</h3>
+      <div class="embed-container">
+        <iframe
+          src="https://player.twitch.tv/?channel=not_a_bot100&parent=storms.watch&parent=localhost"
+          frameborder="0"
+          allowfullscreen="1" />
+      </div>
+
+      <!-- <div class="offline-container">
+        <span class="offline">(currently offline)</span>
+      </div> -->
     </div>
 
     <!-- <div class="stream">
