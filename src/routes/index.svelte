@@ -322,7 +322,7 @@
       </div> -->
     </div>
 
-    <div class="stream">
+    <!-- <div class="stream">
       <h3>Lafayette</h3>
       <div class="embed-container">
         <iframe
@@ -330,13 +330,9 @@
           frameborder="0"
           allowfullscreen="1" />
       </div>
+    </div> -->
 
-      <!-- <div class="offline-container">
-        <span class="offline">(currently offline)</span>
-      </div> -->
-    </div>
-
-    <!-- <div class="stream">
+    <div class="stream">
       <h3>Gulf Coast</h3>
       <div class="embed-container">
         <iframe
@@ -347,7 +343,7 @@
           allow="autoplay"
           allowfullscreen="1" />
       </div>
-    </div> -->
+    </div>
 
   </div>
 
