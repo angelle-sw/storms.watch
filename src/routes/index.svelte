@@ -185,22 +185,22 @@
       </div>
     </div>
 
-    <!-- <div class="stream">
+    <div class="stream">
       <h3>Reed Timmer</h3>
       <div class="embed-container">
         <div
           class="fb-video"
-          data-href="https://www.facebook.com/reedtimmer2.0/videos/977675219403881/"
+          data-href="https://www.facebook.com/reedtimmer2.0/videos/989282104918148/"
           data-show-text="false"
           data-width="auto">
           <blockquote
-            cite="https://developers.facebook.com/reedtimmer2.0/videos/977675219403881/"
+            cite="https://developers.facebook.com/reedtimmer2.0/videos/989282104918148/"
             class="fb-xfbml-parse-ignore" />
         </div>
       </div>
-    </div> -->
+    </div>
 
-    <div class="stream">
+    <!-- <div class="stream">
       <h3>Jeff Piotrowski</h3>
       <div class="embed-container">
         <iframe
@@ -211,7 +211,7 @@
           allow="autoplay"
           allowfullscreen="1" />
       </div>
-    </div>
+    </div> -->
 
     <div class="stream">
       <h3>Delta Field Mission</h3>
