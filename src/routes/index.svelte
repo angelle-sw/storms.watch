@@ -221,7 +221,7 @@
 
     <div class="stream">
       <h3>Delta Field Mission</h3>
-      <!-- <div class="embed-container">
+      <div class="embed-container">
         <iframe
           title="Delta Field Mission"
           type="text/html"
@@ -229,7 +229,7 @@
           frameborder="0"
           allow="autoplay"
           allowfullscreen="1" />
-      </div> -->
+      </div>
 
       <div class="offline-container">
         <span class="offline">(currently offline)</span>
