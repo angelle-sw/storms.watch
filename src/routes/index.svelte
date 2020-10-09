@@ -150,6 +150,19 @@
   <div class="streams">
 
     <div class="stream">
+      <h3>Weather Channel</h3>
+      <div class="embed-container">
+        <iframe
+          title="Weather Channel"
+          type="text/html"
+          src="https://www.youtube.com/embed/N9KeyzTmgds?autoplay=1&mute=1"
+          frameborder="0"
+          allow="autoplay"
+          allowfullscreen="1" />
+      </div>
+    </div>
+
+    <div class="stream">
       <h3>NBC</h3>
       <div class="embed-container">
         <iframe
@@ -169,6 +182,20 @@
           title="Force Thirteen"
           type="text/html"
           src="https://www.youtube.com/embed/Cn07td78Y3o?autoplay=1&mute=1"
+          frameborder="0"
+          allow="autoplay"
+          allowfullscreen="1" />
+      </div>
+    </div>
+
+
+    <div class="stream">
+      <h3>Lake Charles</h3>
+      <div class="embed-container">
+        <iframe
+          title="Lake Charles"
+          type="text/html"
+          src="https://www.youtube.com/embed/HSkKThjmnHw?autoplay=1&mute=1"
           frameborder="0"
           allow="autoplay"
           allowfullscreen="1" />
