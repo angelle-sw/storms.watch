@@ -33,6 +33,12 @@
     margin: 1em 0;
     flex: 1 0 calc(100% - 1em);
   }
+  
+  .fb-video {
+    max-width: auto;
+    width: auto;
+    height: 100%;
+  }
 
   .embed-container {
     position: relative;
@@ -150,7 +156,7 @@
 <div class="page">
   <div class="streams">
 
-    <div class="stream">
+    <!-- <div class="stream">
       <h3>Reed Timmer</h3>
       <div class="embed-container">
         <div
@@ -164,10 +170,10 @@
         </div>
       </div>
 
-      <!-- <div class="offline-container">
+      <div class="offline-container">
         <span class="offline">(currently offline)</span>
-      </div> -->
-    </div>
+      </div>
+    </div> -->
 
     <!-- <div class="stream">
       <h3>12News</h3>
@@ -303,7 +309,7 @@
       </div> -->
     </div>
 
-    <!-- <div class="stream">
+    <div class="stream">
       <h3>Gulf Coast</h3>
       <div class="embed-container">
         <iframe
@@ -314,7 +320,7 @@
           allow="autoplay"
           allowfullscreen="1" />
       </div>
-    </div> -->
+    </div>
 
     <!-- <div class="stream">
       <h3>New Orleans</h3>
