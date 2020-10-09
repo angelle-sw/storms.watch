@@ -231,9 +231,9 @@
           allowfullscreen="1" />
       </div>
 
-      <div class="offline-container">
+      <!-- <div class="offline-container">
         <span class="offline">(currently offline)</span>
-      </div>
+      </div> -->
     </div>
 
     <!-- <div class="stream">
