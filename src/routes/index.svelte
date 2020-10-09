@@ -181,7 +181,24 @@
     </div>
 
     <div class="stream">
-      <h3>Lake Arthur</h3>
+      <h3>StormChasingVideo</h3>
+      <div class="embed-container">
+        <iframe
+          title="StormChasingVideo"
+          type="text/html"
+          src="https://www.youtube.com/embed/lNCcmAu8Iss?autoplay=1&mute=1"
+          frameborder="0"
+          allow="autoplay"
+          allowfullscreen="1" />
+      </div>
+
+      <!-- <div class="offline-container">
+        <span class="offline">(currently offline)</span>
+      </div> -->
+    </div>
+
+    <div class="stream">
+      <h3>Lake Arthur #1</h3>
       <div class="embed-container">
         <iframe
           src="https://player.twitch.tv/?channel=ohioweathernut&parent=storms.watch&parent=localhost"
@@ -195,12 +212,12 @@
     </div>
 
     <div class="stream">
-      <h3>StormChasingVideo</h3>
+      <h3>Lake Arthur #2</h3>
       <div class="embed-container">
         <iframe
-          title="StormChasingVideo"
+          title="Lake Arthur"
           type="text/html"
-          src="https://www.youtube.com/embed/lNCcmAu8Iss?autoplay=1&mute=1"
+          src="https://www.youtube.com/embed/tK4sxhbU_UI?autoplay=1&mute=1"
           frameborder="0"
           allow="autoplay"
           allowfullscreen="1" />
@@ -265,9 +282,9 @@
       </div>
     </div>
 
-    <div class="stream">
+    <!-- <div class="stream">
       <h3>Jeff Piotrowski</h3>
-      <!-- <div class="embed-container">
+      <div class="embed-container">
         <iframe
           title="Jeff Piotrowski"
           type="text/html"
@@ -275,12 +292,12 @@
           frameborder="0"
           allow="autoplay"
           allowfullscreen="1" />
-      </div> -->
+      </div>
 
       <div class="offline-container">
         <span class="offline">(currently offline)</span>
       </div>
-    </div>
+    </div> -->
 
     <!-- <div class="stream">
       <h3>Agenda-Free TV</h3>
