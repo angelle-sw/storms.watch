@@ -183,21 +183,6 @@
       </div>
     </div>
 
-    <!-- <div class="stream">
-      <h3>Reed Timmer</h3>
-      <div class="embed-container">
-        <div
-          class="fb-video fb-vertical-video"
-          data-href="https://www.facebook.com/reedtimmer2.0/videos/716776228915384/"
-          data-show-text="false"
-          data-width="auto">
-          <blockquote
-            cite="https://developers.facebook.com/reedtimmer2.0/videos/716776228915384/"
-            class="fb-xfbml-parse-ignore" />
-        </div>
-      </div>
-    </div> -->
-
     <div class="stream">
       <h3>Delta Field Mission</h3>
       <div class="embed-container">
@@ -233,7 +218,7 @@
     </div>
 
     <div class="stream">
-      <h3>Lake Arthur</h3>
+      <h3>Lake Arthur #1</h3>
       <div class="embed-container">
         <iframe
           src="https://player.twitch.tv/?channel=ohioweathernut&parent=storms.watch&parent=localhost"
@@ -246,22 +231,18 @@
       </div> -->
     </div>
 
-    <!-- <div class="stream">
+    <div class="stream">
       <h3>Lake Arthur #2</h3>
       <div class="embed-container">
         <iframe
-          title="Lake Arthur"
+          title="Lake Arthur #2"
           type="text/html"
-          src="https://www.youtube.com/embed/tK4sxhbU_UI?autoplay=1&mute=1"
+          src="https://www.youtube.com/embed/HHk3WXd2sUQ?autoplay=1&mute=1"
           frameborder="0"
           allow="autoplay"
           allowfullscreen="1" />
       </div>
-
-      <div class="offline-container">
-        <span class="offline">(currently offline)</span>
-      </div>
-    </div> -->
+    </div>
 
     <div class="stream">
       <h3>Lake Charles</h3>
@@ -305,7 +286,7 @@
       </div> -->
     </div>
 
-    <div class="stream">
+    <!-- <div class="stream">
       <h3>Gulf Coast</h3>
       <div class="embed-container">
         <iframe
@@ -315,40 +296,6 @@
           frameborder="0"
           allow="autoplay"
           allowfullscreen="1" />
-      </div>
-    </div>
-
-    <!-- <div class="stream">
-      <h3>Jeff Piotrowski</h3>
-      <div class="embed-container">
-        <iframe
-          title="Jeff Piotrowski"
-          type="text/html"
-          src="https://www.youtube.com/embed/s5jo3xTaQ0o?autoplay=1&mute=1"
-          frameborder="0"
-          allow="autoplay"
-          allowfullscreen="1" />
-      </div>
-
-      <div class="offline-container">
-        <span class="offline">(currently offline)</span>
-      </div>
-    </div> -->
-
-    <!-- <div class="stream">
-      <h3>Agenda-Free TV</h3>
-      <div class="embed-container">
-        <iframe
-          title="Agenda-Free TV"
-          type="text/html"
-          src="https://www.youtube.com/embed/yfQBz1m6lx0?autoplay=1&mute=1"
-          frameborder="0"
-          allow="autoplay"
-          allowfullscreen="1" />
-      </div>
-
-      <div class="offline-container">
-        <span class="offline">(currently offline)</span>
       </div>
     </div> -->
 
