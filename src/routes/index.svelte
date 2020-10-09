@@ -217,11 +217,15 @@
 
     <div class="stream">
       <h3>StormChaserIRL</h3>
-      <div class="embed-container">
+      <!-- <div class="embed-container">
         <iframe
           src="https://player.twitch.tv/?channel=stormchaserirl&parent=storms.watch&parent=localhost"
           frameborder="0"
           allowfullscreen="1" />
+      </div> -->
+
+      <div class="offline-container">
+        <span class="offline">(currently offline)</span>
       </div>
     </div>
 
