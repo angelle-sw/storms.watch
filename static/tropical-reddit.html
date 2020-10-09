@@ -30,6 +30,11 @@
       try {
         setTimeout(() => {
           document.querySelector('.id-t1_g7scyhx').remove();
+
+          const links = [...document.querySelectorAll('a')];
+          for (link of links) {
+            link.setAttribute('target', '_blank');
+          }
         }, 0);
       } catch (e) {
         console.log(e);

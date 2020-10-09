@@ -6,6 +6,7 @@
 
     window.setInterval(refreshTropicalReddit, 60000);
   }
+
 </script>
 
 <style>
