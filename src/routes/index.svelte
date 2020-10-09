@@ -299,10 +299,20 @@
     </div> -->
 
     <div class="stream">
-      <h3>Jennings</h3>
+      <h3>Jennings #1</h3>
       <div class="embed-container">
         <iframe
           src="https://player.twitch.tv/?channel=jennifermcmahan&parent=storms.watch&parent=localhost"
+          frameborder="0"
+          allowfullscreen="1" />
+      </div>
+    </div>
+
+    <div class="stream">
+      <h3>Jennings #2</h3>
+      <div class="embed-container">
+        <iframe
+          src="https://player.twitch.tv/?channel=txwxman1&parent=storms.watch&parent=localhost"
           frameborder="0"
           allowfullscreen="1" />
       </div>
@@ -326,7 +336,7 @@
       </div> -->
     </div>
 
-    <div class="stream">
+    <!-- <div class="stream">
       <h3>Gulf Coast</h3>
       <div class="embed-container">
         <iframe
@@ -337,7 +347,7 @@
           allow="autoplay"
           allowfullscreen="1" />
       </div>
-    </div>
+    </div> -->
 
   </div>
 
