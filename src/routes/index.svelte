@@ -183,20 +183,20 @@
       </div>
     </div>
 
-    <!-- <div class="stream">
+    <div class="stream">
       <h3>Reed Timmer</h3>
       <div class="embed-container">
         <div
           class="fb-video fb-vertical-video"
-          data-href="https://www.facebook.com/reedtimmer2.0/videos/337035384220964/"
+          data-href="https://www.facebook.com/reedtimmer2.0/videos/716776228915384/"
           data-show-text="false"
           data-width="auto">
           <blockquote
-            cite="https://developers.facebook.com/reedtimmer2.0/videos/337035384220964/"
+            cite="https://developers.facebook.com/reedtimmer2.0/videos/716776228915384/"
             class="fb-xfbml-parse-ignore" />
         </div>
       </div>
-    </div> -->
+    </div>
 
     <div class="stream">
       <h3>Delta Field Mission</h3>
@@ -305,7 +305,7 @@
       </div> -->
     </div>
 
-    <div class="stream">
+    <!-- <div class="stream">
       <h3>Gulf Coast</h3>
       <div class="embed-container">
         <iframe
@@ -316,7 +316,7 @@
           allow="autoplay"
           allowfullscreen="1" />
       </div>
-    </div>
+    </div> -->
 
     <!-- <div class="stream">
       <h3>Jeff Piotrowski</h3>
