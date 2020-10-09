@@ -150,7 +150,7 @@
 <div class="page">
   <div class="streams">
 
-    <div class="stream">
+    <!-- <div class="stream">
       <h3>12News</h3>
       <div class="embed-container">
         <iframe
@@ -161,7 +161,7 @@
           allow="autoplay"
           allowfullscreen="1" />
       </div>
-    </div>
+    </div> -->
 
     <div class="stream">
       <h3>Jeff Piotrowski</h3>
@@ -195,19 +195,6 @@
       <!-- <div class="offline-container">
         <span class="offline">(currently offline)</span>
       </div> -->
-    </div>
-
-    <div class="stream">
-      <h3>StormChasingVideo</h3>
-      <div class="embed-container">
-        <iframe
-          title="StormChasingVideo"
-          type="text/html"
-          src="https://www.youtube.com/embed/R8F3sxM6lCE?autoplay=1&mute=1"
-          frameborder="0"
-          allow="autoplay"
-          allowfullscreen="1" />
-      </div>
     </div>
 
     <div class="stream">
@@ -264,9 +251,26 @@
       </div> -->
     </div>
 
-    <!-- <div class="stream">
+    <div class="stream">
+      <h3>StormChasingVideo</h3>
+      <!-- <div class="embed-container">
+        <iframe
+          title="StormChasingVideo"
+          type="text/html"
+          src="https://www.youtube.com/embed/R8F3sxM6lCE?autoplay=1&mute=1"
+          frameborder="0"
+          allow="autoplay"
+          allowfullscreen="1" />
+      </div> -->
+
+      <div class="offline-container">
+        <span class="offline">(currently offline)</span>
+      </div>
+    </div>
+
+    <div class="stream">
       <h3>Agenda-Free TV</h3>
-      <div class="embed-container">
+      <!-- <div class="embed-container">
         <iframe
           title="Agenda-Free TV"
           type="text/html"
@@ -274,12 +278,12 @@
           frameborder="0"
           allow="autoplay"
           allowfullscreen="1" />
-      </div>
+      </div> -->
 
       <div class="offline-container">
         <span class="offline">(currently offline)</span>
       </div>
-    </div> -->
+    </div>
 
   </div>
 
