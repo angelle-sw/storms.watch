@@ -164,12 +164,29 @@
     </div>
 
     <div class="stream">
-      <h3>Lake Charles</h3>
+      <h3>Delta Field Mission</h3>
       <div class="embed-container">
         <iframe
-          title="Lake Charles"
+          title="Delta Field Mission"
           type="text/html"
-          src="https://www.youtube.com/embed/HSkKThjmnHw?autoplay=1&mute=1"
+          src="https://www.youtube.com/embed/kFp4ShRIi7I?autoplay=1&mute=1"
+          frameborder="0"
+          allow="autoplay"
+          allowfullscreen="1" />
+      </div>
+
+      <!-- <div class="offline-container">
+        <span class="offline">(currently offline)</span>
+      </div> -->
+    </div>
+
+    <div class="stream">
+      <h3>StormChasingVideo</h3>
+      <div class="embed-container">
+        <iframe
+          title="StormChasingVideo"
+          type="text/html"
+          src="https://www.youtube.com/embed/R8F3sxM6lCE?autoplay=1&mute=1"
           frameborder="0"
           allow="autoplay"
           allowfullscreen="1" />
@@ -190,23 +207,6 @@
     </div>
 
     <div class="stream">
-      <h3>Delta Field Mission</h3>
-      <div class="embed-container">
-        <iframe
-          title="Delta Field Mission"
-          type="text/html"
-          src="https://www.youtube.com/embed/kFp4ShRIi7I?autoplay=1&mute=1"
-          frameborder="0"
-          allow="autoplay"
-          allowfullscreen="1" />
-      </div>
-
-      <!-- <div class="offline-container">
-        <span class="offline">(currently offline)</span>
-      </div> -->
-    </div>
-
-    <div class="stream">
       <h3>New Orleans</h3>
       <div class="embed-container">
         <iframe
@@ -217,6 +217,20 @@
           allow="autoplay"
           allowfullscreen="1" />
       </div>
+    </div>
+
+    <div class="stream">
+      <h3>Lake Charles</h3>
+      <div class="embed-container">
+        <iframe
+          src="https://player.twitch.tv/?channel=mezmerial&parent=storms.watch&parent=localhost"
+          frameborder="0"
+          allowfullscreen="1" />
+      </div>
+
+      <!-- <div class="offline-container">
+        <span class="offline">(currently offline)</span>
+      </div> -->
     </div>
 
     <div class="stream">
@@ -236,20 +250,6 @@
       </div>
     </div>
 
-    <!-- <div class="stream">
-      <h3>StormChaserIRL</h3>
-      <div class="embed-container">
-        <iframe
-          src="https://player.twitch.tv/?channel=stormchaserirl&parent=storms.watch&parent=localhost"
-          frameborder="0"
-          allowfullscreen="1" />
-      </div>
-
-      <div class="offline-container">
-        <span class="offline">(currently offline)</span>
-      </div>
-    </div> -->
-
     <div class="stream">
       <h3>Jeff Piotrowski</h3>
       <!-- <div class="embed-container">
@@ -265,24 +265,6 @@
         <span class="offline">(currently offline)</span>
       </div>
     </div>
-
-    <div class="stream">
-      <h3>svrweather</h3>
-      <!-- <div class="embed-container">
-        <iframe
-          title="Lake Charles, LA (svrweather)"
-          type="text/html"
-          src="https://www.youtube.com/embed/ym7PJnJQVBc?autoplay=1&mute=1"
-          frameborder="0"
-          allow="autoplay"
-          allowfullscreen="1" />
-      </div> -->
-
-      <div class="offline-container">
-        <span class="offline">(currently offline)</span>
-      </div>
-    </div>
-
 
   </div>
 
