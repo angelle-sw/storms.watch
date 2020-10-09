@@ -237,7 +237,7 @@
     </div>
 
     <div class="stream">
-      <h3>Lake Arthur #1</h3>
+      <h3>Lake Arthur</h3>
       <div class="embed-container">
         <iframe
           src="https://player.twitch.tv/?channel=ohioweathernut&parent=storms.watch&parent=localhost"
