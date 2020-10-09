@@ -183,7 +183,7 @@
       </div>
     </div>
 
-    <div class="stream">
+    <!-- <div class="stream">
       <h3>Reed Timmer</h3>
       <div class="embed-container">
         <div
@@ -196,7 +196,7 @@
             class="fb-xfbml-parse-ignore" />
         </div>
       </div>
-    </div>
+    </div> -->
 
     <div class="stream">
       <h3>Delta Field Mission</h3>
@@ -305,7 +305,7 @@
       </div> -->
     </div>
 
-    <!-- <div class="stream">
+    <div class="stream">
       <h3>Gulf Coast</h3>
       <div class="embed-container">
         <iframe
@@ -316,7 +316,7 @@
           allow="autoplay"
           allowfullscreen="1" />
       </div>
-    </div> -->
+    </div>
 
     <!-- <div class="stream">
       <h3>Jeff Piotrowski</h3>
