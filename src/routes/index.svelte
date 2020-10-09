@@ -164,23 +164,6 @@
     </div> -->
 
     <div class="stream">
-      <h3>Jeff Piotrowski</h3>
-      <div class="embed-container">
-        <iframe
-          title="Jeff Piotrowski"
-          type="text/html"
-          src="https://www.youtube.com/embed/s5jo3xTaQ0o?autoplay=1&mute=1"
-          frameborder="0"
-          allow="autoplay"
-          allowfullscreen="1" />
-      </div>
-
-      <!-- <div class="offline-container">
-        <span class="offline">(currently offline)</span>
-      </div> -->
-    </div>
-
-    <div class="stream">
       <h3>Delta Field Mission</h3>
       <div class="embed-container">
         <iframe
@@ -266,6 +249,23 @@
       <!-- <div class="offline-container">
         <span class="offline">(currently offline)</span>
       </div> -->
+    </div>
+
+    <div class="stream">
+      <h3>Jeff Piotrowski</h3>
+      <!-- <div class="embed-container">
+        <iframe
+          title="Jeff Piotrowski"
+          type="text/html"
+          src="https://www.youtube.com/embed/s5jo3xTaQ0o?autoplay=1&mute=1"
+          frameborder="0"
+          allow="autoplay"
+          allowfullscreen="1" />
+      </div> -->
+
+      <div class="offline-container">
+        <span class="offline">(currently offline)</span>
+      </div>
     </div>
 
     <div class="stream">
