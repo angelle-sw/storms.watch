@@ -176,19 +176,6 @@
     </div>
 
     <div class="stream">
-      <h3>Force Thirteen</h3>
-      <div class="embed-container">
-        <iframe
-          title="Force Thirteen"
-          type="text/html"
-          src="https://www.youtube.com/embed/Cn07td78Y3o?autoplay=1&mute=1"
-          frameborder="0"
-          allow="autoplay"
-          allowfullscreen="1" />
-      </div>
-    </div>
-
-    <div class="stream">
       <h3>Lake Charles</h3>
       <div class="embed-container">
         <iframe
@@ -224,6 +211,23 @@
           frameborder="0"
           allow="autoplay"
           allowfullscreen="1" />
+      </div>
+    </div>
+
+    <div class="stream">
+      <h3>Delta Field Mission</h3>
+      <!-- <div class="embed-container">
+        <iframe
+          title="Delta Field Mission"
+          type="text/html"
+          src="https://www.youtube.com/embed/kFp4ShRIi7I?autoplay=1&mute=1"
+          frameborder="0"
+          allow="autoplay"
+          allowfullscreen="1" />
+      </div> -->
+
+      <div class="offline-container">
+        <span class="offline">(currently offline)</span>
       </div>
     </div>
 
