@@ -181,16 +181,34 @@
     </div>
 
     <div class="stream">
-      <h3>Gulf Coast</h3>
+      <h3>Lake Arthur</h3>
       <div class="embed-container">
         <iframe
-          title="Gulf Coast"
+          src="https://player.twitch.tv/?channel=ohioweathernut&parent=storms.watch&parent=localhost"
+          frameborder="0"
+          allowfullscreen="1" />
+      </div>
+
+      <!-- <div class="offline-container">
+        <span class="offline">(currently offline)</span>
+      </div> -->
+    </div>
+
+    <div class="stream">
+      <h3>StormChasingVideo</h3>
+      <div class="embed-container">
+        <iframe
+          title="StormChasingVideo"
           type="text/html"
-          src="https://www.youtube.com/embed/MkWfNVpGa6M?autoplay=1&mute=1"
+          src="https://www.youtube.com/embed/fwmWIo8zE6o?autoplay=1&mute=1"
           frameborder="0"
           allow="autoplay"
           allowfullscreen="1" />
       </div>
+
+      <!-- <div class="offline-container">
+        <span class="offline">(currently offline)</span>
+      </div> -->
     </div>
 
     <div class="stream">
@@ -205,6 +223,19 @@
       <!-- <div class="offline-container">
         <span class="offline">(currently offline)</span>
       </div> -->
+    </div>
+
+    <div class="stream">
+      <h3>Gulf Coast</h3>
+      <div class="embed-container">
+        <iframe
+          title="Gulf Coast"
+          type="text/html"
+          src="https://www.youtube.com/embed/MkWfNVpGa6M?autoplay=1&mute=1"
+          frameborder="0"
+          allow="autoplay"
+          allowfullscreen="1" />
+      </div>
     </div>
 
     <div class="stream">
@@ -251,27 +282,9 @@
       </div>
     </div>
 
-    <div class="stream">
-      <h3>StormChasingVideo</h3>
-      <!-- <div class="embed-container">
-        <iframe
-          title="StormChasingVideo"
-          type="text/html"
-          src="https://www.youtube.com/embed/y__Aqzi3kRc?autoplay=1&mute=1"
-          frameborder="0"
-          allow="autoplay"
-          allowfullscreen="1" />
-      </div> -->
-
-      <div class="offline-container">
-        <span class="offline">(currently offline)</span>
-      </div>
-    </div>
-
-
-    <div class="stream">
+    <!-- <div class="stream">
       <h3>Agenda-Free TV</h3>
-      <!-- <div class="embed-container">
+      <div class="embed-container">
         <iframe
           title="Agenda-Free TV"
           type="text/html"
@@ -279,12 +292,13 @@
           frameborder="0"
           allow="autoplay"
           allowfullscreen="1" />
-      </div> -->
+      </div>
 
       <div class="offline-container">
         <span class="offline">(currently offline)</span>
       </div>
-    </div>
+    </div> -->
+
   </div>
 
   <div class="tropical-twitter">
