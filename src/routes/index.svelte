@@ -116,15 +116,15 @@
     .tropical-twitter {
       margin: 1em 1em 0 0;
       width: 22%;
-      height: 1423px;
       height: 1582px;
+      height: 1423px;
     }
 
     .tropical-reddit {
       margin: 16px 0 0 0;
       width: 18%;
-      height: 1423px;
       height: 1582px;
+      height: 1423px;
       border: 1px solid rgba(15, 70, 100, 0.12);
     }
 
@@ -185,7 +185,7 @@
       </div>
     </div>
 
-    <div class="stream">
+    <!-- <div class="stream">
       <h3>Reed Timmer</h3>
       <div class="embed-container">
         <div
@@ -199,7 +199,7 @@
             class="fb-xfbml-parse-ignore" />
         </div>
       </div>
-    </div>
+    </div> -->
 
     <div class="stream">
       <h3>Jeff Piotrowski</h3>
@@ -249,7 +249,7 @@
     </div>
 
     <div class="stream">
-      <h3>Lake Arthur #1</h3>
+      <h3>Lake Arthur</h3>
       <div class="embed-container">
         <iframe
           src="https://player.twitch.tv/?channel=ohioweathernut&parent=storms.watch&parent=localhost"
@@ -262,7 +262,7 @@
       </div> -->
     </div>
 
-    <div class="stream">
+    <!-- <div class="stream">
       <h3>Lake Arthur #2</h3>
       <div class="embed-container">
         <iframe
@@ -273,7 +273,7 @@
           allow="autoplay"
           allowfullscreen="1" />
       </div>
-    </div>
+    </div> -->
 
     <div class="stream">
       <h3>svrweather</h3>
