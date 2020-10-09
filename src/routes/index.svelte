@@ -302,7 +302,7 @@
       <h3>Jennings</h3>
       <div class="embed-container">
         <iframe
-          src="https://player.twitch.tv/?channel=txwxman1&parent=storms.watch&parent=localhost"
+          src="https://player.twitch.tv/?channel=jennifermcmahan&parent=storms.watch&parent=localhost"
           frameborder="0"
           allowfullscreen="1" />
       </div>
