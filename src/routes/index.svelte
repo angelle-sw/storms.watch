@@ -151,12 +151,12 @@
   <div class="streams">
 
     <div class="stream">
-      <h3>Weather Channel</h3>
+      <h3>12News</h3>
       <div class="embed-container">
         <iframe
           title="Weather Channel"
           type="text/html"
-          src="https://www.youtube.com/embed/N9KeyzTmgds?autoplay=1&mute=1"
+          src="https://www.youtube.com/embed/vS9bc5aAqXk?autoplay=1&mute=1"
           frameborder="0"
           allow="autoplay"
           allowfullscreen="1" />
