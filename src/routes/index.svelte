@@ -150,6 +150,25 @@
 <div class="page">
   <div class="streams">
 
+    <div class="stream">
+      <h3>Reed Timmer</h3>
+      <div class="embed-container">
+        <div
+          class="fb-video"
+          data-href="https://www.facebook.com/reedtimmer2.0/videos/731860644338541/"
+          data-show-text="false"
+          data-width="">
+          <blockquote
+            cite="https://developers.facebook.com/reedtimmer2.0/videos/731860644338541/"
+            class="fb-xfbml-parse-ignore" />
+        </div>
+      </div>
+
+      <!-- <div class="offline-container">
+        <span class="offline">(currently offline)</span>
+      </div> -->
+    </div>
+
     <!-- <div class="stream">
       <h3>12News</h3>
       <div class="embed-container">
@@ -284,7 +303,7 @@
       </div> -->
     </div>
 
-    <div class="stream">
+    <!-- <div class="stream">
       <h3>Gulf Coast</h3>
       <div class="embed-container">
         <iframe
@@ -295,7 +314,7 @@
           allow="autoplay"
           allowfullscreen="1" />
       </div>
-    </div>
+    </div> -->
 
     <!-- <div class="stream">
       <h3>New Orleans</h3>
