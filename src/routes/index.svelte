@@ -239,19 +239,6 @@
     </div>
 
     <div class="stream">
-      <h3>New Orleans</h3>
-      <div class="embed-container">
-        <iframe
-          title="New Orleans"
-          type="text/html"
-          src="https://www.youtube.com/embed/5G8y3MwePuU?autoplay=1&mute=1"
-          frameborder="0"
-          allow="autoplay"
-          allowfullscreen="1" />
-      </div>
-    </div>
-
-    <div class="stream">
       <h3>Lafayette</h3>
       <div class="embed-container">
         <iframe
@@ -263,6 +250,19 @@
       <!-- <div class="offline-container">
         <span class="offline">(currently offline)</span>
       </div> -->
+    </div>
+
+    <div class="stream">
+      <h3>New Orleans</h3>
+      <div class="embed-container">
+        <iframe
+          title="New Orleans"
+          type="text/html"
+          src="https://www.youtube.com/embed/5G8y3MwePuU?autoplay=1&mute=1"
+          frameborder="0"
+          allow="autoplay"
+          allowfullscreen="1" />
+      </div>
     </div>
 
     <div class="stream">
