@@ -201,18 +201,18 @@
       </div>
     </div> -->
 
-    <!-- <div class="stream">
+    <div class="stream">
       <h3>Jeff Piotrowski</h3>
       <div class="embed-container">
         <iframe
           title="Jeff Piotrowski"
           type="text/html"
-          src="https://www.youtube.com/embed/_NVXgw1nlgA?autoplay=1&mute=1"
+          src="https://www.youtube.com/embed/WpEgJ9qysUk?autoplay=1&mute=1"
           frameborder="0"
           allow="autoplay"
           allowfullscreen="1" />
       </div>
-    </div> -->
+    </div>
 
     <div class="stream">
       <h3>Delta Field Mission</h3>
@@ -322,7 +322,7 @@
       </div> -->
     </div>
 
-    <div class="stream">
+    <!-- <div class="stream">
       <h3>Lafayette</h3>
       <div class="embed-container">
         <iframe
@@ -330,7 +330,7 @@
           frameborder="0"
           allowfullscreen="1" />
       </div>
-    </div>
+    </div> -->
 
     <!-- <div class="stream">
       <h3>Gulf Coast</h3>
