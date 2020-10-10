@@ -227,7 +227,7 @@
       </div>
     </div> -->
 
-    <div class="stream">
+    <!-- <div class="stream">
       <h3>Delta Field Mission</h3>
       <div class="embed-container">
         <iframe
@@ -238,11 +238,7 @@
           allow="autoplay"
           allowfullscreen="1" />
       </div>
-
-      <!-- <div class="offline-container">
-        <span class="offline">(currently offline)</span>
-      </div> -->
-    </div>
+    </div> -->
 
     <div class="stream">
       <h3>StormChasingVideo</h3>
@@ -250,7 +246,7 @@
         <iframe
           title="StormChasingVideo"
           type="text/html"
-          src="https://www.youtube.com/embed/lNCcmAu8Iss?autoplay=1&mute=1"
+          src="https://www.youtube.com/embed/BXASb2uoDs0?autoplay=1&mute=1"
           frameborder="0"
           allow="autoplay"
           allowfullscreen="1" />
@@ -261,7 +257,7 @@
       </div> -->
     </div>
 
-    <div class="stream">
+    <!-- <div class="stream">
       <h3>Lake Arthur</h3>
       <div class="embed-container">
         <iframe
@@ -270,10 +266,10 @@
           allowfullscreen="1" />
       </div>
 
-      <!-- <div class="offline-container">
+      <div class="offline-container">
         <span class="offline">(currently offline)</span>
-      </div> -->
-    </div>
+      </div>
+    </div> -->
 
     <!-- <div class="stream">
       <h3>Lake Arthur #2</h3>
@@ -311,7 +307,7 @@
       </div>
     </div> -->
 
-    <div class="stream">
+    <!-- <div class="stream">
       <h3>Jennings #1</h3>
       <div class="embed-container">
         <iframe
@@ -319,9 +315,9 @@
           frameborder="0"
           allowfullscreen="1" />
       </div>
-    </div>
+    </div> -->
 
-    <div class="stream">
+    <!-- <div class="stream">
       <h3>Jennings #2</h3>
       <div class="embed-container">
         <iframe
@@ -329,11 +325,7 @@
           frameborder="0"
           allowfullscreen="1" />
       </div>
-
-      <!-- <div class="offline-container">
-        <span class="offline">(currently offline)</span>
-      </div> -->
-    </div>
+    </div> -->
 
     <!-- <div class="stream">
       <h3>Lafayette</h3>
