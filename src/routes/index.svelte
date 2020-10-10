@@ -141,7 +141,7 @@
   @media (min-width: 1150px) {
     .stream {
       margin: 1em 1em 1em 0;
-      flex: 1 0 calc(50% - 1em);
+      flex: 1 0 calc(100% - 1em);
     }
 
     .embed-container,
