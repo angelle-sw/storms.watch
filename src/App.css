@@ -246,7 +246,7 @@
 .close-icon {
   position: absolute;
   top: 0px;
-  right: 0;
+  right: 15px;
   padding: 1px;
   z-index: 2;
   background: #050521;
