@@ -7,7 +7,9 @@ function App() {
   const [socialFeedIsOpen, setSocialFeedIsOpen] = useState(false);
 
   return (
-    <div className="app">
+    <div
+      className={`app ${socialFeedIsOpen ? "social-feed-drawer-is-open" : ""}`}
+    >
       <img src="./images/logo.png" className="logo" alt="storms.watch" />
 
       <ul className="social-feed-links">

@@ -12,7 +12,7 @@ const SocialFeedDrawer = ({ isOpen, onClose }: Props) => {
   return (
     <>
       <div
-        className={`social-feed-drawer-overlay ${
+        className={`social-feed-drawer-container ${
           isOpen ? "is-open" : "is-closed"
         }`}
         onClick={() => onClose()}
