@@ -43,7 +43,7 @@ const SocialFeedDrawer = ({ isOpen, activeFeed, onClose }: Props) => {
           </div>
 
           <CloseIcon
-            size={36}
+            size={32}
             color="#ffffffcc"
             className="close-icon"
             onClick={() => onClose()}
