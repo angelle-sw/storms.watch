@@ -12,7 +12,7 @@ const StreamsPage = () => {
       />
       <Stream
         title="Stream 2"
-        url="https://www.youtube.com/embed/unAcs4-vNcA?autoplay=1&mute=1"
+        url="https://www.youtube.com/embed/6D7AmjkeI2o?autoplay=1&mute=1"
       />
       <Stream
         title="Stream 3"
