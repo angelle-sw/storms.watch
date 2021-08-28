@@ -33,7 +33,7 @@ const SocialFeedDrawer = ({ isOpen, activeFeed, onClose }: Props) => {
     if (isOpen) {
       const id = setTimeout(() => {
         setIsRefreshButtonVisible(true);
-      }, 3000);
+      }, 60000);
 
       return () => {
         clearTimeout(id);
