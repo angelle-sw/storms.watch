@@ -25,7 +25,7 @@ const SocialFeedDrawer = ({ isOpen, activeFeed, onClose }: Props) => {
             }`}
           >
             <div className="social-feed-loading-indicator">Loading...</div>
-            <iframe title="Tropical Reddit" src="./tropical-reddit.html" />
+            <iframe title="Tropical Reddit" src="./tropical-reddit-feed.html" />
           </div>
 
           <div
@@ -36,7 +36,7 @@ const SocialFeedDrawer = ({ isOpen, activeFeed, onClose }: Props) => {
             <div className="social-feed-loading-indicator">Loading...</div>
             <iframe
               title="Tropical Twitter"
-              src="./tropical-twitter.html"
+              src="./tropical-twitter-feed.html"
               className="tropical-twitter-iframe"
               style={{ visibility: "hidden" }}
             />
