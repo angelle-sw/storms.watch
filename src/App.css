@@ -235,7 +235,7 @@
   top: 0;
   left: calc(50% - 66px);
   margin-top: 0;
-  padding: 12px 40px;
+  padding: 12px 30px;
   background: #1a1b2f;
   color: #fff;
   border: none;
@@ -248,10 +248,11 @@
 
 .social-feed-refresh-button.is-visible {
   opacity: 1;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .social-feed-refresh-button:hover {
+  background: #42435d;
   cursor: pointer;
 }
 
