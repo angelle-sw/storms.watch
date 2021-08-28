@@ -23,7 +23,7 @@
 
 .streams {
   display: flex;
-  padding: 2em;
+  padding: 3em;
   margin: 0;
   margin-top: 3em;
   width: 100%;
@@ -67,10 +67,10 @@
   top: 0;
   left: 0;
   padding: 0;
-  width: 76px;
+  width: 80px;
   height: 100%;
   list-style: none;
-  background: #ffffff30;
+  background: #ffffff20;
 }
 
 .main-navigation a {
