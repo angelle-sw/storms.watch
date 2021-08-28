@@ -40,7 +40,7 @@ const StreamsPage = () => {
         url="https://www.youtube.com/embed/a1Cfw_muqJw?autoplay=1&mute=1"
       />
       <Stream
-        title="Coastal Multicam"
+        title="Coastal Cams"
         url="https://www.youtube.com/embed/WyHud8_dUlA?autoplay=1&mute=1"
       />
     </ul>
