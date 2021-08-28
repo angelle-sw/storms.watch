@@ -62,7 +62,7 @@
   display: flex;
   margin: 0;
   padding: 0;
-  margin-top: 3em;
+  margin-top: 2em;
   width: 100%;
   flex-wrap: wrap;
   list-style: none;
@@ -77,6 +77,12 @@
   .streams {
     padding: 2em;
     background: #1a1b2f;
+  }
+}
+
+@media only screen and (min-width: 1120px) {
+  .streams {
+    margin-top: 3em;
   }
 }
 
