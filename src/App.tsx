@@ -3,7 +3,6 @@ import {
   FaTwitter as TwitterIcon,
   FaRedditAlien as RedditIcon,
 } from "react-icons/fa";
-import { WiHurricane as HurricaneIcon } from "react-icons/wi";
 import StreamsPage from "./pages/StreamsPage";
 import SocialFeedDrawer from "./SocialFeedDrawer";
 import "./App.css";
