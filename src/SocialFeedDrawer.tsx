@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import SocialFeedLinks from "./SocialFeedLinks";
+// import SocialFeedLinks from "./SocialFeedLinks";
 
 interface Props {
   isOpen: boolean;
