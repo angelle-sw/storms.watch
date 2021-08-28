@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { IoIosCloseCircle as CloseIcon } from "react-icons/io";
 
 interface Props {
