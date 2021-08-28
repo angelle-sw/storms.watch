@@ -12,6 +12,10 @@ const StreamsPage = () => {
         url="https://www.youtube.com/embed/2C8ShyNmhOc?autoplay=1&mute=1"
       />
       <Stream
+        title="Southeast LA"
+        url="https://www.youtube.com/embed/ma03z0MKjxw?autoplay=1&mute=1"
+      />
+      <Stream
         title="New Orleans, LA"
         url="https://www.youtube.com/embed/OGjjTASWwYA?autoplay=1&mute=1"
       />
