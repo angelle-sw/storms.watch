@@ -1,7 +1,4 @@
-import React from "react";
 import Stream from "../Stream";
-
-// https://www.youtube.com/watch?v=unAcs4-vNcA
 
 const StreamsPage = () => {
   return (
