@@ -23,7 +23,13 @@
 }
 
 .logo {
-  width: 300px;
+  width: 250px;
+}
+
+@media only screen and (min-width: 640px) {
+  .logo {
+    width: 300px;
+  }
 }
 
 @media only screen and (min-width: 880px) {
@@ -49,7 +55,7 @@
   display: flex;
   padding: 2em;
   margin: 0;
-  margin-top: 3em;
+  margin-top: 2em;
   width: 100%;
   flex-wrap: wrap;
   gap: 2em;
@@ -65,6 +71,7 @@
 @media only screen and (min-width: 880px) {
   .app.social-feed-drawer-is-open .streams {
     display: flex;
+    margin-top: 3em;
     padding: 3em;
   }
 }
@@ -116,6 +123,7 @@
   list-style: none;
   background: #1a1b2f;
   z-index: 1;
+  box-shadow: 0 0 50px #00000077;
 }
 
 @media only screen and (min-width: 640px) {
