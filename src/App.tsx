@@ -1,10 +1,15 @@
 import React, { useState } from "react";
+import {
+  FaTwitter as TwitterIcon,
+  FaRedditAlien as RedditIcon,
+} from "react-icons/fa";
 import StreamsPage from "./pages/StreamsPage";
 import SocialFeedDrawer from "./SocialFeedDrawer";
 import "./App.css";
 
 function App() {
   const [socialFeedIsOpen, setSocialFeedIsOpen] = useState(false);
+  const [activeSocialFeed, setActiveSocialFeed] = useState("reddit");
 
   return (
     <div
@@ -12,27 +17,56 @@ function App() {
     >
       <img src="./images/logo.png" className="logo" alt="storms.watch" />
 
-      <ul className="social-feed-links">
+      <ul className="main-navigation">
         <li>
           <a
             href="#"
             onClick={(e) => {
               e.preventDefault();
-              setSocialFeedIsOpen((open) => !open);
+              setSocialFeedIsOpen(true);
+              setActiveSocialFeed("reddit");
             }}
           >
-            Social Feeds
+            <RedditIcon
+              size={32}
+              className={`social-feed-icon ${
+                socialFeedIsOpen && activeSocialFeed === "reddit"
+                  ? "is-active"
+                  : ""
+              }`}
+            />
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              setSocialFeedIsOpen(true);
+              setActiveSocialFeed("twitter");
+            }}
+          >
+            <TwitterIcon
+              size={32}
+              className={`social-feed-icon ${
+                socialFeedIsOpen && activeSocialFeed === "twitter"
+                  ? "is-active"
+                  : ""
+              }`}
+            />
           </a>
         </li>
       </ul>
 
       <div className="content">
-        <StreamsPage />
-
         <SocialFeedDrawer
           isOpen={socialFeedIsOpen}
+          activeFeed={activeSocialFeed}
           onClose={() => setSocialFeedIsOpen(false)}
         />
+
+        <StreamsPage />
       </div>
     </div>
   );

@@ -1,60 +1,27 @@
 import React, { useState } from "react";
-// import SocialFeedLinks from "./SocialFeedLinks";
+import { IoIosCloseCircle as CloseIcon } from "react-icons/io";
 
 interface Props {
   isOpen: boolean;
+  activeFeed: string;
   onClose: () => void;
 }
 
-const SocialFeedDrawer = ({ isOpen, onClose }: Props) => {
-  const [activeSocialFeed, setActiveSocialFeed] = useState("reddit");
-
+const SocialFeedDrawer = ({ isOpen, activeFeed, onClose }: Props) => {
   return (
     <>
       <div
         className={`social-feed-drawer-container ${
           isOpen ? "is-open" : "is-closed"
         }`}
-        onClick={() => onClose()}
       >
         <div
           className="social-feed-drawer"
           onClick={(e) => e.stopPropagation()}
         >
-          <ul className="social-feed-navigation">
-            <li>
-              <a
-                href="#"
-                className={`${
-                  activeSocialFeed === "reddit" ? "is-active" : ""
-                }`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  setActiveSocialFeed("reddit");
-                }}
-              >
-                Tropical Reddit
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className={`${
-                  activeSocialFeed === "twitter" ? "is-active" : ""
-                }`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  setActiveSocialFeed("twitter");
-                }}
-              >
-                Tropical Twitter
-              </a>
-            </li>
-          </ul>
-
           <div
             className={`social-feed ${
-              activeSocialFeed === "reddit" ? "is-active" : ""
+              activeFeed === "reddit" ? "is-active" : ""
             }`}
           >
             <div className="social-feed-loading-indicator">Loading...</div>
@@ -63,7 +30,7 @@ const SocialFeedDrawer = ({ isOpen, onClose }: Props) => {
 
           <div
             className={`social-feed ${
-              activeSocialFeed === "twitter" ? "is-active" : ""
+              activeFeed === "twitter" ? "is-active" : ""
             }`}
           >
             <div className="social-feed-loading-indicator">Loading...</div>
@@ -74,6 +41,13 @@ const SocialFeedDrawer = ({ isOpen, onClose }: Props) => {
               style={{ display: "none" }}
             />
           </div>
+
+          <CloseIcon
+            size={36}
+            color="#ffffffcc"
+            className="close-icon"
+            onClick={() => onClose()}
+          />
         </div>
       </div>
     </>
