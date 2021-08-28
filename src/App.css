@@ -119,3 +119,11 @@
   margin-top: 30px;
   left: calc(50% - 50px);
 }
+
+.social-feed {
+  display: none;
+}
+
+.social-feed.is-active {
+  display: block;
+}

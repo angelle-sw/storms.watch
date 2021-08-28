@@ -52,24 +52,28 @@ const SocialFeedDrawer = ({ isOpen, onClose }: Props) => {
             </li>
           </ul>
 
-          {activeSocialFeed === "reddit" && (
-            <>
-              <div className="social-feed-loading-indicator">Loading...</div>
-              <iframe title="Tropical Reddit" src="./tropical-reddit.html" />
-            </>
-          )}
+          <div
+            className={`social-feed ${
+              activeSocialFeed === "reddit" ? "is-active" : ""
+            }`}
+          >
+            <div className="social-feed-loading-indicator">Loading...</div>
+            <iframe title="Tropical Reddit" src="./tropical-reddit.html" />
+          </div>
 
-          {activeSocialFeed === "twitter" && (
-            <>
-              <div className="social-feed-loading-indicator">Loading...</div>
-              <iframe
-                title="Tropical Twitter"
-                src="./tropical-twitter.html"
-                className="tropical-twitter-iframe"
-                style={{ display: "none" }}
-              />
-            </>
-          )}
+          <div
+            className={`social-feed ${
+              activeSocialFeed === "twitter" ? "is-active" : ""
+            }`}
+          >
+            <div className="social-feed-loading-indicator">Loading...</div>
+            <iframe
+              title="Tropical Twitter"
+              src="./tropical-twitter.html"
+              className="tropical-twitter-iframe"
+              style={{ display: "none" }}
+            />
+          </div>
         </div>
       </div>
     </>
