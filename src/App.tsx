@@ -1,24 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import StreamsPage from "./pages/StreamsPage";
+import SocialFeedDrawer from "./SocialFeedDrawer";
+import "./App.css";
 
 function App() {
+  const [socialFeedIsOpen, setSocialFeedIsOpen] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <img src="./images/logo.png" className="logo" alt="storms.watch" />
+
+      <ul className="social-feed-links">
+        <li>
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              setSocialFeedIsOpen((open) => !open);
+            }}
+          >
+            Social Feeds
+          </a>
+        </li>
+      </ul>
+
+      <div className="content">
+        <StreamsPage />
+
+        <SocialFeedDrawer
+          isOpen={socialFeedIsOpen}
+          onClose={() => setSocialFeedIsOpen(false)}
+        />
+      </div>
     </div>
   );
 }
