@@ -7,7 +7,7 @@ interface Props {
 }
 
 const SocialFeedDrawer = ({ isOpen, onClose }: Props) => {
-  const [activeSocialFeed, setActiveSocialFeed] = useState("twitter");
+  const [activeSocialFeed, setActiveSocialFeed] = useState("reddit");
 
   return (
     <>
@@ -26,20 +26,6 @@ const SocialFeedDrawer = ({ isOpen, onClose }: Props) => {
               <a
                 href="#"
                 className={`${
-                  activeSocialFeed === "twitter" ? "is-active" : ""
-                }`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  setActiveSocialFeed("twitter");
-                }}
-              >
-                Tropical Twitter
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className={`${
                   activeSocialFeed === "reddit" ? "is-active" : ""
                 }`}
                 onClick={(e) => {
@@ -50,14 +36,28 @@ const SocialFeedDrawer = ({ isOpen, onClose }: Props) => {
                 Tropical Reddit
               </a>
             </li>
+            <li>
+              <a
+                href="#"
+                className={`${
+                  activeSocialFeed === "twitter" ? "is-active" : ""
+                }`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setActiveSocialFeed("twitter");
+                }}
+              >
+                Tropical Twitter
+              </a>
+            </li>
           </ul>
-
-          {activeSocialFeed === "twitter" && (
-            <iframe title="Tropical Twitter" src="./tropical-twitter.html" />
-          )}
 
           {activeSocialFeed === "reddit" && (
             <iframe title="Tropical Reddit" src="./tropical-reddit.html" />
+          )}
+
+          {activeSocialFeed === "twitter" && (
+            <iframe title="Tropical Twitter" src="./tropical-twitter.html" />
           )}
         </div>
       </div>
