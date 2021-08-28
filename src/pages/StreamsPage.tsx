@@ -12,6 +12,10 @@ const StreamsPage = () => {
         url="https://www.youtube.com/embed/2C8ShyNmhOc?autoplay=1&mute=1"
       />
       <Stream
+        title="Coastal & Inland Cams"
+        url="https://player.twitch.tv/?channel=hurricams&parent=storms.watch&parent=localhost"
+      />
+      <Stream
         title="Southeast LA"
         url="https://www.youtube.com/embed/ma03z0MKjxw?autoplay=1&mute=1"
       />
@@ -23,12 +27,11 @@ const StreamsPage = () => {
         title="Leeville, LA"
         url="https://www.youtube.com/embed/Z6OKCfWX5oM?autoplay=1&mute=1"
       />
-      {/*
       <Stream
         title="New Orleans, LA (French Quarter)"
         url="https://www.youtube.com/embed/QnWFKx485rA?autoplay=1&mute=1"
       />
-      */}
+
       <Stream
         title="Biloxi, MS"
         url="https://www.youtube.com/embed/SIA3m2Ai3hU?autoplay=1&mute=1"
