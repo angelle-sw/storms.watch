@@ -1,11 +1,17 @@
 .app {
   display: flex;
-  margin: 4em 2em;
+  margin: 3em 2em;
   width: 100%;
   max-width: 1200px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+@media only screen and (min-width: 640px) {
+  .app {
+    margin: 4em 2em;
+  }
 }
 
 @media only screen and (min-width: 880px) {
@@ -53,19 +59,25 @@
 
 .streams {
   display: flex;
-  padding: 2em;
   margin: 0;
+  padding: 0;
   margin-top: 2em;
   width: 100%;
   flex-wrap: wrap;
   gap: 2em;
   list-style: none;
-  background: #1a1b2f;
   border-radius: 2em;
 }
 
 .app.social-feed-drawer-is-open .streams {
   display: none;
+}
+
+@media only screen and (min-width: 640px) {
+  .streams {
+    padding: 2em;
+    background: #1a1b2f;
+  }
 }
 
 @media only screen and (min-width: 880px) {
