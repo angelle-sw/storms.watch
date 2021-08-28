@@ -171,6 +171,7 @@
 }
 
 .social-feed-drawer-container {
+  position: relative;
   margin: 1em 0 3em;
   width: 100%;
   height: 70vh;
@@ -227,6 +228,31 @@
   width: 100%;
   height: 100%;
   border: 0;
+}
+
+.social-feed-refresh-button {
+  position: absolute;
+  top: 0;
+  left: calc(50% - 66px);
+  margin-top: 0;
+  padding: 12px 40px;
+  background: #1a1b2f;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  opacity: 0;
+  transition: all 0.25s;
+  z-index: 1;
+}
+
+.social-feed-refresh-button.is-visible {
+  opacity: 1;
+  margin-top: 20px;
+}
+
+.social-feed-refresh-button:hover {
+  cursor: pointer;
 }
 
 .social-feed-navigation {
