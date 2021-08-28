@@ -3,6 +3,7 @@ import {
   FaTwitter as TwitterIcon,
   FaRedditAlien as RedditIcon,
 } from "react-icons/fa";
+import { WiHurricane as HurricaneIcon } from "react-icons/wi";
 import StreamsPage from "./pages/StreamsPage";
 import SocialFeedDrawer from "./SocialFeedDrawer";
 import "./App.css";
@@ -16,7 +17,10 @@ function App() {
       className={`app ${socialFeedIsOpen ? "social-feed-drawer-is-open" : ""}`}
     >
       <header>
-        <img src="./images/logo.png" className="logo" alt="storms.watch" />
+        <div className="logo-container">
+          <img src="./images/logo.png" className="logo" alt="storms.watch" />
+          <div className="hurricane-indicator blink"></div>
+        </div>
       </header>
 
       <ul className="main-navigation">

@@ -38,7 +38,7 @@ const SocialFeedDrawer = ({ isOpen, activeFeed, onClose }: Props) => {
               title="Tropical Twitter"
               src="./tropical-twitter.html"
               className="tropical-twitter-iframe"
-              style={{ display: "none" }}
+              style={{ visibility: "hidden" }}
             />
           </div>
 

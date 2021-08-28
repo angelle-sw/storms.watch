@@ -21,7 +21,7 @@
 }
 
 .hurricane-indicator {
-  margin-left: 10px;
+  margin-left: 8px;
   height: 10px;
   width: 10px;
   background: red;
@@ -104,7 +104,7 @@
 
 .social-feed-drawer {
   position: relative;
-  margin-top: 2.5em;
+  margin-top: 2em;
   width: 500px;
   height: 100%;
 }
@@ -155,7 +155,7 @@
 
 .close-icon {
   position: absolute;
-  top: 0px;
+  top: 30px;
   right: 0;
   padding: 1px;
   z-index: 2;
