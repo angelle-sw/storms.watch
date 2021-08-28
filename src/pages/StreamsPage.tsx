@@ -23,10 +23,12 @@ const StreamsPage = () => {
         title="Leeville, LA"
         url="https://www.youtube.com/embed/Z6OKCfWX5oM?autoplay=1&mute=1"
       />
+      {/*
       <Stream
         title="New Orleans, LA (French Quarter)"
         url="https://www.youtube.com/embed/QnWFKx485rA?autoplay=1&mute=1"
       />
+      */}
       <Stream
         title="Biloxi, MS"
         url="https://www.youtube.com/embed/SIA3m2Ai3hU?autoplay=1&mute=1"
