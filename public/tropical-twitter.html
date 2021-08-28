@@ -5,55 +5,55 @@
     </script>
 
     <script>
-        setTimeout(() => {
-          const iframe = document.querySelector("iframe");
-          const content = iframe.contentDocument;
-          content.body.innerHTML = content.body.innerHTML + `
-            <style>
-              .timeline-Widget {
-                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-                color: #ffffff90;
-                background: #050521;
-              }
+      setTimeout(() => {
+        const iframe = document.querySelector("iframe");
+        const content = iframe.contentDocument;
+        content.body.innerHTML = content.body.innerHTML + `
+          <style>
+            .timeline-Widget {
+              font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+              color: #ffffff90;
+              background: #050521;
+            }
 
-              .timeline-Header-title {
-                display: none !important;
-              }
+            .timeline-Header-title {
+              display: none !important;
+            }
 
-              .timeline-Header {
-                display: none !important;
-              }
+            .timeline-Header {
+              display: none !important;
+            }
 
-              .timeline-Tweet {
-                padding-bottom: 1.5em;
-                margin-top: 1.5em;
-                border-bottom: 1px solid #ffffff30;
-              }
+            .timeline-Tweet {
+              padding-bottom: 1.5em;
+              margin-top: 1.5em;
+              border-bottom: 1px solid #ffffff30;
+            }
 
-              .timeline-Tweet:hover {
-                background: none;
-              }
+            .timeline-Tweet:hover {
+              background: none;
+            }
 
-              .timeline-Tweet-text {
-                margin-top: 1em;
-              }
+            .timeline-Tweet-text {
+              margin-top: 1em;
+            }
 
-              .TweetAuthor-name {
-                color: #fff;
-              }
+            .TweetAuthor-name {
+              color: #fff;
+            }
 
-              .TwitterCard-container--clickable:hover {
-                background: none;
-              }
+            .TwitterCard-container--clickable:hover {
+              background: none;
+            }
 
-              .timeline-Tweet-brand {
-                display: none;
-              }
-            </style>
-          `;
+            .timeline-Tweet-brand {
+              display: none;
+            }
+          </style>
+        `;
 
-          window.frameElement.style.display = "block";
-        }, 2000);
+        window.frameElement.style.display = "block";
+      }, 2000);
     </script>
   </head>
 

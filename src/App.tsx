@@ -9,13 +9,15 @@ import "./App.css";
 
 function App() {
   const [socialFeedIsOpen, setSocialFeedIsOpen] = useState(false);
-  const [activeSocialFeed, setActiveSocialFeed] = useState("reddit");
+  const [activeSocialFeed, setActiveSocialFeed] = useState("");
 
   return (
     <div
       className={`app ${socialFeedIsOpen ? "social-feed-drawer-is-open" : ""}`}
     >
-      <img src="./images/logo.png" className="logo" alt="storms.watch" />
+      <header>
+        <img src="./images/logo.png" className="logo" alt="storms.watch" />
+      </header>
 
       <ul className="main-navigation">
         <li>
