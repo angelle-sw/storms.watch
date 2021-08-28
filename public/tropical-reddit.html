@@ -22,17 +22,46 @@
         border-bottom: 1px solid #ffffff30;
       }
 
+      .reddit-link:first-child {
+        display: none;
+      }
+
       .reddit-link p {
         line-height: 24px;
       }
 
       a {
         color: #fff;
+        text-decoration: none;
+      }
+
+      a:hover {
+        border-bottom: 1px solid #fff;
       }
     </style>
     <script
       type="text/javascript"
-      src="https://www.reddit.com/r/TropicalWeather/comments/j7yzuk/hurricane_delta_live_thread.embed?sort=new"
+      src="https://www.reddit.com/r/TropicalWeather/comments/pc8yks/ida_09l_northern_atlantic.embed?sort=new"
       ></script>
+
+    <script>
+      try {
+        setTimeout(() => {
+          const links = [...document.querySelectorAll('.rembeddit a')];
+          for (link of links) {
+            // open all links in external window
+            link.setAttribute('target', '_blank');
+
+            // fix broken user profile links
+            const href = link.getAttribute('href');
+            if (href.startsWith('https://www.reddit.com/r/TropicalWeather/user')) {
+              link.setAttribute('href', href.replace('/r/TropicalWeather', ''));
+            }
+          }
+        }, 0);
+      } catch (e) {
+        console.log(e);
+      }
+    </script>
   </head>
 </html>
