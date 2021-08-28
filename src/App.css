@@ -40,10 +40,10 @@
 
 .streams li > div {
   position: relative;
-  height: 310px;
-  background: #77777730;
-  overflow: hidden;
   max-width: 100%;
+  height: 310px;
+  overflow: hidden;
+  background: #000;
 }
 
 .streams li iframe,
@@ -70,7 +70,7 @@
   width: 80px;
   height: 100%;
   list-style: none;
-  background: #ffffff20;
+  background: #77777730;
 }
 
 .main-navigation a {
@@ -146,7 +146,7 @@
   right: 0;
   padding: 1px;
   z-index: 2;
-  background: #050523;
+  background: #050521;
   border-radius: 50%;
 }
 
