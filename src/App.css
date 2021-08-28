@@ -1,11 +1,17 @@
 .app {
   display: flex;
-  margin: 6em 2em;
+  margin: 4em 2em;
   width: 100%;
   max-width: 1200px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+@media only screen and (min-width: 880px) {
+  .app {
+    margin: 6em 2em;
+  }
 }
 
 .app.social-feed-drawer-is-open {
@@ -17,7 +23,13 @@
 }
 
 .logo {
-  width: 400px;
+  width: 300px;
+}
+
+@media only screen and (min-width: 880px) {
+  .logo {
+    width: 400px;
+  }
 }
 
 .hurricane-indicator {
@@ -35,7 +47,7 @@
 
 .streams {
   display: flex;
-  padding: 3em;
+  padding: 2em;
   margin: 0;
   margin-top: 3em;
   width: 100%;
@@ -46,21 +58,41 @@
   border-radius: 2em;
 }
 
+.app.social-feed-drawer-is-open .streams {
+  display: none;
+}
+
+@media only screen and (min-width: 880px) {
+  .app.social-feed-drawer-is-open .streams {
+    display: flex;
+    padding: 3em;
+  }
+}
+
 .streams li {
-  width: calc(50% - 1em);
+  width: 100%;
+  text-align: center;
+}
+
+@media only screen and (min-width: 1120px) {
+  .streams li {
+    width: calc(50% - 1em);
+    text-align: left;
+  }
 }
 
 .streams li > div {
   position: relative;
+  padding-bottom: 56.25%;
   max-width: 100%;
-  height: 310px;
+  height: 0;
   overflow: hidden;
   background: #000;
 }
 
-.streams li iframe,
-.streams li object,
-.streams li embed {
+.streams li > div iframe,
+.streams li > div object,
+.streams li > div embed {
   position: absolute;
   top: 0;
   left: 0;
@@ -73,16 +105,28 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  row-gap: 40px;
+  flex-direction: row;
+  column-gap: 40px;
   margin: 0;
-  top: 0;
-  left: 0;
   padding: 0;
-  width: 80px;
-  height: 100%;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
   list-style: none;
-  background: #77777730;
+  background: #1a1b2f;
+  z-index: 1;
+}
+
+@media only screen and (min-width: 640px) {
+  .main-navigation {
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 100%;
+    flex-direction: column;
+    row-gap: 40px;
+  }
 }
 
 .main-navigation a {
@@ -91,7 +135,15 @@
 
 .social-feed-drawer-container {
   margin-top: 1em;
-  margin-right: 2em;
+  margin-right: 0;
+  width: 100%;
+  height: 100vh;
+}
+
+@media only screen and (min-width: 640px) {
+  .social-feed-drawer-container {
+    margin-right: 2em;
+  }
 }
 
 .social-feed-drawer-container.is-open {
@@ -105,8 +157,26 @@
 .social-feed-drawer {
   position: relative;
   margin-top: 2.5em;
-  width: 500px;
+  width: 100%;
   height: 100%;
+}
+
+@media only screen and (min-width: 1120px) {
+  .social-feed-drawer-container,
+  .social-feed-drawer {
+    width: 400px;
+  }
+
+  .app.social-feed-drawer-is-open .streams {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 1260px) {
+  .social-feed-drawer-container,
+  .social-feed-drawer {
+    width: 500px;
+  }
 }
 
 .social-feed-drawer iframe {
