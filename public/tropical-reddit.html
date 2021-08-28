@@ -4,6 +4,7 @@
     <style>
       .rembeddit {
         border: 0 !important;
+        overflow-x: hidden;
       }
 
       .rembeddit-content {
@@ -17,13 +18,26 @@
       }
 
       .reddit-link {
-        padding-bottom: 0.5em;
+        padding-bottom: 1em;
         margin-top: 1.5em;
         border-bottom: 1px solid #ffffff30;
       }
 
+      .reddit-link .reddit-link {
+        padding-bottom: 0;
+        margin-left: 15px;
+      }
+
+      .reddit-link .reddit-link:last-child {
+        border-bottom: 0;
+      }
+
       .reddit-link:first-child {
         display: none;
+      }
+
+      .reddit-link > small > b {
+        margin-right: 3px;
       }
 
       .reddit-link p {
