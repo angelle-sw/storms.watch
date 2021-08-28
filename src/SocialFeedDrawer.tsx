@@ -57,7 +57,12 @@ const SocialFeedDrawer = ({ isOpen, onClose }: Props) => {
           )}
 
           {activeSocialFeed === "twitter" && (
-            <iframe title="Tropical Twitter" src="./tropical-twitter.html" />
+            <iframe
+              title="Tropical Twitter"
+              src="./tropical-twitter.html"
+              className="tropical-twitter-iframe"
+              style={{ display: "none" }}
+            />
           )}
         </div>
       </div>

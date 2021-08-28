@@ -1,10 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <script src="https://platform.twitter.com/widgets.js" charset="utf-8">
+    </script>
+
+    <script>
+      window.onload = function() {
+        setTimeout(() => {
+          const iframe = document.querySelector("iframe");
+          const content = iframe.contentDocument;
+          content.body.innerHTML = content.body.innerHTML + `
+            <style>
+              .timeline-Widget {
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+                color: #ffffff90;
+                background: none;
+              }
+
+              .timeline-Header-title {
+                display: none !important;
+              }
+
+              .timeline-Header {
+                display: none !important;
+              }
+
+              .timeline-Tweet {
+                padding-bottom: 1.5em;
+                margin-top: 1.5em;
+                border-bottom: 1px solid #ffffff30;
+              }
+
+              .timeline-Tweet:hover {
+                background: none;
+              }
+
+              .timeline-Tweet-text {
+                margin-top: 1em;
+              }
+
+              .TwitterCard-container--clickable:hover {
+                background: none;
+              }
+
+              .timeline-Tweet-brand {
+                display: none;
+              }
+            </style>
+          `;
+
+          window.frameElement.style.display = "block";
+        }, 2000);
+      }
+    </script>
+  </head>
+
   <div class="tropical-twitter">
     <a
       class="twitter-timeline"
       href="https://twitter.com/wx_becks/lists/tropical-twitter?ref_src=twsrc%5Etfw" />
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
-    </script>
   </div>
 </html>
