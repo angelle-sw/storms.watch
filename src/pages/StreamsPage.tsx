@@ -31,12 +31,10 @@ const StreamsPage = () => {
         title="Covington, LA"
         url="https://player.twitch.tv/?channel=atomis42&parent=storms.watch&parent=localhost"
       />
-      {/*
       <Stream
-        title="Coastal & Inland Cams"
-        url="https://player.twitch.tv/?channel=hurricams&parent=storms.watch&parent=localhost"
+        title="East of New Orleans, LA"
+        url="https://player.twitch.tv/?channel=radkemack&parent=storms.watch&parent=localhost"
       />
-      */}
       {/*
       <Stream
         title="Leeville, LA"
@@ -49,6 +47,10 @@ const StreamsPage = () => {
         url="https://www.youtube.com/embed/1OwvQFnwsyU?autoplay=1&mute=1"
       />
       */}
+      <Stream
+        title="Coastal & Inland Cams"
+        url="https://player.twitch.tv/?channel=hurricams&parent=storms.watch&parent=localhost"
+      />
       <Stream
         title="Biloxi, MS"
         url="https://www.youtube.com/embed/SIA3m2Ai3hU?autoplay=1&mute=1"
