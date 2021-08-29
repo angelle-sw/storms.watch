@@ -346,6 +346,13 @@
   animation: spin 0.5s linear infinite;
 }
 
+.video-sources-loading-indicator {
+  margin-top: 120px;
+  left: calc(50% - 116px);
+  height: 232px;
+  animation: spin 0.5s linear infinite;
+}
+
 .social-feed {
   display: none;
 }
