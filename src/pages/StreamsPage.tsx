@@ -20,7 +20,7 @@ const StreamsPage = () => {
         url="https://www.youtube.com/embed/wd9jxmceF0Y?autoplay=1&mute=1"
       />
       <Stream
-        title="Morgan City, LA (hurricanetrack)"
+        title="Golden Meadows, LA (hurricanetrack)"
         url="https://www.youtube.com/embed/Abk6KxMAhwI?autoplay=1&mute=1"
       />
       <Stream
