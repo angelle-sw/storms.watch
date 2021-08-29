@@ -4,7 +4,8 @@ import EditSourceModal from "./EditSourceModal";
 import DeleteSourceModal from "./DeleteSourceModal";
 
 type IVideoSource = {
-  id: any;
+  id: string;
+  status: boolean;
   title: string;
   url: string;
 };
@@ -16,7 +17,7 @@ type DragItem = {
 };
 
 type Props = {
-  deleteVideoSource: (source: IVideoSource) => void;
+  deleteVideoSource: (id: string) => void;
   editVideoSource: (source: IVideoSource) => void;
   isOriginalOrder: boolean;
   id: any;
@@ -50,6 +51,7 @@ const VideoSource = ({
   const [editModalOpen, setEditModalOpen] = useState(false);
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
 
+  const [status, setStatus] = useState(videoSource.status);
   const [title, setTitle] = useState(videoSource.title);
   const [url, setUrl] = useState(videoSource.url);
 
@@ -131,8 +133,10 @@ const VideoSource = ({
         <EditSourceModal
           closeModal={closeEditModal}
           modalOpen={editModalOpen}
+          setStatus={setStatus}
           setTitle={setTitle}
           setUrl={setUrl}
+          status={status}
           title={title}
           videoSource={videoSource}
           editVideoSource={editVideoSource}

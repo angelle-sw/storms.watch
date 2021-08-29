@@ -9,6 +9,7 @@ import Stream from "../Stream";
 
 type IVideoSource = {
   id: string;
+  status: boolean;
   title: string;
   url: string;
 };
@@ -75,9 +76,11 @@ const Streams = ({
       <div className="content">
         {!isLoading && (
           <ul className="streams">
-            {videoSourcesData.map((source: IVideoSource) => (
-              <Stream title={source.title} url={source.url} />
-            ))}
+            {videoSourcesData
+              .filter((source: IVideoSource) => source.status)
+              .map((source: IVideoSource) => (
+                <Stream title={source.title} url={source.url} />
+              ))}
           </ul>
         )}
         <SocialFeedDrawer

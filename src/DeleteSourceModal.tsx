@@ -2,14 +2,15 @@ import React from "react";
 import Modal from "react-modal";
 
 type IVideoSource = {
-  id: any;
+  id: string;
+  status: boolean;
   title: string;
   url: string;
 };
 
 type Props = {
   closeModal: () => void;
-  deleteVideoSource: (source: IVideoSource) => void;
+  deleteVideoSource: (id: string) => void;
   modalOpen: boolean;
   title: string;
   url: string;
@@ -50,7 +51,7 @@ const DeleteSourceModal = ({
         <form
           onSubmit={async (event) => {
             event.preventDefault();
-            await deleteVideoSource({ id: videoSource.id, title: title, url });
+            await deleteVideoSource(videoSource.id);
             closeModal();
           }}
         >

@@ -7,6 +7,7 @@ import AddSourceModal from "./AddSourceModal";
 
 type IVideoSource = {
   id: string;
+  status: boolean;
   title: string;
   url: string;
 };
@@ -42,9 +43,9 @@ const VideoSources = ({
     await mutate(updatedSources);
   };
 
-  const deleteVideoSource = async (source: IVideoSource) => {
+  const deleteVideoSource = async (id: string) => {
     const updatedSources = videoSources.filter((card) => {
-      if (card.id === source.id) {
+      if (card.id === id) {
         return false;
       }
 

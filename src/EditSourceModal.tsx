@@ -2,7 +2,8 @@ import React from "react";
 import Modal from "react-modal";
 
 type IVideoSource = {
-  id: any;
+  id: string;
+  status: boolean;
   title: string;
   url: string;
 };
@@ -10,8 +11,10 @@ type IVideoSource = {
 type Props = {
   closeModal: () => void;
   modalOpen: boolean;
+  setStatus: (status: boolean) => void;
   setTitle: (title: string) => void;
   setUrl: (url: string) => void;
+  status: boolean;
   title: string;
   editVideoSource: (source: IVideoSource) => void;
   url: string;
@@ -35,8 +38,10 @@ const customModalStyles = {
 const EditSourceModal = ({
   closeModal,
   modalOpen,
+  setStatus,
   setTitle,
   setUrl,
+  status,
   title,
   videoSource,
   editVideoSource,
@@ -54,7 +59,7 @@ const EditSourceModal = ({
         <form
           onSubmit={async (event) => {
             event.preventDefault();
-            await editVideoSource({ id: videoSource.id, title, url });
+            await editVideoSource({ id: videoSource.id, status, title, url });
             closeModal();
           }}
         >
@@ -71,6 +76,29 @@ const EditSourceModal = ({
               placeholder="URL"
               value={url}
             />
+          </div>
+          <div>
+            <div>Status</div>  
+            <input
+              type="radio"
+              id="on"
+              name="status"
+              checked={status}
+              onChange={() => {
+                setStatus(!status);
+              }}
+            />
+            <label htmlFor="on">On</label>
+            <input
+              type="radio"
+              id="off"
+              name="status"
+              checked={!status}
+              onChange={() => {
+                setStatus(!status);
+              }}
+            />
+            <label htmlFor="off">Off</label>
           </div>
           <button type="submit">Update</button>
         </form>

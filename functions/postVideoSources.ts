@@ -3,6 +3,8 @@ import { MongoClient } from "mongodb";
 require("dotenv").config({ path: ".env" });
 
 type VideoSource = {
+  id: string;
+  status: boolean;
   title: string;
   url: string;
 };

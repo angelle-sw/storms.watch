@@ -7,7 +7,11 @@ type Props = {
 
 const NewSource = ({ openAddModal }: Props) => {
   return (
-    <div className="card new-source" onClick={openAddModal} role="button">
+    <div
+      className="card-container new-source"
+      onClick={openAddModal}
+      role="button"
+    >
       <NewSourceIcon size={40} className="new-source-icon" />
     </div>
   );

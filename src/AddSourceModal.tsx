@@ -3,7 +3,8 @@ import Modal from "react-modal";
 import { v4 as uuid } from "uuid";
 
 type IVideoSource = {
-  id: any;
+  id: string;
+  status: boolean;
   title: string;
   url: string;
 };
@@ -31,6 +32,7 @@ const customModalStyles = {
 const AddSourceModal = ({ addVideoSource, closeModal, modalOpen }: Props) => {
   const [title, setTitle] = useState("");
   const [url, setUrl] = useState("");
+  const [status, setStatus] = useState(true);
 
   return (
     <Modal
@@ -44,7 +46,7 @@ const AddSourceModal = ({ addVideoSource, closeModal, modalOpen }: Props) => {
         <form
           onSubmit={async (event) => {
             event.preventDefault();
-            await addVideoSource({ id: uuid(), title, url });
+            await addVideoSource({ id: uuid(), title, url, status });
             setTitle("");
             setUrl("");
             closeModal();
@@ -63,6 +65,29 @@ const AddSourceModal = ({ addVideoSource, closeModal, modalOpen }: Props) => {
               placeholder="URL"
               value={url}
             />
+          </div>
+          <div>
+            <div>Status</div>  
+            <input
+              type="radio"
+              id="on"
+              name="status"
+              checked={status}
+              onChange={() => {
+                setStatus((prev) => !prev);
+              }}
+            />
+            <label htmlFor="on">On</label>
+            <input
+              type="radio"
+              id="off"
+              name="status"
+              checked={!status}
+              onChange={() => {
+                setStatus((prev) => !prev);
+              }}
+            />
+            <label htmlFor="off">Off</label>
           </div>
           <button type="submit">Add</button>
         </form>
