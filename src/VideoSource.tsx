@@ -124,9 +124,10 @@ const VideoSource = ({
 
   return (
     <div className="card source-card" data-handler-id={handlerId} ref={ref}>
-      <div className="source-card-title">{videoSource.title}</div>
-      <div className="source-card-url">{truncateSource(videoSource.url)}</div>
+      <div className="source-card-title">{title}</div>
+      <div className="source-card-url">{truncateSource(url)}</div>
       <div className="source-card-controls">
+        <div className="source-card-status">{status ? "On" : "Off"}</div>
         <button className="edit" onClick={openEditModal}>
           Edit
         </button>
