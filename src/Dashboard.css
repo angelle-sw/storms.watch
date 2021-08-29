@@ -19,6 +19,7 @@
 }
 
 .source-card-title {
+  overflow-wrap: anywhere;
   font-weight: 900;
   font-size: 16px;
 }
@@ -84,4 +85,124 @@
 .new-source-icon {
   transition: fill 0.25s;
   fill: #ffffff60;
+}
+
+.title-input > input {
+  font-size: 18px;
+  height: 30px;
+  width: 500px;
+  border: none;
+  border-radius: 4px;
+  padding: 4px;
+}
+
+.url-input > textarea {
+  height: 100px;
+  width: 492px;
+  border: none;
+  border-radius: 4px;
+  resize: none;
+  font-size: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  padding: 8px;
+}
+
+.modal {
+  display: grid;
+  grid-template-rows: 36px min-content;
+}
+
+.delete-modal {
+  display: grid;
+  row-gap: 16px;
+}
+
+.delete-controls {
+  display: flex;
+  justify-content: flex-end;
+  column-gap: 14px;
+}
+
+.delete-controls > button {
+  background: #fff;
+  width: 80px;
+  height: 30px;
+  cursor: pointer;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  transition: color 0.25s;
+  margin-right: 8px;
+  margin-top: 12px;
+}
+
+.delete-controls > button.cancel {
+  background: #fff;
+}
+
+.delete-controls > button.cancel:hover {
+  background: #dee2e6;
+}
+
+.delete-controls > button.delete {
+  background: #c71f37;
+  color: white;
+}
+
+.delete-controls > button.delete:hover {
+  background: #a71e34;
+}
+
+.add-edit-modal {
+  display: grid;
+  row-gap: 12px;
+}
+
+.url-input,
+.title-input {
+  display: flex;
+  justify-content: center;
+}
+
+.close-modal {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.close-modal > span {
+  cursor: pointer;
+}
+.status-radio {
+  padding-right: 16px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.status-radio,
+.status-radio > input,
+.status-radio > label {
+  cursor: pointer;
+}
+
+.add-update-button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.add-update-button > button {
+  background: #fff;
+  width: 80px;
+  height: 32px;
+  cursor: pointer;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  transition: color 0.25s;
+  margin-right: 16px;
+}
+
+.add-update-button > button:hover {
+  background: #dee2e6;
 }

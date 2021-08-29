@@ -27,7 +27,7 @@ type Props = {
   videoSource: IVideoSource;
 };
 
-const truncateSource = (source: string) => {
+export const truncateSource = (source: string) => {
   if (source.length > 80) {
     const start = source.slice(0, 30);
     const end = source.slice(-30);

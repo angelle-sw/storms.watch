@@ -1,5 +1,6 @@
 import React from "react";
 import Modal from "react-modal";
+import { IoMdClose as Close } from "react-icons/io";
 
 type IVideoSource = {
   id: string;
@@ -30,8 +31,9 @@ const customModalStyles = {
     marginRight: "-50%",
     transform: "translate(-50%, -50%)",
     background: "#42435d",
-    width: "500px",
-    height: "300px",
+    borderRadius: "8px",
+    paddingRight: "24px",
+    paddingLeft: "24px",
   },
 };
 
@@ -51,34 +53,37 @@ const EditSourceModal = ({
     <Modal
       isOpen={modalOpen}
       onRequestClose={closeModal}
-      contentLabel="Example Modal"
       style={customModalStyles}
     >
-      <div className="edit-modal">
-        <button onClick={closeModal}>Close</button>
+      <div className="modal">
+        <div className="close-modal">
+          <span onClick={closeModal} role="button">
+            <Close size="24" />
+          </span>
+        </div>
         <form
+          className="add-edit-modal"
           onSubmit={async (event) => {
             event.preventDefault();
             await editVideoSource({ id: videoSource.id, status, title, url });
             closeModal();
           }}
         >
-          <div>
+          <div className="title-input">
             <input
               onChange={(event) => setTitle(event.target.value)}
               placeholder="Title"
               value={title}
             />
           </div>
-          <div>
+          <div className="url-input">
             <textarea
               onChange={(event) => setUrl(event.target.value)}
               placeholder="URL"
               value={url}
             />
           </div>
-          <div>
-            <div>Status</div>  
+          <div className="status-radio">
             <input
               type="radio"
               id="on"
@@ -100,7 +105,9 @@ const EditSourceModal = ({
             />
             <label htmlFor="off">Off</label>
           </div>
-          <button type="submit">Update</button>
+          <div className="add-update-button">
+            <button type="submit">Update</button>
+          </div>
         </form>
       </div>
     </Modal>

@@ -1,5 +1,7 @@
 import React from "react";
 import Modal from "react-modal";
+import { IoMdClose as Close } from "react-icons/io";
+import { truncateSource } from "./VideoSource";
 
 type IVideoSource = {
   id: string;
@@ -26,8 +28,9 @@ const customModalStyles = {
     marginRight: "-50%",
     transform: "translate(-50%, -50%)",
     background: "#42435d",
-    width: "500px",
-    height: "300px",
+    borderRadius: "8px",
+    paddingRight: "24px",
+    paddingLeft: "24px",
   },
 };
 
@@ -43,22 +46,32 @@ const DeleteSourceModal = ({
     <Modal
       isOpen={modalOpen}
       onRequestClose={closeModal}
-      contentLabel="Example Modal"
       style={customModalStyles}
     >
-      <div className="edit-modal">
-        <button onClick={closeModal}>Close</button>
+      <div className="modal">
+        <div className="close-modal">
+          <span onClick={closeModal} role="button">
+            <Close size="24" />
+          </span>
+        </div>
         <form
+          className="delete-modal"
           onSubmit={async (event) => {
             event.preventDefault();
             await deleteVideoSource(videoSource.id);
             closeModal();
           }}
         >
-          <div>{title}</div>
-          <div>{url}</div>
-          <button onClick={() => closeModal()}>Cancel</button>
-          <button type="submit">Delete</button>
+          <div className="source-card-title">{title}</div>
+          <div className="source-card-url">{truncateSource(url)}</div>
+          <div className="delete-controls">
+            <button className="cancel" onClick={() => closeModal()}>
+              Cancel
+            </button>
+            <button className="delete" type="submit">
+              Delete
+            </button>
+          </div>
         </form>
       </div>
     </Modal>
