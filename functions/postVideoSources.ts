@@ -18,11 +18,15 @@ const { MONGO_DB_URI, REACT_APP_DASHBOARD_PASSPHRASE } = process.env;
 
 const mongoDBClient = new MongoClient(MONGO_DB_URI);
 
+const collectionEnv = process.env.NETLIFY_DEV
+  ? "video-sources-test"
+  : "video-sources";
+
 const insertVideoSources = async (videoSources): Promise<VideoSource[]> => {
   await mongoDBClient.connect();
   const database = mongoDBClient.db("storms-watch");
 
-  const collection = database.collection("video-sources");
+  const collection = database.collection(collectionEnv);
 
   await collection.deleteMany({});
 
