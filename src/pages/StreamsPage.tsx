@@ -8,8 +8,8 @@ const StreamsPage = () => {
         url="https://www.youtube.com/embed/yDhRFKNprKE?autoplay=1&mute=1"
       />
       <Stream
-        title="I-10/I-12 Traffic Cam"
-        url="https://www.youtube.com/embed/2C8ShyNmhOc?autoplay=1&mute=1"
+        title="LUMCON South Tower"
+        url="https://www.youtube.com/embed/7imsoITE4Tg?autoplay=1&mute=1"
       />
       <Stream
         title="Coastal & Inland Cams"

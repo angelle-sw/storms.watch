@@ -1,6 +1,5 @@
 body {
   margin: 0;
-  padding-left: 0;
   padding-bottom: 3em;
   display: flex;
   align-items: center;
@@ -12,12 +11,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: #050521;
   color: #fff;
-}
-
-@media only screen and (min-width: 640px) {
-  body {
-    padding-left: 80px;
-  }
 }
 
 button {
