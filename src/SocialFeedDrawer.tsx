@@ -99,6 +99,10 @@ const SocialFeedDrawer = ({
             isRefreshButtonVisible ? "is-visible" : ""
           }`}
           onClick={() => {
+            if (!isRefreshButtonVisible) {
+              return;
+            }
+
             setIsRefreshButtonVisible(false);
 
             if (activeFeed === "reddit") {
@@ -144,14 +148,12 @@ const SocialFeedDrawer = ({
             />
           </div>
 
-          {/*
-            <CloseIcon
-              size={32}
-              color="#ffffffcc"
-              className="close-icon"
-              onClick={() => onClose()}
-            />
-          */}
+          <CloseIcon
+            size={32}
+            color="#ffffffcc"
+            className="close-icon"
+            onClick={() => onClose()}
+          />
         </div>
       </div>
     </>
