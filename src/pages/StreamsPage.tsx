@@ -26,16 +26,8 @@ const StreamsPage = () => {
         url="https://www.youtube.com/embed/Abk6KxMAhwI?autoplay=1&mute=1"
       />
       <Stream
-        title="Cocodrie & New Orleans, LA"
-        url="https://www.youtube.com/embed/gGt3OJRLh2c?autoplay=1&mute=1"
-      />
-      <Stream
         title="New Orleans, LA"
         url="https://www.youtube.com/embed/4IxKFLhwlfk?autoplay=1&mute=1"
-      />
-      <Stream
-        title="Covington, LA"
-        url="https://player.twitch.tv/?channel=atomis42&parent=storms.watch&parent=localhost"
       />
       <Stream
         title="East of New Orleans, LA"
@@ -50,6 +42,14 @@ const StreamsPage = () => {
       <Stream
         title="New Orleans, LA (French Quarter)"
         url="https://www.youtube.com/embed/4IxKFLhwlfk?autoplay=1&mute=1"
+      />
+      <Stream
+        title="Cocodrie & New Orleans, LA"
+        url="https://www.youtube.com/embed/gGt3OJRLh2c?autoplay=1&mute=1"
+      />
+      <Stream
+        title="Covington, LA"
+        url="https://player.twitch.tv/?channel=atomis42&parent=storms.watch&parent=localhost"
       />
       {/*
       <Stream
