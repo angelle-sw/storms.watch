@@ -69,6 +69,8 @@
         `;
 
         window.frameElement.style.visibility = "visible";
+        const extraneousFeed = document.querySelector('#twitter-widget-1');
+        extraneousFeed.parentNode.removeChild(extraneousFeed);
       }, 2500);
     </script>
   </head>
