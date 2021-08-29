@@ -8,7 +8,9 @@ import SocialFeedDrawer from "./SocialFeedDrawer";
 import "./App.css";
 
 function App() {
-  const [socialFeedIsOpen, setSocialFeedIsOpen] = useState(true);
+  const [socialFeedIsOpen, setSocialFeedIsOpen] = useState(
+    window.innerWidth >= 880
+  );
   const [activeSocialFeed, setActiveSocialFeed] = useState("reddit");
 
   return (
