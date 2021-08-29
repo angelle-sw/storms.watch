@@ -3,6 +3,7 @@ import {
   FaTwitter as TwitterIcon,
   FaRedditAlien as RedditIcon,
 } from "react-icons/fa";
+import { BiRefresh as RefreshIcon } from "react-icons/bi";
 import { WiHurricane as HurricaneIcon } from "react-icons/wi";
 import { IoIosCloseCircle as CloseIcon } from "react-icons/io";
 
@@ -46,7 +47,7 @@ const SocialFeedDrawer = ({
     if (isOpen) {
       const id = setTimeout(() => {
         setIsRefreshButtonVisible(true);
-      }, 60000);
+      }, 3000);
 
       return () => {
         clearTimeout(id);
@@ -111,6 +112,7 @@ const SocialFeedDrawer = ({
             }
           }}
         >
+          <RefreshIcon size={20} color="#fff" />
           <span>Refresh</span>
         </button>
 

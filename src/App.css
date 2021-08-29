@@ -265,6 +265,9 @@
 
 .social-feed-refresh-button {
   position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   top: 0;
   left: calc(50% - 52px);
   margin-top: 40px;
@@ -276,7 +279,8 @@
   border-radius: 5px;
   font-weight: 600;
   opacity: 0;
-  transition: margin-top 0.25s;
+  transition-property: margin-top, background;
+  transition-duration: 0.25s;
   z-index: 1;
 }
 
@@ -293,6 +297,7 @@
 }
 
 .social-feed-refresh-button span {
+  margin-left: 5px;
   display: none;
 }
 
