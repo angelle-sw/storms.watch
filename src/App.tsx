@@ -22,7 +22,7 @@ function App() {
         </div>
       </header>
 
-      <ul className="main-navigation">
+      <ul className="main-navigation-mobile">
         <li>
           <a
             href="#"
