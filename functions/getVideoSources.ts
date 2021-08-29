@@ -1,5 +1,6 @@
-import { MongoClient } from 'mongodb';
-require('dotenv').config({ path: '.env' });
+import { Handler } from "@netlify/functions";
+import { MongoClient } from "mongodb";
+require("dotenv").config({ path: ".env" });
 
 type VideoSource = {
   title: string;
@@ -11,16 +12,16 @@ type Response = {
   statusCode: number;
 };
 
-const uri = process.env.MONGO_DB_URI;
+const { MONGO_DB_URI } = process.env;
 
-const mongoDBClient = new MongoClient(uri);
+const mongoDBClient = new MongoClient(MONGO_DB_URI);
 
 const findVideoSources = async (): Promise<VideoSource[]> => {
   await mongoDBClient.connect();
 
-  const database = mongoDBClient.db('storms-watch');
+  const database = mongoDBClient.db("storms-watch");
 
-  const collection = database.collection('video-sources');
+  const collection = database.collection("video-sources");
 
   const result = (await collection
     .find({})
@@ -30,11 +31,11 @@ const findVideoSources = async (): Promise<VideoSource[]> => {
   return result;
 };
 
-exports.handler = async (event): Promise<Response> => {
-  if (event.httpMethod !== 'GET') {
+const handler: Handler = async (event): Promise<Response> => {
+  if (event.httpMethod !== "GET") {
     return {
       statusCode: 405,
-      body: 'Method not allowed. Use GET.',
+      body: "Method not allowed. Use GET.",
     };
   }
 
@@ -56,3 +57,5 @@ exports.handler = async (event): Promise<Response> => {
     };
   }
 };
+
+export { handler };

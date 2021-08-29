@@ -1,3 +1,4 @@
+import { Handler } from "@netlify/functions";
 import { MongoClient } from "mongodb";
 require("dotenv").config({ path: ".env" });
 
@@ -33,7 +34,7 @@ const insertVideoSources = async (videoSources): Promise<VideoSource[]> => {
   return result;
 };
 
-exports.handler = async (event): Promise<Response> => {
+const handler: Handler = async (event): Promise<Response> => {
   if (event.httpMethod !== "POST") {
     return {
       statusCode: 405,
@@ -66,3 +67,5 @@ exports.handler = async (event): Promise<Response> => {
     };
   }
 };
+
+export { handler };
