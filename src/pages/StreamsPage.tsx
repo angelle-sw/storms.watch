@@ -16,12 +16,12 @@ const StreamsPage = () => {
         url="https://www.youtube.com/embed/84dflaavVZg?autoplay=1&mute=1"
       />
       <Stream
-        title="Morgan City, LA (hurricanetrack)"
-        url="https://www.youtube.com/embed/Abk6KxMAhwI?autoplay=1&mute=1"
-      />
-      <Stream
         title="Houma, LA (Aaron Jayjack)"
         url="https://www.youtube.com/embed/wd9jxmceF0Y?autoplay=1&mute=1"
+      />
+      <Stream
+        title="Morgan City, LA (hurricanetrack)"
+        url="https://www.youtube.com/embed/Abk6KxMAhwI?autoplay=1&mute=1"
       />
       <Stream
         title="Cocodrie & New Orleans, LA"
