@@ -47,12 +47,10 @@ const StreamsPage = () => {
         url="https://www.youtube.com/embed/Z6OKCfWX5oM?autoplay=1&mute=1"
       />
       */}
-      {/*
       <Stream
         title="New Orleans, LA (French Quarter)"
-        url="https://www.youtube.com/embed/1OwvQFnwsyU?autoplay=1&mute=1"
+        url="https://www.youtube.com/embed/4IxKFLhwlfk?autoplay=1&mute=1"
       />
-      */}
       {/*
       <Stream
         title="Coastal & Inland Cams"
