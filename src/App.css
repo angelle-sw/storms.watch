@@ -144,6 +144,11 @@
 
 .main-navigation a {
   padding: 0 20px 10px;
+  transition: color 0.25s;
+}
+
+.main-navigation a:hover {
+  color: #fff;
 }
 
 .main-navigation .is-active {
@@ -262,26 +267,37 @@
   position: absolute;
   top: 0;
   left: calc(50% - 52px);
-  margin-top: 0;
-  padding: 12px 30px;
+  margin-top: 40px;
+  padding: 0;
+  width: 0;
   background: #1a1b2f;
   color: #fff;
   border: none;
   border-radius: 5px;
   font-weight: 600;
   opacity: 0;
-  transition: all 0.25s;
+  transition: margin-top 0.25s;
   z-index: 1;
 }
 
 .social-feed-refresh-button.is-visible {
-  opacity: 1;
   margin-top: 60px;
+  padding: 12px 30px;
+  width: auto;
+  opacity: 1;
 }
 
 .social-feed-refresh-button:hover {
   background: #42435d;
   cursor: pointer;
+}
+
+.social-feed-refresh-button span {
+  display: none;
+}
+
+.social-feed-refresh-button.is-visible span {
+  display: block;
 }
 
 .social-feed-navigation {
@@ -340,11 +356,6 @@
 
 .social-feed-icon {
   transition: fill 0.25s;
-}
-
-.social-feed-icon.is-active,
-.social-feed-icon:hover {
-  fill: #fff;
 }
 
 .close-icon {

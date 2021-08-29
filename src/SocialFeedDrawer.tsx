@@ -45,7 +45,7 @@ const SocialFeedDrawer = ({
     if (isOpen) {
       const id = setTimeout(() => {
         setIsRefreshButtonVisible(true);
-      }, 60000);
+      }, 3000);
 
       return () => {
         clearTimeout(id);
@@ -114,7 +114,7 @@ const SocialFeedDrawer = ({
             }
           }}
         >
-          Refresh
+          <span>Refresh</span>
         </button>
 
         <div
