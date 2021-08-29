@@ -100,10 +100,6 @@ const SocialFeedDrawer = ({
             isRefreshButtonVisible ? "is-visible" : ""
           }`}
           onClick={() => {
-            if (!isRefreshButtonVisible) {
-              return;
-            }
-
             setIsRefreshButtonVisible(false);
 
             if (activeFeed === "reddit") {
