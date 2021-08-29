@@ -11,10 +11,12 @@ const StreamsPage = () => {
         title="Houma, LA (Reed Timmer)"
         url="https://www.youtube.com/embed/99S7tMwoHtQ?autoplay=1&mute=1"
       />
+      {/*
       <Stream
         title="Houma, LA (Jeff Piotrowski)"
         url="https://www.youtube.com/embed/VVPuQMrxq0k?autoplay=1&mute=1"
       />
+      */}
       <Stream
         title="Houma, LA (Aaron Jayjack)"
         url="https://www.youtube.com/embed/wd9jxmceF0Y?autoplay=1&mute=1"
