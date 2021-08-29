@@ -28,8 +28,6 @@ const Streams = ({
 }: Props) => {
   const { data: videoSourcesData, isLoading } = useVideoSources();
 
-  console.log(videoSourcesData);
-
   return (
     <>
       <ul className="main-navigation-mobile">
