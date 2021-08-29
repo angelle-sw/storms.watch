@@ -3,6 +3,7 @@ import {
   FaTwitter as TwitterIcon,
   FaRedditAlien as RedditIcon,
 } from "react-icons/fa";
+import { WiHurricane as HurricaneIcon } from "react-icons/wi";
 import { IoIosCloseCircle as CloseIcon } from "react-icons/io";
 
 interface Props {
@@ -126,7 +127,14 @@ const SocialFeedDrawer = ({
               activeFeed === "reddit" ? "is-active" : ""
             }`}
           >
-            <div className="social-feed-loading-indicator">Loading...</div>
+            <div className="social-feed-loading-indicator">
+              <HurricaneIcon
+                className="hurricane-icon"
+                size={240}
+                color="#ffffff70"
+              />
+            </div>
+
             <iframe
               title="Tropical Reddit"
               src="./tropical-reddit-feed.html"
@@ -139,7 +147,14 @@ const SocialFeedDrawer = ({
               activeFeed === "twitter" ? "is-active" : ""
             }`}
           >
-            <div className="social-feed-loading-indicator">Loading...</div>
+            <div className="social-feed-loading-indicator">
+              <HurricaneIcon
+                className="hurricane-icon"
+                size={240}
+                color="#ffffff70"
+              />
+            </div>
+
             <iframe
               title="Tropical Twitter"
               src="./tropical-twitter-feed.html"

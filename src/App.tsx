@@ -9,7 +9,7 @@ import "./App.css";
 
 function App() {
   const [socialFeedIsOpen, setSocialFeedIsOpen] = useState(true);
-  const [activeSocialFeed, setActiveSocialFeed] = useState("twitter");
+  const [activeSocialFeed, setActiveSocialFeed] = useState("reddit");
 
   return (
     <div
@@ -18,7 +18,7 @@ function App() {
       <header>
         <div className="logo-container">
           <img src="./images/logo.png" className="logo" alt="storms.watch" />
-          <div className="hurricane-indicator blink"></div>
+          <div className="storm-mode-indicator blink"></div>
         </div>
       </header>
 
