@@ -1,13 +1,25 @@
 import { useState, useEffect } from "react";
+import {
+  FaTwitter as TwitterIcon,
+  FaRedditAlien as RedditIcon,
+} from "react-icons/fa";
 import { IoIosCloseCircle as CloseIcon } from "react-icons/io";
 
 interface Props {
   isOpen: boolean;
   activeFeed: string;
+  onOpen: () => void;
+  onSelect: (feed: string) => void;
   onClose: () => void;
 }
 
-const SocialFeedDrawer = ({ isOpen, activeFeed, onClose }: Props) => {
+const SocialFeedDrawer = ({
+  isOpen,
+  activeFeed,
+  onOpen,
+  onSelect,
+  onClose,
+}: Props) => {
   const [isRefreshButtonVisible, setIsRefreshButtonVisible] = useState(false);
 
   const refreshTropicalReddit = () => {
@@ -48,6 +60,40 @@ const SocialFeedDrawer = ({ isOpen, activeFeed, onClose }: Props) => {
           isOpen ? "is-open" : "is-closed"
         }`}
       >
+        <ul className="main-navigation">
+          <li>
+            <a
+              href="#"
+              className={`${
+                isOpen && activeFeed === "reddit" ? "is-active" : ""
+              }`}
+              onClick={(e) => {
+                e.preventDefault();
+                onSelect("reddit");
+              }}
+            >
+              <RedditIcon size={20} className="social-feed-icon" />
+              <span>Reddit</span>
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="#"
+              className={`${
+                isOpen && activeFeed === "twitter" ? "is-active" : ""
+              }`}
+              onClick={(e) => {
+                e.preventDefault();
+                onOpen();
+                onSelect("twitter");
+              }}
+            >
+              <TwitterIcon size={20} className="social-feed-icon" />
+              <span>Twitter</span>
+            </a>
+          </li>
+        </ul>
         <button
           className={`social-feed-refresh-button ${
             isRefreshButtonVisible ? "is-visible" : ""
@@ -98,12 +144,14 @@ const SocialFeedDrawer = ({ isOpen, activeFeed, onClose }: Props) => {
             />
           </div>
 
-          <CloseIcon
-            size={32}
-            color="#ffffffcc"
-            className="close-icon"
-            onClick={() => onClose()}
-          />
+          {/*
+            <CloseIcon
+              size={32}
+              color="#ffffffcc"
+              className="close-icon"
+              onClick={() => onClose()}
+            />
+          */}
         </div>
       </div>
     </>

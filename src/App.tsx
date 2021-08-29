@@ -8,8 +8,8 @@ import SocialFeedDrawer from "./SocialFeedDrawer";
 import "./App.css";
 
 function App() {
-  const [socialFeedIsOpen, setSocialFeedIsOpen] = useState(false);
-  const [activeSocialFeed, setActiveSocialFeed] = useState("");
+  const [socialFeedIsOpen, setSocialFeedIsOpen] = useState(true);
+  const [activeSocialFeed, setActiveSocialFeed] = useState("twitter");
 
   return (
     <div
@@ -65,13 +65,15 @@ function App() {
       </ul>
 
       <div className="content">
+        <StreamsPage />
+
         <SocialFeedDrawer
           isOpen={socialFeedIsOpen}
           activeFeed={activeSocialFeed}
+          onOpen={() => setSocialFeedIsOpen(true)}
+          onSelect={(feed: string) => setActiveSocialFeed(feed)}
           onClose={() => setSocialFeedIsOpen(false)}
         />
-
-        <StreamsPage />
       </div>
     </div>
   );

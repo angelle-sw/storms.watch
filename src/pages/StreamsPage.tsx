@@ -8,10 +8,6 @@ const StreamsPage = () => {
         url="https://www.youtube.com/embed/yDhRFKNprKE?autoplay=1&mute=1"
       />
       <Stream
-        title="LUMCON South Tower"
-        url="https://www.youtube.com/embed/7imsoITE4Tg?autoplay=1&mute=1"
-      />
-      <Stream
         title="Coastal & Inland Cams"
         url="https://player.twitch.tv/?channel=hurricams&parent=storms.watch&parent=localhost"
       />
@@ -39,10 +35,12 @@ const StreamsPage = () => {
         title="Mobile, AL"
         url="https://www.youtube.com/embed/a1Cfw_muqJw?autoplay=1&mute=1"
       />
-      <Stream
-        title="Coastal Cams"
-        url="https://www.youtube.com/embed/WyHud8_dUlA?autoplay=1&mute=1"
-      />
+      {/*
+        <Stream
+          title="Coastal Cams"
+          url="https://www.youtube.com/embed/WyHud8_dUlA?autoplay=1&mute=1"
+        />
+      */}
     </ul>
   );
 };
