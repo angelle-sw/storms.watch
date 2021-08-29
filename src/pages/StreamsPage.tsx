@@ -8,7 +8,7 @@ const StreamsPage = () => {
         url="https://www.youtube.com/embed/yDhRFKNprKE?autoplay=1&mute=1"
       />
       <Stream
-        title="Southeast LA (Reed Timmer)"
+        title="Houma, LA (Reed Timmer)"
         url="https://www.youtube.com/embed/LmbE_325rjs?autoplay=1&mute=1"
       />
       <Stream
