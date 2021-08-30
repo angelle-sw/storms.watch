@@ -14,14 +14,12 @@ type IVideoSource = {
 
 type Props = {
   isOriginalOrder: boolean;
-  setDisabled: (disabled: boolean) => void;
   setVideoSources: (sources: IVideoSource[]) => void;
   videoSources: IVideoSource[];
 };
 
 const VideoSources = ({
   isOriginalOrder,
-  setDisabled,
   setVideoSources,
   videoSources,
 }: Props) => {
@@ -95,7 +93,6 @@ const VideoSources = ({
             id={index}
             index={index}
             moveCard={moveCard}
-            setDisabled={setDisabled}
             videoSource={videoSource}
           />
         );

@@ -23,7 +23,6 @@ type Props = {
   id: any;
   index: number;
   moveCard: (dragIndex: number, hoverIndex: number) => void;
-  setDisabled: (disabled: boolean) => void;
   videoSource: IVideoSource;
 };
 
@@ -45,7 +44,6 @@ const VideoSource = ({
   id,
   index,
   moveCard,
-  setDisabled,
   videoSource,
 }: Props) => {
   const [editModalOpen, setEditModalOpen] = useState(false);
@@ -63,13 +61,6 @@ const VideoSource = ({
       return {
         handlerId: monitor.getHandlerId(),
       };
-    },
-    drop() {
-      if (isOriginalOrder) {
-        setDisabled(true);
-      } else {
-        setDisabled(false);
-      }
     },
     hover(item: DragItem) {
       if (!ref.current) {

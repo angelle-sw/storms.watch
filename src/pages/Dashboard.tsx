@@ -1,6 +1,10 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router";
-import { FaHome as Home } from "react-icons/fa";
+import {
+  FaHome as Home,
+  FaRegSave as Save,
+  FaUndo as Reset,
+} from "react-icons/fa";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import VideoSources from "../VideoSources";
@@ -21,7 +25,6 @@ const Dashboard = () => {
     useVideoSources();
 
   const [sources, setSources] = useState<IVideoSource[]>([]);
-  const [disabled, setDisabled] = useState(true);
 
   useEffect(() => {
     if (videoSourceData) {
@@ -43,7 +46,9 @@ const Dashboard = () => {
   }
 
   const saveOrder = async () => {
-    await mutate(sources);
+    if (!isOriginalOrder) {
+      await mutate(sources);
+    }
   };
 
   const resetOrder = async () => {
@@ -52,30 +57,29 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard">
-      <ul className="main-navigation">
-        <li>
-          <a
-            href="/admin"
-            onClick={(e) => {
-              e.preventDefault();
-              navigate("/");
-            }}
-          >
-            <Home size={32} />
-          </a>
-        </li>
-      </ul>
+      <span className="home-icon" role="button" onClick={() => navigate("/")}>
+        <Home size={32} />
+      </span>
       <DndProvider backend={HTML5Backend}>
-        <button disabled={disabled} onClick={() => saveOrder()}>
-          Save Order
-        </button>
-        <button disabled={disabled} onClick={() => resetOrder()}>
-          Reset Order
-        </button>
+        <div className="order-controls">
+          <span
+            onClick={() => saveOrder()}
+            className="save-button"
+            role="button"
+          >
+            <Save size={32} />
+          </span>
+          <span
+            onClick={() => resetOrder()}
+            className="reset-button"
+            role="button"
+          >
+            <Reset size={28} />
+          </span>
+        </div>
         <div className="sources">
           <VideoSources
             isOriginalOrder={isOriginalOrder}
-            setDisabled={setDisabled}
             setVideoSources={setSources}
             videoSources={sources}
           />

@@ -3,6 +3,9 @@ import {
   FaTwitter as TwitterIcon,
   FaRedditAlien as RedditIcon,
 } from "react-icons/fa";
+import { FaSlidersH as DashboardIcon } from "react-icons/fa";
+
+import { useNavigate } from "react-router";
 import useVideoSources from "../hooks/useVideoSources";
 import SocialFeedDrawer from "../SocialFeedDrawer";
 import Stream from "../Stream";
@@ -29,8 +32,17 @@ const Streams = ({
 }: Props) => {
   const { data: videoSourcesData, isLoading } = useVideoSources();
 
+  const navigate = useNavigate();
+
   return (
     <>
+      <span
+        className="dashboard-icon"
+        role="button"
+        onClick={() => navigate("/admin")}
+      >
+        <DashboardIcon size={32} />
+      </span>
       <ul className="main-navigation-mobile">
         <li>
           <a

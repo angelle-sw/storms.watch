@@ -206,3 +206,22 @@
 .add-update-button > button:hover {
   background: #dee2e6;
 }
+
+.reset-button,
+.save-button {
+  cursor: pointer;
+  transition: fill 0.25s;
+  color: #ffffff60;
+}
+
+.reset-button:hover,
+.save-button:hover {
+  color: #fff;
+}
+
+.order-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 10px;
+}
