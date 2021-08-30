@@ -7,11 +7,11 @@ import {
 } from "react-icons/fa";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
+import { isEqual } from "lodash";
 import VideoSources from "../VideoSources";
 import useVideoSources from "../hooks/useVideoSources";
 import useUpdateVideoSources from "../hooks/useUpdateVideoSources";
 import "../Dashboard.css";
-import { isEqual } from "lodash";
 
 type IVideoSource = {
   id: string;
@@ -24,6 +24,8 @@ const Dashboard = () => {
   const { data: videoSourceData, isLoading: videoSourceLoading } =
     useVideoSources();
 
+  const { mutate } = useUpdateVideoSources();
+
   const [sources, setSources] = useState<IVideoSource[]>([]);
 
   useEffect(() => {
@@ -31,8 +33,6 @@ const Dashboard = () => {
       setSources(videoSourceData);
     }
   }, [videoSourceData]);
-
-  const { mutate } = useUpdateVideoSources();
 
   const navigate = useNavigate();
 
@@ -78,11 +78,7 @@ const Dashboard = () => {
           </span>
         </div>
         <div className="sources">
-          <VideoSources
-            isOriginalOrder={isOriginalOrder}
-            setVideoSources={setSources}
-            videoSources={sources}
-          />
+          <VideoSources setVideoSources={setSources} videoSources={sources} />
         </div>
       </DndProvider>
     </div>

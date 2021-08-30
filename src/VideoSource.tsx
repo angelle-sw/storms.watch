@@ -19,7 +19,6 @@ type DragItem = {
 type Props = {
   deleteVideoSource: (id: string) => void;
   editVideoSource: (source: IVideoSource) => void;
-  isOriginalOrder: boolean;
   id: any;
   index: number;
   moveCard: (dragIndex: number, hoverIndex: number) => void;
@@ -40,7 +39,6 @@ export const truncateSource = (source: string) => {
 const VideoSource = ({
   deleteVideoSource,
   editVideoSource,
-  isOriginalOrder,
   id,
   index,
   moveCard,
@@ -114,13 +112,14 @@ const VideoSource = ({
   };
 
   return (
-    <div className="card source-card" data-handler-id={handlerId} ref={ref}>
+    <div
+      className={`card source-card ${!videoSource.status && "card-off"}`}
+      data-handler-id={handlerId}
+      ref={ref}
+    >
       <div className="source-card-title">{videoSource.title}</div>
       <div className="source-card-url">{truncateSource(videoSource.url)}</div>
       <div className="source-card-controls">
-        <div className="source-card-status">
-          {videoSource.status ? "On" : "Off"}
-        </div>
         <button className="edit" onClick={openEditModal}>
           Edit
         </button>

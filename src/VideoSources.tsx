@@ -13,18 +13,12 @@ type IVideoSource = {
 };
 
 type Props = {
-  isOriginalOrder: boolean;
   setVideoSources: (sources: IVideoSource[]) => void;
   videoSources: IVideoSource[];
 };
 
-const VideoSources = ({
-  isOriginalOrder,
-  setVideoSources,
-  videoSources,
-}: Props) => {
+const VideoSources = ({ setVideoSources, videoSources }: Props) => {
   const [addModalOpen, setAddModalOpen] = useState(false);
-
   const { mutate } = useUpdateVideoSources();
 
   const editVideoSource = async (source: IVideoSource) => {
@@ -89,7 +83,6 @@ const VideoSources = ({
           <VideoSource
             deleteVideoSource={deleteVideoSource}
             editVideoSource={editVideoSource}
-            isOriginalOrder={isOriginalOrder}
             id={index}
             index={index}
             moveCard={moveCard}
