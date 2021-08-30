@@ -6,6 +6,7 @@ import {
 import { FaSlidersH as DashboardIcon } from "react-icons/fa";
 
 import { useNavigate } from "react-router";
+import useAdmin from "../hooks/useAdmin";
 import useVideoSources from "../hooks/useVideoSources";
 import SocialFeedDrawer from "../SocialFeedDrawer";
 import Stream from "../Stream";
@@ -32,17 +33,21 @@ const Streams = ({
 }: Props) => {
   const { data: videoSourcesData, isLoading } = useVideoSources();
 
+  const { data: adminData } = useAdmin();
+
   const navigate = useNavigate();
 
   return (
     <>
-      <span
-        className="dashboard-icon"
-        role="button"
-        onClick={() => navigate("/admin")}
-      >
-        <DashboardIcon size={32} />
-      </span>
+      {adminData && (
+        <span
+          className="dashboard-icon"
+          role="button"
+          onClick={() => navigate("/admin")}
+        >
+          <DashboardIcon size={32} />
+        </span>
+      )}
       <ul className="main-navigation-mobile">
         <li>
           <a
