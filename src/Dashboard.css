@@ -6,6 +6,11 @@
   height: 140px;
   background: #050521;
   cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+.card:hover {
+  border-color: #fff;
 }
 
 .source-card {
