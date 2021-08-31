@@ -38,7 +38,9 @@ const Streams = ({
 
   const navigate = useNavigate();
 
-  return <OutOfStormMode />;
+  if (true) {
+    return <OutOfStormMode />;
+  }
 
   return (
     <>
