@@ -1,6 +1,12 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import styled from "styled-components";
 import Modal from "react-modal";
 import { IoMdClose as Close } from "react-icons/io";
+import ModalContent from "./ModalContent";
+import TitleInput from "./TitleInput";
+import UrlInput from "./UrlInput";
+import StatusRadio from "./StatusRadio";
+import AddUpdateButton from "./AddUpdateButton";
 import { v4 as uuid } from "uuid";
 
 type IVideoSource = {
@@ -15,6 +21,22 @@ type Props = {
   closeModal: () => void;
   modalOpen: boolean;
 };
+
+const Form = styled.form`
+  display: grid;
+  row-gap: 12px;
+`;
+
+const CloseModalButtonContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;
+
+const CloseModalButton = styled.span`
+  &:hover {
+    cursor: pointer;
+  }
+`;
 
 const customModalStyles = {
   content: {
@@ -42,35 +64,35 @@ const AddSourceModal = ({ addVideoSource, closeModal, modalOpen }: Props) => {
       onRequestClose={closeModal}
       style={customModalStyles}
     >
-      <div className="modal">
-        <div className="close-modal">
-          <span onClick={closeModal} role="button">
+      <ModalContent>
+        <CloseModalButtonContainer>
+          <CloseModalButton onClick={closeModal} role="button">
             <Close size="24" />
-          </span>
-        </div>
-        <form
-          className="add-edit-modal"
+          </CloseModalButton>
+        </CloseModalButtonContainer>
+
+        <Form
           onSubmit={async (event) => {
             event.preventDefault();
             await addVideoSource({ id: uuid(), title, url, status });
             closeModal();
           }}
         >
-          <div className="title-input">
-            <input
+          <div>
+            <TitleInput
               onChange={(event) => setTitle(event.target.value)}
               placeholder="Title"
               value={title}
             />
           </div>
-          <div className="url-input">
-            <textarea
+          <div>
+            <UrlInput
               onChange={(event) => setUrl(event.target.value)}
               placeholder="URL"
               value={url}
             />
           </div>
-          <div className="status-radio">
+          <StatusRadio>
             <input
               type="radio"
               id="on"
@@ -91,12 +113,12 @@ const AddSourceModal = ({ addVideoSource, closeModal, modalOpen }: Props) => {
               }}
             />
             <label htmlFor="off">Off</label>
-          </div>
-          <div className="add-update-button">
+          </StatusRadio>
+          <AddUpdateButton>
             <button type="submit">Add</button>
-          </div>
-        </form>
-      </div>
+          </AddUpdateButton>
+        </Form>
+      </ModalContent>
     </Modal>
   );
 };

@@ -1,17 +1,42 @@
-import React, { useEffect, useMemo, useState } from "react";
-import { useNavigate } from "react-router";
-import {
-  FaHome as Home,
-  FaRegSave as Save,
-  FaUndo as Reset,
-} from "react-icons/fa";
+import { useEffect, useMemo, useState } from "react";
+import styled from "styled-components";
+import { FaRegSave as Save, FaUndo as Reset } from "react-icons/fa";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { isEqual } from "lodash";
+import HomeIcon from "../HomeIcon";
 import VideoSources from "../VideoSources";
 import useVideoSources from "../hooks/useVideoSources";
 import useUpdateVideoSources from "../hooks/useUpdateVideoSources";
-import "../Dashboard.css";
+
+const Container = styled.div`
+  margin-top: 32px;
+`;
+
+const VideoSourcesContainer = styled.div`
+  margin-top: 48px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 60px;
+  row-gap: 40px;
+`;
+
+const OrderControls = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 10px;
+`;
+
+const ActionButton = styled.span`
+  transition: fill 0.25s;
+  color: #ffffff60;
+  cursor: pointer;
+
+  &:hover {
+    color: #fff;
+  }
+`;
 
 type IVideoSource = {
   id: string;
@@ -21,8 +46,10 @@ type IVideoSource = {
 };
 
 const Dashboard = () => {
-  const { data: videoSourceData, isLoading: videoSourceLoading } =
-    useVideoSources();
+  const {
+    data: videoSourceData,
+    isLoading: videoSourceLoading,
+  } = useVideoSources();
 
   const { mutate } = useUpdateVideoSources();
 
@@ -34,12 +61,10 @@ const Dashboard = () => {
     }
   }, [videoSourceData]);
 
-  const navigate = useNavigate();
-
-  const isOriginalOrder = useMemo(
-    () => isEqual(videoSourceData, sources),
-    [sources, videoSourceData]
-  );
+  const isOriginalOrder = useMemo(() => isEqual(videoSourceData, sources), [
+    sources,
+    videoSourceData,
+  ]);
 
   if (videoSourceLoading) {
     return <div>Loading...</div>;
@@ -56,32 +81,23 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="dashboard">
-      <span className="home-icon" role="button" onClick={() => navigate("/")}>
-        <Home size={32} />
-      </span>
+    <Container>
+      <HomeIcon />
       <DndProvider backend={HTML5Backend}>
-        <div className="order-controls">
-          <span
-            onClick={() => saveOrder()}
-            className="save-button"
-            role="button"
-          >
+        <OrderControls>
+          <ActionButton onClick={() => saveOrder()} role="button">
             <Save size={32} />
-          </span>
-          <span
-            onClick={() => resetOrder()}
-            className="reset-button"
-            role="button"
-          >
+          </ActionButton>
+
+          <ActionButton onClick={() => resetOrder()} role="button">
             <Reset size={28} />
-          </span>
-        </div>
-        <div className="sources">
+          </ActionButton>
+        </OrderControls>
+        <VideoSourcesContainer>
           <VideoSources setVideoSources={setSources} videoSources={sources} />
-        </div>
+        </VideoSourcesContainer>
       </DndProvider>
-    </div>
+    </Container>
   );
 };
 

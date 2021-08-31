@@ -1,41 +1,46 @@
+import styled from "styled-components";
 import { Suspense, useState } from "react";
-
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import { WiHurricane as HurricaneIcon } from "react-icons/wi";
-
 import PrivateRoute from "./PrivateRoute";
 import Dashboard from "./pages/Dashboard";
 import Streams from "./pages/Streams";
+import GlobalStyle from "./GlobalStyle";
 import Header from "./Header";
+import LoadingIndicator from "./LoadingIndicator";
 
-import "./App.css";
+const Container = styled.div<{ $isOpen: boolean }>`
+  display: flex;
+  margin: 3em 2em;
+  width: 100%;
+  max-width: ${({ $isOpen }) => ($isOpen ? "100%" : "1200px")};
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  @media only screen and (min-width: 640px) {
+    margin: 4em 2em;
+  }
+
+  @media only screen and (min-width: 880px) {
+    margin: 6em 3em;
+  }
+`;
 
 function App() {
   const [socialFeedIsOpen, setSocialFeedIsOpen] = useState(
     window.innerWidth >= 880
   );
-  const [activeSocialFeed, setActiveSocialFeed] = useState("reddit");
+  const [activeSocialFeed, setActiveSocialFeed] = useState<
+    "reddit" | "twitter"
+  >("reddit");
 
   return (
     <BrowserRouter>
-      <div
-        className={`app ${
-          socialFeedIsOpen ? "social-feed-drawer-is-open" : ""
-        }`}
-      >
+      <Container $isOpen={socialFeedIsOpen}>
+        <GlobalStyle />
         <Header />
 
-        <Suspense
-          fallback={
-            <div className="video-sources-loading-indicator">
-              <HurricaneIcon
-                className="hurricane-icon"
-                size={240}
-                color="#ffffff70"
-              />
-            </div>
-          }
-        >
+        <Suspense fallback={<LoadingIndicator />}>
           <Routes>
             <PrivateRoute path="/admin" element={<Dashboard />} />
             <Route
@@ -52,7 +57,7 @@ function App() {
             <Route path="/*" element={<Navigate to="/" />} />
           </Routes>
         </Suspense>
-      </div>
+      </Container>
     </BrowserRouter>
   );
 }

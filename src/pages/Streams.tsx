@@ -1,27 +1,19 @@
-import React from "react";
-import {
-  FaTwitter as TwitterIcon,
-  FaRedditAlien as RedditIcon,
-} from "react-icons/fa";
-import { FaSlidersH as DashboardIcon } from "react-icons/fa";
-
-import { useNavigate } from "react-router";
-import useAdmin from "../hooks/useAdmin";
-import useVideoSources from "../hooks/useVideoSources";
+import styled from "styled-components";
+import StreamGrid from "../StreamGrid";
+import DashboardIcon from "../DashboardIcon";
+import SocialFeedNavMobile from "../SocialFeedNavMobile";
 import SocialFeedDrawer from "../SocialFeedDrawer";
-import Stream from "../Stream";
 import OutOfStormMode from "../OutOfStormMode";
+import useAdmin from "../hooks/useAdmin";
 
-type IVideoSource = {
-  id: string;
-  status: boolean;
-  title: string;
-  url: string;
-};
+const Content = styled.div`
+  display: flex;
+  width: 100%;
+`;
 
 type Props = {
-  activeSocialFeed: string;
-  setActiveSocialFeed: (feed: string) => void;
+  activeSocialFeed: "reddit" | "twitter";
+  setActiveSocialFeed: (feed: "reddit" | "twitter") => void;
   setSocialFeedIsOpen: (isOpen: boolean) => void;
   socialFeedIsOpen: boolean;
 };
@@ -32,11 +24,7 @@ const Streams = ({
   setSocialFeedIsOpen,
   socialFeedIsOpen,
 }: Props) => {
-  const { data: videoSourcesData, isLoading } = useVideoSources();
-
   const { data: adminData } = useAdmin();
-
-  const navigate = useNavigate();
 
   if (true) {
     return <OutOfStormMode />;
@@ -44,75 +32,26 @@ const Streams = ({
 
   return (
     <>
-      {adminData && (
-        <span
-          className="dashboard-icon"
-          role="button"
-          onClick={() => navigate("/admin")}
-        >
-          <DashboardIcon size={32} />
-        </span>
-      )}
-      <ul className="main-navigation-mobile">
-        <li>
-          <a
-            href="#"
-            onClick={(e) => {
-              e.preventDefault();
-              setSocialFeedIsOpen(true);
-              setActiveSocialFeed("reddit");
-            }}
-          >
-            <RedditIcon
-              size={32}
-              className={`social-feed-icon ${
-                socialFeedIsOpen && activeSocialFeed === "reddit"
-                  ? "is-active"
-                  : ""
-              }`}
-            />
-          </a>
-        </li>
+      {adminData && <DashboardIcon />}
 
-        <li>
-          <a
-            href="#"
-            onClick={(e) => {
-              e.preventDefault();
-              setSocialFeedIsOpen(true);
-              setActiveSocialFeed("twitter");
-            }}
-          >
-            <TwitterIcon
-              size={32}
-              className={`social-feed-icon ${
-                socialFeedIsOpen && activeSocialFeed === "twitter"
-                  ? "is-active"
-                  : ""
-              }`}
-            />
-          </a>
-        </li>
-      </ul>
+      <SocialFeedNavMobile
+        isOpen={socialFeedIsOpen}
+        activeFeed={activeSocialFeed}
+        setActiveFeed={setActiveSocialFeed}
+        setIsOpen={setSocialFeedIsOpen}
+      />
 
-      <div className="content">
-        {!isLoading && (
-          <ul className="streams">
-            {videoSourcesData
-              .filter((source: IVideoSource) => source.status)
-              .map((source: IVideoSource) => (
-                <Stream title={source.title} url={source.url} />
-              ))}
-          </ul>
-        )}
+      <Content>
+        <StreamGrid socialFeedIsOpen={socialFeedIsOpen} />
+
         <SocialFeedDrawer
           isOpen={socialFeedIsOpen}
           activeFeed={activeSocialFeed}
           onOpen={() => setSocialFeedIsOpen(true)}
-          onSelect={(feed: string) => setActiveSocialFeed(feed)}
+          onSelect={(feed) => setActiveSocialFeed(feed)}
           onClose={() => setSocialFeedIsOpen(false)}
         />
-      </div>
+      </Content>
     </>
   );
 };

@@ -1,7 +1,46 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
+import styled from "styled-components";
 import { useDrag, useDrop } from "react-dnd";
+import Card from "./Card";
 import EditSourceModal from "./EditSourceModal";
 import DeleteSourceModal from "./DeleteSourceModal";
+import SourceCardTitle from "./SourceCardTitle";
+import SourceCardUrl from "./SourceCardUrl";
+
+const Controls = styled.div`
+  padding-top: 8px;
+  display: flex;
+  column-gap: 10px;
+  flex-direction: row;
+  justify-self: flex-end;
+`;
+
+const Button = styled.button`
+  width: 68px;
+  height: 28px;
+  cursor: pointer;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  transition: color 0.25s;
+`;
+
+const EditButton = styled(Button)`
+  background: #fff;
+
+  &:hover {
+    background: #dee2e6;
+  }
+`;
+
+const DeleteButton = styled(Button)`
+  background: #c71f37;
+  color: white;
+
+  &:hover {
+    background: #a71e34;
+  }
+`;
 
 type IVideoSource = {
   id: string;
@@ -112,17 +151,12 @@ const VideoSource = ({
   };
 
   return (
-    <div
-      className={`card source-card ${!videoSource.status && "card-off"}`}
-      data-handler-id={handlerId}
-      ref={ref}
-    >
-      <div className="source-card-title">{videoSource.title}</div>
-      <div className="source-card-url">{truncateSource(videoSource.url)}</div>
-      <div className="source-card-controls">
-        <button className="edit" onClick={openEditModal}>
-          Edit
-        </button>
+    <Card $isOff={!videoSource.status} data-handler-id={handlerId} ref={ref}>
+      <SourceCardTitle>{videoSource.title}</SourceCardTitle>
+      <SourceCardUrl>{truncateSource(videoSource.url)}</SourceCardUrl>
+
+      <Controls>
+        <EditButton onClick={openEditModal}>Edit</EditButton>
         <EditSourceModal
           closeModal={closeEditModal}
           modalOpen={editModalOpen}
@@ -135,9 +169,7 @@ const VideoSource = ({
           editVideoSource={editVideoSource}
           url={url}
         />
-        <button className="delete" onClick={openDeleteModal}>
-          Delete
-        </button>
+        <DeleteButton onClick={openDeleteModal}>Delete</DeleteButton>
         <DeleteSourceModal
           closeModal={closeDeleteModal}
           deleteVideoSource={deleteVideoSource}
@@ -146,8 +178,8 @@ const VideoSource = ({
           videoSource={videoSource}
           url={url}
         />
-      </div>
-    </div>
+      </Controls>
+    </Card>
   );
 };
 
