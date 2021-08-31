@@ -10,6 +10,7 @@ import useAdmin from "../hooks/useAdmin";
 import useVideoSources from "../hooks/useVideoSources";
 import SocialFeedDrawer from "../SocialFeedDrawer";
 import Stream from "../Stream";
+import OutOfStormMode from "../OutOfStormMode";
 
 type IVideoSource = {
   id: string;
@@ -36,6 +37,8 @@ const Streams = ({
   const { data: adminData } = useAdmin();
 
   const navigate = useNavigate();
+
+  return <OutOfStormMode />;
 
   return (
     <>
