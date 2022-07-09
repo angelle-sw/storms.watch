@@ -25,7 +25,8 @@ storms.watch is the premier location to watch hurricane streams and stay up to d
 
 ### Built With
 
-[![Next][next.js]][next-url] [![React][react.js]][react-url] [![Typescript][typescript-badge]][typescript-url] [![Styled Components][styledcomponents-badge]][styledcomponents-url]
+[![Typescript][typescript-badge]][typescript-url] [![Next][next.js]][next-url] [![React][react.js]][react-url] [![Styled Components][styledcomponents-badge]][styledcomponents-url]
+[![Mongo DB][mongodb-badge]][mongodb-url]
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -146,3 +147,5 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 [typescript-url]: https://www.typescriptlang.org/
 [styledcomponents-badge]: https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white
 [styledcomponents-url]: https://styled-components.com/
+[mongodb-badge]: https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white
+[mongodb-url]: https://www.mongodb.com/
