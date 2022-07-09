@@ -44,19 +44,31 @@ To get a local copy up and running follow these simple example steps.
 ### Installation
 
 1. Clone the repo
+
    ```sh
    git clone https://github.com/github_username/repo_name.git
    ```
+
 2. Install packages
+
    ```sh
    yarn install
    ```
-3. Enter your environment variables in `.env`
+
+3. Enter environment variables in `.env`
+
    ```sh
    MONGO_DB_URI=LoremIpsum
    REACT_APP_DASHBOARD_PASSPHRASE=LoremIpsum
    ```
-4. Run a local development environment
+
+4. Set an item in the local storage of your browser
+
+   ```sh
+    localStorage.setItem('dashboard-passphrase', 'loremIpsum');
+   ```
+
+5. Run a local development environment
 
    ```sh
     netlify dev
