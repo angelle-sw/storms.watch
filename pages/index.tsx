@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+import Head from "next/head";
 import {
   FaTwitter as TwitterIcon,
   FaRedditAlien as RedditIcon,
@@ -36,11 +37,23 @@ const Home = () => {
   >("reddit");
 
   if (true) {
-    return <OutOfStormMode />;
+    return (
+      <>
+        <Head>
+          <title>Storms.watch</title>
+        </Head>
+
+        <OutOfStormMode />
+      </>
+    );
   }
 
   return (
     <>
+      <Head>
+        <title>Storms.watch</title>
+      </Head>
+
       {adminData && <DashboardIcon />}
 
       <SocialFeedNavMobile

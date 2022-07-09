@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import styled from "styled-components";
+import Head from "next/head";
 import { FaRegSave as Save, FaUndo as Reset } from "react-icons/fa";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
@@ -80,23 +81,29 @@ const Admin = () => {
   };
 
   return (
-    <Container>
-      <HomeIcon />
-      <DndProvider backend={HTML5Backend}>
-        <OrderControls>
-          <ActionButton onClick={() => saveOrder()} role="button">
-            <Save size={32} />
-          </ActionButton>
+    <>
+      <Head>
+        <title>Storms.watch | Admin</title>
+      </Head>
 
-          <ActionButton onClick={() => resetOrder()} role="button">
-            <Reset size={28} />
-          </ActionButton>
-        </OrderControls>
-        <VideoSourcesContainer>
-          <VideoSources setVideoSources={setSources} videoSources={sources} />
-        </VideoSourcesContainer>
-      </DndProvider>
-    </Container>
+      <Container>
+        <HomeIcon />
+        <DndProvider backend={HTML5Backend}>
+          <OrderControls>
+            <ActionButton onClick={() => saveOrder()} role="button">
+              <Save size={32} />
+            </ActionButton>
+
+            <ActionButton onClick={() => resetOrder()} role="button">
+              <Reset size={28} />
+            </ActionButton>
+          </OrderControls>
+          <VideoSourcesContainer>
+            <VideoSources setVideoSources={setSources} videoSources={sources} />
+          </VideoSourcesContainer>
+        </DndProvider>
+      </Container>
+    </>
   );
 };
 
