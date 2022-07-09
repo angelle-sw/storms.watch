@@ -6,6 +6,7 @@ import { WiHurricane as HurricaneIcon } from "react-icons/wi";
 import PrivateRoute from "./PrivateRoute";
 import Dashboard from "./pages/Dashboard";
 import Streams from "./pages/Streams";
+import Header from "./Header";
 
 import "./App.css";
 
@@ -22,12 +23,7 @@ function App() {
           socialFeedIsOpen ? "social-feed-drawer-is-open" : ""
         }`}
       >
-        <header>
-          <div className="logo-container">
-            <img src="./images/logo.png" className="logo" alt="storms.watch" />
-            <div className="storm-mode-indicator blink"></div>
-          </div>
-        </header>
+        <Header />
 
         <Suspense
           fallback={
