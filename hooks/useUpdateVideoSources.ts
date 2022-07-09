@@ -9,15 +9,11 @@ type VideoSource = {
 const useUpdateVideoSources = () => {
   const query = useMutation((sources: VideoSource[]) => {
     const storedPassphrase = localStorage?.getItem("dashboard-passphrase");
-    const response = axios.post(
-      "http://localhost:8888/api/postVideoSources",
-      sources,
-      {
-        headers: {
-          token: storedPassphrase,
-        },
-      }
-    );
+    const response = axios.post("/api/postVideoSources", sources, {
+      headers: {
+        token: storedPassphrase,
+      },
+    });
 
     return response;
   });

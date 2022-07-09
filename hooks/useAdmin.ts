@@ -6,7 +6,7 @@ const useAdmin = () => {
     "getAuth",
     async () => {
       const storedPassphrase = localStorage.getItem("dashboard-passphrase");
-      const response = await axios.get("http://localhost:8888/api/getAuth", {
+      const response = await axios.get("/api/getAuth", {
         headers: {
           token: storedPassphrase,
         },
