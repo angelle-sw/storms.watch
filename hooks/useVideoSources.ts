@@ -9,7 +9,9 @@ type VideoSource = {
 
 const useVideoSources = () => {
   const query = useQuery("getVideoSources", async () => {
-    const response = await axios.get("/api/getVideoSources");
+    const response = await axios.get(
+      "http://localhost:8888/api/getVideoSources"
+    );
 
     const sourcesWithIds = response.data.map((source: VideoSource) => ({
       ...source,

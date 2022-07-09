@@ -1,4 +1,4 @@
-import { Handler } from "@netlify/functions";
+import { builder, Handler } from "@netlify/functions";
 import { MongoClient } from "mongodb";
 require("dotenv").config({ path: ".env" });
 
@@ -16,6 +16,7 @@ type Response = {
 
 const { MONGO_DB_URI } = process.env;
 
+// @ts-expect-error
 const mongoDBClient = new MongoClient(MONGO_DB_URI);
 
 const collectionEnv = process.env.NETLIFY_DEV
@@ -37,7 +38,7 @@ const findVideoSources = async (): Promise<VideoSource[]> => {
   return result;
 };
 
-const handler: Handler = async (event): Promise<Response> => {
+const myHandler: Handler = async (event): Promise<Response> => {
   if (event.httpMethod !== "GET") {
     return {
       statusCode: 405,
@@ -58,10 +59,13 @@ const handler: Handler = async (event): Promise<Response> => {
     return {
       statusCode: 500,
       body: JSON.stringify({
+        // @ts-expect-error
         error: error?.message,
       }),
     };
   }
 };
+
+const handler = builder(myHandler);
 
 export { handler };

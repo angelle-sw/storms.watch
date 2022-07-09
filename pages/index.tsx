@@ -1,16 +1,13 @@
-import React from "react";
 import {
   FaTwitter as TwitterIcon,
   FaRedditAlien as RedditIcon,
 } from "react-icons/fa";
 import { FaSlidersH as DashboardIcon } from "react-icons/fa";
-
-import { useNavigate } from "react-router";
-import useAdmin from "../hooks/useAdmin";
+import { useRouter } from "next/router";
+import SocialFeedDrawer from "../components/SocialFeedDrawer";
 import useVideoSources from "../hooks/useVideoSources";
-import SocialFeedDrawer from "../SocialFeedDrawer";
-import Stream from "../Stream";
-import OutOfStormMode from "../OutOfStormMode";
+import useAdmin from "../hooks/useAdmin";
+import Stream from "../components/Stream";
 
 type IVideoSource = {
   id: string;
@@ -26,21 +23,15 @@ type Props = {
   socialFeedIsOpen: boolean;
 };
 
-const Streams = ({
+function Home({
   activeSocialFeed,
   setActiveSocialFeed,
   setSocialFeedIsOpen,
   socialFeedIsOpen,
-}: Props) => {
+}: Props) {
   const { data: videoSourcesData, isLoading } = useVideoSources();
-
   const { data: adminData } = useAdmin();
-
-  const navigate = useNavigate();
-
-  if (true) {
-    return <OutOfStormMode />;
-  }
+  const router = useRouter();
 
   return (
     <>
@@ -48,7 +39,7 @@ const Streams = ({
         <span
           className="dashboard-icon"
           role="button"
-          onClick={() => navigate("/admin")}
+          onClick={() => router.push("/admin")}
         >
           <DashboardIcon size={32} />
         </span>
@@ -115,6 +106,6 @@ const Streams = ({
       </div>
     </>
   );
-};
+}
 
-export default Streams;
+export default Home;
