@@ -3,8 +3,8 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/github_username/repo_name">
-    <img src="/public/images/logo.png" alt="Logo" width="80" height="80">
+  <a href="https://github.com/angelle-sw/storms.watch">
+    <img src="/public/images/logo.png" alt="Logo" width="600">
   </a>
 
 <h3 align="center">storms.watch</h3>
@@ -115,10 +115,10 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 ## Acknowledgments
 
-- Mr. Min
-- Charlie
-- F off
-- Pigs
+- mr. Min
+- charlie
+- f off
+- pigs
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
