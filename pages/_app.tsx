@@ -1,56 +1,41 @@
-import React, { Suspense, useState } from "react";
+import React from "react";
 import type { AppProps } from "next/app";
-import Image from "next/image";
+import styled from "styled-components";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { WiHurricane as HurricaneIcon } from "react-icons/wi";
-import "../styles/globals.css";
+import GlobalStyle from "../components/GlobalStyle";
 import Header from "../components/Header";
 
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      suspense: true,
-    },
-  },
-});
+const queryClient = new QueryClient();
 
-function MyApp({ Component, pageProps }: AppProps) {
-  const [socialFeedIsOpen, setSocialFeedIsOpen] = useState(true);
+const Container = styled.div`
+  display: flex;
+  margin: 3em 2em;
+  width: 100%;
+  max-width: 1800px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
-  const [activeSocialFeed, setActiveSocialFeed] = useState("reddit");
+  @media only screen and (min-width: 640px) {
+    margin: 4em 2em;
+  }
 
-  return (
-    <React.StrictMode>
-      <QueryClientProvider client={queryClient}>
-        <div
-          className={`app ${
-            socialFeedIsOpen ? "social-feed-drawer-is-open" : ""
-          }`}
-        >
-          <Header />
-          <Suspense
-            fallback={
-              <div className="video-sources-loading-indicator">
-                <HurricaneIcon
-                  className="hurricane-icon"
-                  size={240}
-                  color="#ffffff70"
-                />
-              </div>
-            }
-          >
-            <Component
-              activeSocialFeed={activeSocialFeed}
-              setActiveSocialFeed={setActiveSocialFeed}
-              setSocialFeedIsOpen={setSocialFeedIsOpen}
-              socialFeedIsOpen={socialFeedIsOpen}
-              {...pageProps}
-            />
-          </Suspense>
-        </div>
-      </QueryClientProvider>
-    </React.StrictMode>
-  );
-}
+  @media only screen and (min-width: 880px) {
+    margin: 6em 3em;
+  }
+`;
 
-export default MyApp;
+const App = ({ Component, pageProps }: AppProps) => (
+  <React.StrictMode>
+    <QueryClientProvider client={queryClient}>
+      <GlobalStyle />
+      <Container>
+        <Header />
+
+        <Component {...pageProps} />
+      </Container>
+    </QueryClientProvider>
+  </React.StrictMode>
+);
+
+export default App;

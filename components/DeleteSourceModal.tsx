@@ -1,7 +1,10 @@
-import React from "react";
+import styled from "styled-components";
 import Modal from "react-modal";
+import ModalContent from "./ModalContent";
 import { IoMdClose as Close } from "react-icons/io";
 import { truncateSource } from "./VideoSource";
+import SourceCardTitle from "./SourceCardTitle";
+import SourceCardUrl from "./SourceCardUrl";
 
 type IVideoSource = {
   id: string;
@@ -18,6 +21,52 @@ type Props = {
   url: string;
   videoSource: IVideoSource;
 };
+
+const DeleteModalForm = styled.form`
+  display: grid;
+  row-gap: 16px;
+`;
+
+const DeleteControls = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  column-gap: 14px;
+`;
+
+const ActionButton = styled.button`
+  background: #fff;
+  width: 80px;
+  height: 30px;
+  cursor: pointer;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  transition: color 0.25s;
+  margin-right: 8px;
+  margin-top: 12px;
+`;
+
+const CancelButton = styled(ActionButton)`
+  background: #fff;
+
+  &:hover {
+    background: #dee2e6;
+  }
+`;
+
+const DeleteButton = styled(ActionButton)`
+  background: #c71f37;
+  color: white;
+
+  &:hover {
+    background: #a71e34;
+  }
+`;
+
+const CloseModalButtonContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;
 
 const customModalStyles = {
   content: {
@@ -48,32 +97,28 @@ const DeleteSourceModal = ({
       onRequestClose={closeModal}
       style={customModalStyles}
     >
-      <div className="modal">
-        <div className="close-modal">
+      <ModalContent>
+        <CloseModalButtonContainer>
           <span onClick={closeModal} role="button">
             <Close size="24" />
           </span>
-        </div>
-        <form
-          className="delete-modal"
+        </CloseModalButtonContainer>
+
+        <DeleteModalForm
           onSubmit={async (event) => {
             event.preventDefault();
             await deleteVideoSource(videoSource.id);
             closeModal();
           }}
         >
-          <div className="source-card-title">{title}</div>
-          <div className="source-card-url">{truncateSource(url)}</div>
-          <div className="delete-controls">
-            <button className="cancel" onClick={() => closeModal()}>
-              Cancel
-            </button>
-            <button className="delete" type="submit">
-              Delete
-            </button>
-          </div>
-        </form>
-      </div>
+          <SourceCardTitle>{title}</SourceCardTitle>
+          <SourceCardUrl>{truncateSource(url)}</SourceCardUrl>
+          <DeleteControls>
+            <CancelButton onClick={() => closeModal()}>Cancel</CancelButton>
+            <DeleteButton type="submit">Delete</DeleteButton>
+          </DeleteControls>
+        </DeleteModalForm>
+      </ModalContent>
     </Modal>
   );
 };

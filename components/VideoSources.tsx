@@ -81,6 +81,7 @@ const VideoSources = ({ setVideoSources, videoSources }: Props) => {
       {videoSources.map((videoSource, index) => {
         return (
           <VideoSource
+            key={videoSource.id}
             deleteVideoSource={deleteVideoSource}
             editVideoSource={editVideoSource}
             id={index}
