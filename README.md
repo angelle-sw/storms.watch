@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/angelle-sw/storms.watch">
-    <img src="/public/images/logo.png" alt="Logo" width="600">
+    <img src="https://raw.githubusercontent.com/angelle-sw/storms.watch/master/public/images/logo.png" alt="Logo" width="600">
   </a>
 
 <h3 align="center">storms.watch</h3>
