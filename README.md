@@ -47,7 +47,7 @@ To get a local copy up and running follow these simple example steps.
 1. Clone the repo
 
    ```sh
-   git clone https://github.com/github_username/repo_name.git
+   git clone https://github.com/angelle-sw/storms.watch.git
    ```
 
 2. Install packages
@@ -95,7 +95,7 @@ To get a local copy up and running follow these simple example steps.
 - [ ] Support multiple concurrent storms
 - [ ] Toggleable social feed drawer
 
-See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/angelle-sw/storms.watch/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
