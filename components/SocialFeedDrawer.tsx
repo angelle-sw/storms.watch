@@ -28,14 +28,14 @@ const SocialFeedDrawer = ({
     const redditFeed = document.querySelector(
       ".tropical-reddit-iframe"
     ) as HTMLIFrameElement;
-    redditFeed.src = "./tropical-reddit-feed.html";
+    redditFeed.src = "https://storms.watch/tropical-reddit-feed.html";
   };
 
   const refreshTropicalTwitter = () => {
     const twitterFeed = document.querySelector(
       ".tropical-twitter-iframe"
     ) as HTMLIFrameElement;
-    twitterFeed.src = "./tropical-twitter-feed.html";
+    twitterFeed.src = "https://storms.watch/tropical-twitter-feed.html";
     twitterFeed.style.visibility = "hidden";
   };
 
@@ -135,7 +135,7 @@ const SocialFeedDrawer = ({
 
             <iframe
               title="Tropical Reddit"
-              src="./tropical-reddit-feed.html"
+              src="https://storms.watch/tropical-reddit-feed.html"
               className="tropical-reddit-iframe"
             />
           </div>
@@ -155,7 +155,7 @@ const SocialFeedDrawer = ({
 
             <iframe
               title="Tropical Twitter"
-              src="./tropical-twitter-feed.html"
+              src="https://storms.watch/tropical-twitter-feed.html"
               className="tropical-twitter-iframe"
               style={{ visibility: "hidden" }}
             />

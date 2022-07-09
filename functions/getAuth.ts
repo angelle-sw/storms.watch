@@ -6,7 +6,7 @@ type Response = {
   statusCode: number;
 };
 
-const { REACT_APP_DASHBOARD_PASSPHRASE } = process.env;
+const { ADMIN_PASSPHRASE } = process.env;
 
 const handler: Handler = async (event): Promise<Response> => {
   if (event.httpMethod !== "GET") {
@@ -21,7 +21,7 @@ const handler: Handler = async (event): Promise<Response> => {
 
     return {
       statusCode: 200,
-      body: JSON.stringify(token === REACT_APP_DASHBOARD_PASSPHRASE),
+      body: JSON.stringify(token === ADMIN_PASSPHRASE),
     };
   } catch (error) {
     console.log(error);
@@ -29,6 +29,7 @@ const handler: Handler = async (event): Promise<Response> => {
     return {
       statusCode: 500,
       body: JSON.stringify({
+        // @ts-expect-error
         error: error?.message,
       }),
     };

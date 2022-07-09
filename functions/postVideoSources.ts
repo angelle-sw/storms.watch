@@ -14,14 +14,16 @@ type Response = {
   statusCode: number;
 };
 
-const { MONGO_DB_URI, REACT_APP_DASHBOARD_PASSPHRASE } = process.env;
+const { MONGO_DB_URI, ADMIN_PASSPHRASE } = process.env;
 
+// @ts-expect-error
 const mongoDBClient = new MongoClient(MONGO_DB_URI);
 
 const collectionEnv = process.env.NETLIFY_DEV
   ? "video-sources-test"
   : "video-sources";
 
+// @ts-expect-error
 const insertVideoSources = async (videoSources): Promise<VideoSource[]> => {
   await mongoDBClient.connect();
   const database = mongoDBClient.db("storms-watch");
@@ -48,13 +50,14 @@ const handler: Handler = async (event): Promise<Response> => {
     };
   }
 
-  if (event.headers.token !== REACT_APP_DASHBOARD_PASSPHRASE) {
+  if (event.headers.token !== ADMIN_PASSPHRASE) {
     return {
       statusCode: 401,
       body: "Unauthorized",
     };
   }
 
+  // @ts-expect-error
   const videoSources = JSON.parse(event.body);
 
   try {
@@ -68,6 +71,7 @@ const handler: Handler = async (event): Promise<Response> => {
     return {
       statusCode: 500,
       body: JSON.stringify({
+        // @ts-expect-error
         error: error?.message,
       }),
     };

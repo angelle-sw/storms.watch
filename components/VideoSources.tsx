@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from "react";
 import update from "immutability-helper";
-import useUpdateVideoSources from "./hooks/useUpdateVideoSources";
+import useUpdateVideoSources from "../hooks/useUpdateVideoSources";
 import VideoSource from "./VideoSource";
 import NewSource from "./NewSource";
 import AddSourceModal from "./AddSourceModal";

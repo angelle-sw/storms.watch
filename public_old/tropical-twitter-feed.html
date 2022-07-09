@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script src="https://platform.twitter.com/widgets.js" charset="utf-8">
-    </script>
+    <script
+      src="https://platform.twitter.com/widgets.js"
+      charset="utf-8"
+    ></script>
 
     <script>
       window.onload = () => {
@@ -10,8 +12,7 @@
           const iframe = document.querySelector("iframe");
           const content = iframe.contentDocument;
           const style = document.createElement("style");
-          style.innerHTML =
-          `
+          style.innerHTML = `
             <style>
               *::-webkit-scrollbar {
                 width: 12px;
@@ -96,16 +97,17 @@
           content.body.appendChild(style);
 
           window.frameElement.style.visibility = "visible";
-          const extraneousFeed = document.querySelector('#twitter-widget-1');
+          const extraneousFeed = document.querySelector("#twitter-widget-1");
           extraneousFeed.parentNode.removeChild(extraneousFeed);
         }, 2500);
-      }
+      };
     </script>
   </head>
 
   <div class="tropical-twitter">
     <a
       class="twitter-timeline"
-      href="https://twitter.com/wx_becks/lists/tropical-twitter?ref_src=twsrc%5Etfw" />
+      href="https://twitter.com/wx_becks/lists/tropical-twitter?ref_src=twsrc%5Etfw"
+    />
   </div>
 </html>

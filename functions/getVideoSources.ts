@@ -16,6 +16,7 @@ type Response = {
 
 const { MONGO_DB_URI } = process.env;
 
+// @ts-expect-error
 const mongoDBClient = new MongoClient(MONGO_DB_URI);
 
 const collectionEnv = process.env.NETLIFY_DEV
@@ -58,6 +59,7 @@ const handler: Handler = async (event): Promise<Response> => {
     return {
       statusCode: 500,
       body: JSON.stringify({
+        // @ts-expect-error
         error: error?.message,
       }),
     };
