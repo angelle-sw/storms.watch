@@ -1,4 +1,4 @@
-import { builder, Handler } from "@netlify/functions";
+import { Handler } from "@netlify/functions";
 require("dotenv").config({ path: ".env" });
 
 type Response = {
@@ -8,7 +8,7 @@ type Response = {
 
 const { ADMIN_PASSPHRASE } = process.env;
 
-const myHandler: Handler = async (event): Promise<Response> => {
+const handler: Handler = async (event): Promise<Response> => {
   if (event.httpMethod !== "GET") {
     return {
       statusCode: 405,
@@ -35,7 +35,5 @@ const myHandler: Handler = async (event): Promise<Response> => {
     };
   }
 };
-
-const handler = builder(myHandler);
 
 export { handler };
