@@ -1,111 +1,68 @@
+import { useState } from "react";
+import styled from "styled-components";
 import {
   FaTwitter as TwitterIcon,
   FaRedditAlien as RedditIcon,
 } from "react-icons/fa";
-import { FaSlidersH as DashboardIcon } from "react-icons/fa";
-import { useRouter } from "next/router";
 import SocialFeedDrawer from "../components/SocialFeedDrawer";
+import SocialFeedNavMobile from "../components/SocialFeedNavMobile";
+import StreamGrid from "../components/StreamGrid";
+import DashboardIcon from "../components/DashboardIcon";
+import OutOfStormMode from "../components/OutOfStormMode";
 import useVideoSources from "../hooks/useVideoSources";
 import useAdmin from "../hooks/useAdmin";
-import Stream from "../components/Stream";
-
-type IVideoSource = {
-  id: string;
-  status: boolean;
-  title: string;
-  url: string;
-};
 
 type Props = {
-  activeSocialFeed: string;
-  setActiveSocialFeed: (feed: string) => void;
+  activeSocialFeed: "reddit" | "twitter";
+  setActiveSocialFeed: (feed: "reddit" | "twitter") => void;
   setSocialFeedIsOpen: (isOpen: boolean) => void;
   socialFeedIsOpen: boolean;
 };
 
-function Home({
-  activeSocialFeed,
-  setActiveSocialFeed,
-  setSocialFeedIsOpen,
-  socialFeedIsOpen,
-}: Props) {
+const Content = styled.div`
+  display: flex;
+  width: 100%;
+`;
+
+const Home = () => {
   const { data: videoSourcesData, isLoading } = useVideoSources();
   const { data: adminData } = useAdmin();
-  const router = useRouter();
+
+  const [socialFeedIsOpen, setSocialFeedIsOpen] = useState(
+    typeof window !== "undefined" ? window.innerWidth >= 880 : true
+  );
+  const [activeSocialFeed, setActiveSocialFeed] = useState<
+    "reddit" | "twitter"
+  >("reddit");
+
+  if (true) {
+    return <OutOfStormMode />;
+  }
 
   return (
     <>
-      {adminData && (
-        <span
-          className="dashboard-icon"
-          role="button"
-          onClick={() => router.push("/admin")}
-        >
-          <DashboardIcon size={32} />
-        </span>
-      )}
-      <ul className="main-navigation-mobile">
-        <li>
-          <a
-            href="#"
-            onClick={(e) => {
-              e.preventDefault();
-              setSocialFeedIsOpen(true);
-              setActiveSocialFeed("reddit");
-            }}
-          >
-            <RedditIcon
-              size={32}
-              className={`social-feed-icon ${
-                socialFeedIsOpen && activeSocialFeed === "reddit"
-                  ? "is-active"
-                  : ""
-              }`}
-            />
-          </a>
-        </li>
+      {adminData && <DashboardIcon />}
 
-        <li>
-          <a
-            href="#"
-            onClick={(e) => {
-              e.preventDefault();
-              setSocialFeedIsOpen(true);
-              setActiveSocialFeed("twitter");
-            }}
-          >
-            <TwitterIcon
-              size={32}
-              className={`social-feed-icon ${
-                socialFeedIsOpen && activeSocialFeed === "twitter"
-                  ? "is-active"
-                  : ""
-              }`}
-            />
-          </a>
-        </li>
-      </ul>
+      <SocialFeedNavMobile
+        isOpen={socialFeedIsOpen}
+        activeFeed={activeSocialFeed}
+        setActiveFeed={setActiveSocialFeed}
+        setIsOpen={setSocialFeedIsOpen}
+      />
 
-      <div className="content">
-        {!isLoading && (
-          <ul className="streams">
-            {videoSourcesData
-              .filter((source: IVideoSource) => source.status)
-              .map((source: IVideoSource) => (
-                <Stream title={source.title} url={source.url} />
-              ))}
-          </ul>
-        )}
+      <Content>
+        <StreamGrid socialFeedIsOpen={socialFeedIsOpen} />
+
         <SocialFeedDrawer
           isOpen={socialFeedIsOpen}
           activeFeed={activeSocialFeed}
           onOpen={() => setSocialFeedIsOpen(true)}
-          onSelect={(feed: string) => setActiveSocialFeed(feed)}
+          onSelect={(feed) => setActiveSocialFeed(feed)}
           onClose={() => setSocialFeedIsOpen(false)}
         />
-      </div>
+      </Content>
     </>
   );
-}
+};
 
 export default Home;

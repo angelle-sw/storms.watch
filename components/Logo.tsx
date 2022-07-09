@@ -1,12 +1,7 @@
 import Image from "next/image";
 
-function Logo() {
-  return (
-    <div className="logo-container">
-      <Image src="./images/logo.png" className="logo" alt="storms.watch" />
-      <div className="storm-mode-indicator blink"></div>
-    </div>
-  );
-}
+const Logo = () => (
+  <Image src="/images/logo.png" alt="storms.watch" width={400} height={50} />
+);
 
 export default Logo;

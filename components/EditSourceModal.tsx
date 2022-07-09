@@ -1,6 +1,11 @@
-import React from "react";
+import styled from "styled-components";
 import Modal from "react-modal";
 import { IoMdClose as Close } from "react-icons/io";
+import ModalContent from "./ModalContent";
+import TitleInput from "./TitleInput";
+import UrlInput from "./UrlInput";
+import StatusRadio from "./StatusRadio";
+import AddUpdateButton from "./AddUpdateButton";
 
 type IVideoSource = {
   id: string;
@@ -21,6 +26,16 @@ type Props = {
   url: string;
   videoSource: IVideoSource;
 };
+
+const Form = styled.form`
+  display: grid;
+  row-gap: 12px;
+`;
+
+const CloseModalButtonContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;
 
 const customModalStyles = {
   content: {
@@ -55,35 +70,35 @@ const EditSourceModal = ({
       onRequestClose={closeModal}
       style={customModalStyles}
     >
-      <div className="modal">
-        <div className="close-modal">
+      <ModalContent>
+        <CloseModalButtonContainer>
           <span onClick={closeModal} role="button">
             <Close size="24" />
           </span>
-        </div>
-        <form
-          className="add-edit-modal"
+        </CloseModalButtonContainer>
+
+        <Form
           onSubmit={async (event) => {
             event.preventDefault();
             await editVideoSource({ id: videoSource.id, status, title, url });
             closeModal();
           }}
         >
-          <div className="title-input">
-            <input
+          <div>
+            <TitleInput
               onChange={(event) => setTitle(event.target.value)}
               placeholder="Title"
               value={title}
             />
           </div>
-          <div className="url-input">
-            <textarea
+          <div>
+            <UrlInput
               onChange={(event) => setUrl(event.target.value)}
               placeholder="URL"
               value={url}
             />
           </div>
-          <div className="status-radio">
+          <StatusRadio>
             <input
               type="radio"
               id="on"
@@ -104,12 +119,13 @@ const EditSourceModal = ({
               }}
             />
             <label htmlFor="off">Off</label>
-          </div>
-          <div className="add-update-button">
+          </StatusRadio>
+
+          <AddUpdateButton>
             <button type="submit">Update</button>
-          </div>
-        </form>
-      </div>
+          </AddUpdateButton>
+        </Form>
+      </ModalContent>
     </Modal>
   );
 };
