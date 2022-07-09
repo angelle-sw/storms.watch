@@ -115,10 +115,12 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 ## Acknowledgments
 
-- mr. Min
+- mr. min
 - charlie
 - f off
 - pigs
+- cinamon toast cruch
+- great american cookie company
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
