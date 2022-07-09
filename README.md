@@ -19,7 +19,7 @@
 
 ## About The Project
 
-storms.watch is the premier location to watch hurricane streams and stay up to date on all the latest tropical storms. Storm streams are hand-picked while we are in storm mode (an active storm is in the gulf) for your viewing, along with a feed from /r/TropicalWeather/, and tropical weather Twitter.
+storms.watch is the premier location to watch hurricane streams and stay up to date on all the latest tropical storms. Storm streams are hand-picked while we are in storm mode (an active storm is in the gulf) for your viewing, along with a feed from /r/TropicalWeather, and tropical weather Twitter.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
