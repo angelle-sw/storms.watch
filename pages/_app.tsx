@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { QueryClient, QueryClientProvider } from "react-query";
 import GlobalStyle from "../components/GlobalStyle";
 import Header from "../components/Header";
+import NavBar from "../components/NavBar";
 
 type IDebugContext = {
   debugFlags: {
@@ -46,6 +47,10 @@ const App = ({ Component, pageProps }: AppProps) => {
         <DebugContext.Provider value={{ debugFlags, setDebugFlags }}>
           <GlobalStyle />
           <Container>
+            <NavBar
+              adminPassphrase={pageProps.adminPassphrase}
+              stormModeStatus={pageProps.stormModeStatus}
+            />
             <Header />
 
             <Component {...pageProps} />

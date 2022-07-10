@@ -4,11 +4,7 @@ import { FaHome } from "react-icons/fa";
 import useDebugFlags from "../hooks/useDebugFlags";
 
 const Container = styled.span`
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding-top: 14px;
-  padding-right: 14px;
+  padding: 15px;
   transition: fill 0.25s;
   color: #ffffff60;
 

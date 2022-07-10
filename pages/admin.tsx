@@ -5,7 +5,6 @@ import { FaRegSave as Save, FaUndo as Reset } from "react-icons/fa";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { isEqual } from "lodash";
-import HomeIcon from "../components/HomeIcon";
 import VideoSources from "../components/VideoSources";
 import useVideoSources from "../hooks/useVideoSources";
 import useUpdateVideoSources from "../hooks/useUpdateVideoSources";
@@ -91,7 +90,6 @@ const AdminDashboard = ({ isAdmin, videoSources }: Props) => {
       </Head>
 
       <Container>
-        <HomeIcon />
         <DndProvider backend={HTML5Backend}>
           <OrderControls>
             <ActionButton onClick={() => saveOrder()} role="button">
