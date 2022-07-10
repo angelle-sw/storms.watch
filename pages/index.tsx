@@ -23,7 +23,7 @@ const Content = styled.div`
 
 const Home = ({ adminPassphrase, stormModeStatus, videoSources }: Props) => {
   const { data: adminData } = useAdmin(adminPassphrase);
-  const { data: stormModeStatusData } = useStormModeStatus(adminPassphrase, {
+  const { data: stormModeStatusData } = useStormModeStatus({
     initialData: { stormModeStatus },
   });
 

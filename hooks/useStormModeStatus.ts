@@ -7,18 +7,11 @@ type InitialData = {
   };
 };
 
-const useStormModeStatus = (
-  adminPassphrase: string,
-  { initialData }: InitialData
-) => {
+const useStormModeStatus = ({ initialData }: InitialData) => {
   const query = useQuery(
     "getStormModeStatus",
     async () => {
-      const response = await axios.get("/api/getStormModeStatus", {
-        headers: {
-          "admin-passphrase": adminPassphrase,
-        },
-      });
+      const response = await axios.get("/api/getStormModeStatus");
       return response.data;
     },
     { initialData: initialData.stormModeStatus }
