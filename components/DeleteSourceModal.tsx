@@ -5,13 +5,7 @@ import { IoMdClose as Close } from "react-icons/io";
 import { truncateSource } from "./VideoSource";
 import SourceCardTitle from "./SourceCardTitle";
 import SourceCardUrl from "./SourceCardUrl";
-
-type IVideoSource = {
-  id: string;
-  status: boolean;
-  title: string;
-  url: string;
-};
+import { IVideoSource } from "../types";
 
 type Props = {
   closeModal: () => void;

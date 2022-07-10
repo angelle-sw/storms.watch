@@ -6,13 +6,7 @@ import TitleInput from "./TitleInput";
 import UrlInput from "./UrlInput";
 import StatusRadio from "./StatusRadio";
 import AddUpdateButton from "./AddUpdateButton";
-
-type IVideoSource = {
-  id: string;
-  status: boolean;
-  title: string;
-  url: string;
-};
+import { IVideoSource } from "../types";
 
 type Props = {
   closeModal: () => void;

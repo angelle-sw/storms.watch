@@ -1,22 +1,23 @@
 import { useQuery } from "react-query";
 import axios from "axios";
-import { v4 as uuid } from "uuid";
+import { IVideoSource } from "../types";
 
-type VideoSource = {
-  title: string;
-  url: string;
+type InitialData = {
+  initialData: {
+    videoSources: IVideoSource[];
+  };
 };
 
-const useVideoSources = () => {
-  const query = useQuery("getVideoSources", async () => {
-    const response = await axios.get("/api/getVideoSources");
+const useVideoSources = ({ initialData }: InitialData) => {
+  const query = useQuery(
+    "getVideoSources",
+    async () => {
+      const { data: videoSources } = await axios.get("/api/getVideoSources");
 
-    const sourcesWithIds = response.data.map((source: VideoSource) => ({
-      ...source,
-      id: uuid(),
-    }));
-    return sourcesWithIds;
-  });
+      return videoSources;
+    },
+    { initialData: initialData.videoSources }
+  );
 
   return query;
 };

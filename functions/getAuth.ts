@@ -9,7 +9,9 @@ type Response = {
 const { ADMIN_PASSPHRASE } = process.env;
 
 const handler: Handler = async (event): Promise<Response> => {
-  if (event.httpMethod !== "GET") {
+  const { headers, httpMethod } = event;
+
+  if (httpMethod !== "GET") {
     return {
       statusCode: 405,
       body: "Method not allowed. Use GET.",
@@ -17,11 +19,9 @@ const handler: Handler = async (event): Promise<Response> => {
   }
 
   try {
-    const { token } = event.headers;
-
     return {
       statusCode: 200,
-      body: JSON.stringify(token === ADMIN_PASSPHRASE),
+      body: JSON.stringify(headers["admin-passphrase"] === ADMIN_PASSPHRASE),
     };
   } catch (error) {
     console.log(error);
@@ -29,8 +29,7 @@ const handler: Handler = async (event): Promise<Response> => {
     return {
       statusCode: 500,
       body: JSON.stringify({
-        // @ts-expect-error
-        error: error?.message,
+        error: error instanceof Error && error.message,
       }),
     };
   }

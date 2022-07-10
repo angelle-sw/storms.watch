@@ -1,17 +1,12 @@
 import { useMutation } from "react-query";
 import axios from "axios";
+import { IVideoSource } from "../types";
 
-type VideoSource = {
-  title: string;
-  url: string;
-};
-
-const useUpdateVideoSources = () => {
-  const query = useMutation((sources: VideoSource[]) => {
-    const storedPassphrase = localStorage?.getItem("dashboard-passphrase");
+const useUpdateVideoSources = (adminPassphrase: string) => {
+  const query = useMutation((sources: IVideoSource[]) => {
     const response = axios.post("/api/postVideoSources", sources, {
       headers: {
-        token: storedPassphrase,
+        "admin-passphrase": adminPassphrase,
       },
     });
 

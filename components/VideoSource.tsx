@@ -6,13 +6,7 @@ import EditSourceModal from "./EditSourceModal";
 import DeleteSourceModal from "./DeleteSourceModal";
 import SourceCardTitle from "./SourceCardTitle";
 import SourceCardUrl from "./SourceCardUrl";
-
-type IVideoSource = {
-  id: string;
-  status: boolean;
-  title: string;
-  url: string;
-};
+import { IVideoSource } from "../types";
 
 type DragItem = {
   index: number;

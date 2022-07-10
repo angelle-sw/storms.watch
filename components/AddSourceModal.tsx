@@ -8,13 +8,7 @@ import UrlInput from "./UrlInput";
 import StatusRadio from "./StatusRadio";
 import AddUpdateButton from "./AddUpdateButton";
 import { v4 as uuid } from "uuid";
-
-type IVideoSource = {
-  id: string;
-  status: boolean;
-  title: string;
-  url: string;
-};
+import { IVideoSource } from "../types";
 
 type Props = {
   addVideoSource: (source: IVideoSource) => void;
