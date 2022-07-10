@@ -63,7 +63,7 @@ const RefreshButton = styled.div<{ $isVisible: boolean }>`
   align-items: center;
   justify-content: center;
   top: 0;
-  left: calc(50% - 52px);
+  left: calc(50% - 68px);
   margin-top: ${({ $isVisible }) => ($isVisible ? "60px" : "40px")};
   padding: ${({ $isVisible }) => ($isVisible ? "12px 30px" : 0)};
   width: ${({ $isVisible }) => ($isVisible ? "auto" : 0)};
