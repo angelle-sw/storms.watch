@@ -19,6 +19,7 @@
 .DS_Store
 *.pem
 .netlify
+built-functions
 
 
 # debug
