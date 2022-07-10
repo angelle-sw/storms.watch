@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { QueryClient, QueryClientProvider } from "react-query";
 import GlobalStyle from "../components/GlobalStyle";
 import Header from "../components/Header";
+import axios from "axios";
 
 const queryClient = new QueryClient();
 
@@ -37,5 +38,23 @@ const App = ({ Component, pageProps }: AppProps) => (
     </QueryClientProvider>
   </React.StrictMode>
 );
+
+App.getInitialProps = async ({ ctx }: any) => {
+  const adminPassphrase = ctx.req?.cookies.adminPassphrase;
+
+  const { API_URL } = process.env;
+
+  const { data: videoSources } = await axios.get(
+    `${API_URL}/api/getVideoSources`
+  );
+
+  const { data: stormModeStatus } = await axios.get(
+    `${API_URL}/api/getStormModeStatus`
+  );
+
+  return {
+    pageProps: { adminPassphrase, stormModeStatus, videoSources },
+  };
+};
 
 export default App;

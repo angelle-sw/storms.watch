@@ -1,9 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
 import Head from "next/head";
-import { parse } from "cookie";
-import { NextPageContext } from "next/types";
-import axios from "axios";
 import SocialFeedDrawer from "../components/SocialFeedDrawer";
 import SocialFeedNavMobile from "../components/SocialFeedNavMobile";
 import StreamGrid from "../components/StreamGrid";
@@ -83,29 +80,5 @@ const Home = ({ adminPassphrase, stormModeStatus, videoSources }: Props) => {
     </>
   );
 };
-
-export async function getServerSideProps(context: NextPageContext) {
-  const cookies = parse(context.req?.headers.cookie || "");
-
-  const adminPassphrase = cookies.adminPassphrase || "";
-
-  const { API_URL } = process.env;
-
-  const { data: videoSources } = await axios.get(
-    `${API_URL}/api/getVideoSources`
-  );
-
-  const { data: stormModeStatus } = await axios.get(
-    `${API_URL}/api/getStormModeStatus`
-  );
-
-  return {
-    props: {
-      adminPassphrase,
-      stormModeStatus,
-      videoSources,
-    },
-  };
-}
 
 export default Home;

@@ -5,15 +5,12 @@ import { FaRegSave as Save, FaUndo as Reset } from "react-icons/fa";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { isEqual } from "lodash";
-import { NextPageContext } from "next/types";
-import { parse } from "cookie";
 import HomeIcon from "../components/HomeIcon";
 import VideoSources from "../components/VideoSources";
 import useVideoSources from "../hooks/useVideoSources";
 import useUpdateVideoSources from "../hooks/useUpdateVideoSources";
 import useAdmin from "../hooks/useAdmin";
 import { useRouter } from "next/router";
-import axios from "axios";
 import { IVideoSource } from "../types";
 
 const Container = styled.div`
@@ -121,21 +118,5 @@ const AdminDashboard = ({ adminPassphrase, videoSources }: Props) => {
     </>
   );
 };
-
-export async function getServerSideProps(context: NextPageContext) {
-  const cookies = parse(context.req?.headers.cookie || "");
-
-  const adminPassphrase = cookies.adminPassphrase || "";
-
-  const { API_URL } = process.env;
-
-  const { data: videoSources } = await axios.get(
-    `${API_URL}/api/getVideoSources`
-  );
-
-  return {
-    props: { adminPassphrase, videoSources },
-  };
-}
 
 export default AdminDashboard;
