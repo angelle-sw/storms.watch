@@ -60,7 +60,7 @@ To get a local copy up and running follow these simple example steps.
 
    ```sh
    MONGO_DB_URI=LoremIpsum
-   REACT_APP_DASHBOARD_PASSPHRASE=LoremIpsum
+   ADMIN_PASSPHRASE=LoremIpsum
    ```
 
 4. Set an item in the local storage of your browser
