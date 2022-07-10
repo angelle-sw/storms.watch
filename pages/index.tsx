@@ -9,7 +9,6 @@ import SocialFeedDrawer from "../components/SocialFeedDrawer";
 import SocialFeedNavMobile from "../components/SocialFeedNavMobile";
 import StreamGrid from "../components/StreamGrid";
 import DashboardIcon from "../components/DashboardIcon";
-import OutOfStormMode from "../components/OutOfStormMode";
 import useVideoSources from "../hooks/useVideoSources";
 import useAdmin from "../hooks/useAdmin";
 
@@ -35,18 +34,6 @@ const Home = () => {
   const [activeSocialFeed, setActiveSocialFeed] = useState<
     "reddit" | "twitter"
   >("reddit");
-
-  if (true) {
-    return (
-      <>
-        <Head>
-          <title>Storms.watch</title>
-        </Head>
-
-        <OutOfStormMode />
-      </>
-    );
-  }
 
   return (
     <>
