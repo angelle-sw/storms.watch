@@ -7,7 +7,10 @@ type InitialData = {
   };
 };
 
-const useAdmin = (adminPassphrase: string, { initialData }: InitialData) => {
+const useStormModeStatus = (
+  adminPassphrase: string,
+  { initialData }: InitialData
+) => {
   const query = useQuery(
     "getStormModeStatus",
     async () => {
@@ -24,4 +27,4 @@ const useAdmin = (adminPassphrase: string, { initialData }: InitialData) => {
   return query;
 };
 
-export default useAdmin;
+export default useStormModeStatus;

@@ -77,6 +77,8 @@ const Home = ({ adminPassphrase, stormModeStatus, videoSources }: Props) => {
         <title>Storms.watch</title>
       </Head>
 
+      {adminData && <AdminDashboardIcon />}
+
       <OutOfStormMode />
     </>
   );
