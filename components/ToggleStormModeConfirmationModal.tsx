@@ -1,16 +1,16 @@
-import { useEffect, useState } from "react";
-import styled from "styled-components";
-import Modal from "react-modal";
+import { useEffect } from "react";
 import { IoMdClose as Close } from "react-icons/io";
-import ModalContent from "./ModalContent";
+import Modal from "react-modal";
+import { UseMutateFunction } from "react-query";
+import styled from "styled-components";
 import useToggleStormModeStatus from "../hooks/useToggleStormModeStatus";
+import ModalContent from "./ModalContent";
 
 type Props = {
   closeModal: () => void;
   modalOpen: boolean;
+  setStatus: UseMutateFunction;
   status: boolean;
-  adminPassphrase: string;
-  setStatus: (stormModeStatus: boolean) => void;
 };
 
 const CloseModalButtonContainer = styled.div`
@@ -79,16 +79,9 @@ const Container = styled.span`
 const ToggleStormModeConfirmationModal = ({
   closeModal,
   modalOpen,
-  adminPassphrase,
   status,
   setStatus,
 }: Props) => {
-  const { mutate, data } = useToggleStormModeStatus(adminPassphrase);
-
-  useEffect(() => {
-    setStatus(data);
-  }, [data, setStatus]);
-
   return (
     <Modal
       ariaHideApp={false}
@@ -110,7 +103,7 @@ const ToggleStormModeConfirmationModal = ({
         <Container
           role="button"
           onClick={() => {
-            mutate();
+            setStatus();
             closeModal();
           }}
         >

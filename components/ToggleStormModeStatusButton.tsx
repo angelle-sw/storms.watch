@@ -1,8 +1,6 @@
 import styled from "styled-components";
-import { useState, useEffect } from "react";
 
 type Props = {
-  adminPassphrase: string;
   openModal: () => void;
   status: boolean;
 };
@@ -35,11 +33,7 @@ const Container = styled.span`
   }
 `;
 
-const ToggleStormModeStatus = ({
-  adminPassphrase,
-  openModal,
-  status,
-}: Props) => {
+const ToggleStormModeStatus = ({ openModal, status }: Props) => {
   return (
     <Container role="button" onClick={() => openModal()}>
       <Button>{status ? "Exit Storm Mode" : "Enter Storm Mode"}</Button>

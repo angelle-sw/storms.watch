@@ -1,15 +1,14 @@
-import HomeIcon from "./HomeIcon";
-import ToggleStormModeStatusButton from "./ToggleStormModeStatusButton";
-import styled from "styled-components";
 import { useRouter } from "next/router";
-import AdminDashboardIcon from "./AdminDashboardIcon";
-import useAdmin from "../hooks/useAdmin";
-import ToggleStormModeConfirmationModal from "./ToggleStormModeConfirmationModal";
 import { useEffect, useState } from "react";
+import styled from "styled-components";
+import useAdmin from "../hooks/useAdmin";
 import useToggleStormModeStatus from "../hooks/useToggleStormModeStatus";
+import AdminDashboardIcon from "./AdminDashboardIcon";
+import HomeIcon from "./HomeIcon";
+import ToggleStormModeConfirmationModal from "./ToggleStormModeConfirmationModal";
+import ToggleStormModeStatusButton from "./ToggleStormModeStatusButton";
 
 type Props = {
-  stormModeStatus: boolean;
   adminPassphrase: string;
 };
 
@@ -21,14 +20,10 @@ const Container = styled.div`
   width: 100%;
 `;
 
-function NavBar({ stormModeStatus, adminPassphrase }: Props) {
+function NavBar({ adminPassphrase }: Props) {
   const [confirmationModalOpen, setConfirmationModalOpen] = useState(false);
-  const [status, setStatus] = useState(stormModeStatus);
-  const { data } = useToggleStormModeStatus(adminPassphrase);
-
-  useEffect(() => {
-    setStatus(data);
-  }, [data]);
+  const { data: status, mutate: setStatus } =
+    useToggleStormModeStatus(adminPassphrase);
 
   const openConfirmationModal = () => {
     setConfirmationModalOpen(true);
@@ -49,14 +44,12 @@ function NavBar({ stormModeStatus, adminPassphrase }: Props) {
     return (
       <Container>
         <ToggleStormModeStatusButton
-          adminPassphrase={adminPassphrase}
           openModal={openConfirmationModal}
           status={status}
         />
         <ToggleStormModeConfirmationModal
           closeModal={closeConfirmationModal}
           modalOpen={confirmationModalOpen}
-          adminPassphrase={adminPassphrase}
           status={status}
           setStatus={setStatus}
         />
