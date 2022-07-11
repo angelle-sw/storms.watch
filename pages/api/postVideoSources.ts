@@ -9,9 +9,9 @@ const { MONGO_DB_URI, ADMIN_PASSPHRASE } = process.env;
 const mongoDBClient = new MongoClient(MONGO_DB_URI as string);
 
 const collectionEnv =
-  process.env.NODE_ENV === "development"
-    ? "video-sources-test"
-    : "video-sources";
+  process.env.ENVIRONMENT === "production"
+    ? "video-sources"
+    : "video-sources-test";
 
 const insertVideoSources = async (
   videoSources: IVideoSource[]

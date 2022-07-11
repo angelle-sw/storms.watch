@@ -8,9 +8,9 @@ const { ADMIN_PASSPHRASE, MONGO_DB_URI } = process.env;
 const mongoDBClient = new MongoClient(MONGO_DB_URI as string);
 
 const stormModeStatusEnv =
-  process.env.NODE_ENV === "development"
-    ? "storm-mode-status-test"
-    : "storm-mode-status";
+  process.env.ENVIRONMENT === "production"
+    ? "storm-mode-status"
+    : "storm-mode-status-test";
 
 const getStormModeStatus = async (): Promise<boolean> => {
   await mongoDBClient.connect();

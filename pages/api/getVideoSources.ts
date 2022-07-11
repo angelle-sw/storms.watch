@@ -10,9 +10,9 @@ export const getVideoSources = async (): Promise<IVideoSource[]> => {
   const mongoDBClient = new MongoClient(MONGO_DB_URI || "");
 
   const collectionEnv =
-    process.env.NODE_ENV === "development"
-      ? "video-sources-test"
-      : "video-sources";
+    process.env.ENVIRONMENT === "production"
+      ? "video-sources"
+      : "video-sources-test";
 
   await mongoDBClient.connect();
 

@@ -45,3 +45,4 @@ jobs:
           ADMIN_PASSPHRASE: ${{ secrets.ADMIN_PASSPHRASE }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN  }}
           NETLIFY_SITE_ID: ${{ secrets.STORMS_WATCH_PROD_NETLIFY_SITE_ID }}
+          ENVIRONMENT: production
