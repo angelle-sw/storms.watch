@@ -1,5 +1,5 @@
 [build]
-  command = "yarn build"
+  command = "yarn export"
   functions = "built-functions"
   publish = ".next"
 
