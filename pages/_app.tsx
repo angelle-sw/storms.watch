@@ -2,6 +2,7 @@ import React from "react";
 import type { AppProps } from "next/app";
 import styled from "styled-components";
 import { QueryClient, QueryClientProvider } from "react-query";
+import cookies from "next-cookies";
 import GlobalStyle from "../components/GlobalStyle";
 import Header from "../components/Header";
 import axios from "axios";
@@ -40,7 +41,7 @@ const App = ({ Component, pageProps }: AppProps) => (
 );
 
 App.getInitialProps = async ({ ctx }: any) => {
-  const adminPassphrase = ctx.req?.cookies.adminPassphrase;
+  const { adminPassphrase } = cookies(ctx);
 
   const { API_URL } = process.env;
 
