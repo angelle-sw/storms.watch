@@ -1,23 +1,15 @@
 import { useQuery } from "react-query";
 import axios from "axios";
 
-const useAdmin = () => {
-  const query = useQuery(
-    "getAuth",
-    async () => {
-      const storedPassphrase = localStorage.getItem("dashboard-passphrase");
-      const response = await axios.get("/api/getAuth", {
-        headers: {
-          token: storedPassphrase,
-        },
-      });
-      return response.data;
-    },
-    {
-      enabled:
-        typeof window !== "undefined" && window.localStorage ? true : false,
-    }
-  );
+const useAdmin = (adminPassphrase: string) => {
+  const query = useQuery("getAuth", async () => {
+    const response = await axios.get("/api/getAuth", {
+      headers: {
+        "admin-passphrase": adminPassphrase,
+      },
+    });
+    return response.data;
+  });
 
   return query;
 };

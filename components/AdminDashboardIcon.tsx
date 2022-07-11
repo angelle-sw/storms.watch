@@ -17,7 +17,7 @@ const Container = styled.span`
   }
 `;
 
-const DashboardIcon = () => {
+const AdminDashboardIcon = () => {
   const router = useRouter();
 
   return (
@@ -27,4 +27,4 @@ const DashboardIcon = () => {
   );
 };
 
-export default DashboardIcon;
+export default AdminDashboardIcon;

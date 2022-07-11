@@ -14,6 +14,10 @@
           const style = document.createElement("style");
           style.innerHTML = `
             <style>
+              html {
+                word-break: break-word;
+              }
+
               *::-webkit-scrollbar {
                 width: 12px;
               }
@@ -75,7 +79,7 @@
               }
 
               .timeline-ShowMoreButton {
-                margin-top: 2em;
+                margin: 2em auto 0;
                 padding: 12px 30px;
                 width: auto;
                 background: #1a1b2f;

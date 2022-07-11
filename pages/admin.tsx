@@ -9,6 +9,9 @@ import HomeIcon from "../components/HomeIcon";
 import VideoSources from "../components/VideoSources";
 import useVideoSources from "../hooks/useVideoSources";
 import useUpdateVideoSources from "../hooks/useUpdateVideoSources";
+import useAdmin from "../hooks/useAdmin";
+import { useRouter } from "next/router";
+import { IVideoSource } from "../types";
 
 const Container = styled.div`
   margin-top: 32px;
@@ -39,21 +42,20 @@ const ActionButton = styled.span`
   }
 `;
 
-type IVideoSource = {
-  id: string;
-  status: boolean;
-  title: string;
-  url: string;
+type Props = {
+  adminPassphrase: string;
+  videoSources: IVideoSource[];
 };
 
-const Admin = () => {
-  const {
-    data: videoSourceData,
-    isLoading: videoSourceLoading,
-  } = useVideoSources();
+const AdminDashboard = ({ adminPassphrase, videoSources }: Props) => {
+  const { data: videoSourceData, isLoading: videoSourceLoading } =
+    useVideoSources({ initialData: { videoSources } });
 
-  const { mutate } = useUpdateVideoSources();
+  const { mutate } = useUpdateVideoSources(adminPassphrase);
   const [sources, setSources] = useState<IVideoSource[]>([]);
+  const { data: adminData, isLoading: adminDataisLoading } =
+    useAdmin(adminPassphrase);
+  const router = useRouter();
 
   useEffect(() => {
     if (videoSourceData) {
@@ -61,14 +63,16 @@ const Admin = () => {
     }
   }, [videoSourceData]);
 
-  const isOriginalOrder = useMemo(() => isEqual(videoSourceData, sources), [
-    sources,
-    videoSourceData,
-  ]);
+  useEffect(() => {
+    if (adminData === false) {
+      router.push("/");
+    }
+  }, [adminData, router]);
 
-  if (videoSourceLoading) {
-    return <div>Loading...</div>;
-  }
+  const isOriginalOrder = useMemo(
+    () => isEqual(videoSourceData, sources),
+    [sources, videoSourceData]
+  );
 
   const saveOrder = async () => {
     if (!isOriginalOrder) {
@@ -79,6 +83,10 @@ const Admin = () => {
   const resetOrder = async () => {
     setSources(videoSourceData);
   };
+
+  if (videoSourceLoading || adminDataisLoading || !adminData) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <>
@@ -99,7 +107,11 @@ const Admin = () => {
             </ActionButton>
           </OrderControls>
           <VideoSourcesContainer>
-            <VideoSources setVideoSources={setSources} videoSources={sources} />
+            <VideoSources
+              adminPassphrase={adminPassphrase}
+              setVideoSources={setSources}
+              videoSources={sources}
+            />
           </VideoSourcesContainer>
         </DndProvider>
       </Container>
@@ -107,4 +119,4 @@ const Admin = () => {
   );
 };
 
-export default Admin;
+export default AdminDashboard;

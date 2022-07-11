@@ -47,32 +47,33 @@ To get a local copy up and running follow these simple example steps.
 1. Clone the repo
 
    ```sh
-   git clone https://github.com/angelle-sw/storms.watch.git
+   $ git clone https://github.com/angelle-sw/storms.watch.git
    ```
 
 2. Install packages
 
    ```sh
-   yarn install
+   $ yarn install
    ```
 
 3. Enter environment variables in `.env`
 
    ```sh
-   MONGO_DB_URI=LoremIpsum
-   ADMIN_PASSPHRASE=LoremIpsum
+   MONGO_DB_URI=<mongo-db-uri>
+   ADMIN_PASSPHRASE=<admin-passphrase>
+   API_URL=http://localhost:8888
    ```
 
-4. Set an item in the local storage of your browser
+4. Set an item in the cookies of the site
 
    ```sh
-    localStorage.setItem('dashboard-passphrase', 'loremIpsum');
+   document.cookie="adminPassphrase=<admin-passphrase>"
    ```
 
 5. Run a local development environment
 
    ```sh
-    netlify dev
+   $ netlify dev
    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -81,11 +82,13 @@ To get a local copy up and running follow these simple example steps.
 
 ## API Spec
 
-| Type   | Endpoint                | Body                                | Headers              | Response                            |
-| ------ | ----------------------- | ----------------------------------- | -------------------- | ----------------------------------- |
-| `POST` | `/api/postVideoSources` | `{ title: string; url: string; }[]` | `{ token: string; }` | `{ title: string; url: string; }[]` |
-| `GET`  | `/api/getVideoSources`  | --                                  | --                   | `{ title: string; url: string; }[]` |
-| `GET`  | `/api/getAuth`          | --                                  | `{ token: string; }` | `boolean`                           |
+| Type   | Endpoint                     | Body                                                            | Headers                         | Response                                                         |
+| ------ | ---------------------------- | --------------------------------------------------------------- | ------------------------------- | ---------------------------------------------------------------- |
+| `POST` | `/api/postVideoSources`      | `{id: string; status: boolean; title: string; url: string; }[]` | `{ admin-passphrase: string; }` | `{ id: string; status: boolean; title: string; url: string; }[]` |
+| `POST` | `/api/toggleStormModeStatus` | --                                                              | `{ admin-passphrase: string; }` | `boolean`                                                        |
+| `GET`  | `/api/getStormModeStatus`    | --                                                              | `{ admin-passphrase: string; }` | `boolean`                                                        |
+| `GET`  | `/api/getVideoSources`       | --                                                              | --                              | `{ id: string; status: boolean; title: string; url: string; }[]` |
+| `GET`  | `/api/getAuth`               | --                                                              | `{ admin-passphrase: string; }` | `boolean`                                                        |
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 <!-- ROADMAP -->

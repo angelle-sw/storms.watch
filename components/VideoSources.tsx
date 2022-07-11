@@ -4,22 +4,21 @@ import useUpdateVideoSources from "../hooks/useUpdateVideoSources";
 import VideoSource from "./VideoSource";
 import NewSource from "./NewSource";
 import AddSourceModal from "./AddSourceModal";
-
-type IVideoSource = {
-  id: string;
-  status: boolean;
-  title: string;
-  url: string;
-};
+import { IVideoSource } from "../types";
 
 type Props = {
+  adminPassphrase: string;
   setVideoSources: (sources: IVideoSource[]) => void;
   videoSources: IVideoSource[];
 };
 
-const VideoSources = ({ setVideoSources, videoSources }: Props) => {
+const VideoSources = ({
+  adminPassphrase,
+  setVideoSources,
+  videoSources,
+}: Props) => {
   const [addModalOpen, setAddModalOpen] = useState(false);
-  const { mutate } = useUpdateVideoSources();
+  const { mutate } = useUpdateVideoSources(adminPassphrase);
 
   const editVideoSource = async (source: IVideoSource) => {
     const updatedSources = videoSources.map((card) => {

@@ -1,13 +1,7 @@
 import { Handler } from "@netlify/functions";
 import { MongoClient } from "mongodb";
+import { IVideoSource } from "../types";
 require("dotenv").config({ path: ".env" });
-
-type VideoSource = {
-  id: string;
-  status: boolean;
-  title: string;
-  url: string;
-};
 
 type Response = {
   body: string;
@@ -16,15 +10,15 @@ type Response = {
 
 const { MONGO_DB_URI, ADMIN_PASSPHRASE } = process.env;
 
-// @ts-expect-error
-const mongoDBClient = new MongoClient(MONGO_DB_URI);
+const mongoDBClient = new MongoClient(MONGO_DB_URI as string);
 
 const collectionEnv = process.env.NETLIFY_DEV
   ? "video-sources-test"
   : "video-sources";
 
-// @ts-expect-error
-const insertVideoSources = async (videoSources): Promise<VideoSource[]> => {
+const insertVideoSources = async (
+  videoSources: IVideoSource[]
+): Promise<IVideoSource[]> => {
   await mongoDBClient.connect();
   const database = mongoDBClient.db("storms-watch");
 
@@ -37,28 +31,29 @@ const insertVideoSources = async (videoSources): Promise<VideoSource[]> => {
   const result = (await collection
     .find({})
     .project({ _id: 0 })
-    .toArray()) as VideoSource[];
+    .toArray()) as IVideoSource[];
 
   return result;
 };
 
 const handler: Handler = async (event): Promise<Response> => {
-  if (event.httpMethod !== "POST") {
+  const { body, headers, httpMethod } = event;
+
+  if (httpMethod !== "POST") {
     return {
       statusCode: 405,
       body: "Method not allowed. Use POST.",
     };
   }
 
-  if (event.headers.token !== ADMIN_PASSPHRASE) {
+  if (headers["admin-passphrase"] !== ADMIN_PASSPHRASE) {
     return {
       statusCode: 401,
       body: "Unauthorized",
     };
   }
 
-  // @ts-expect-error
-  const videoSources = JSON.parse(event.body);
+  const videoSources = JSON.parse(body || "");
 
   try {
     const updatedVideoSources = await insertVideoSources(videoSources);
@@ -71,8 +66,7 @@ const handler: Handler = async (event): Promise<Response> => {
     return {
       statusCode: 500,
       body: JSON.stringify({
-        // @ts-expect-error
-        error: error?.message,
+        error: error instanceof Error && error.message,
       }),
     };
   }

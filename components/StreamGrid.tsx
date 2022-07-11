@@ -1,16 +1,11 @@
 import styled, { css } from "styled-components";
 import Stream from "./Stream";
 import useVideoSources from "../hooks/useVideoSources";
+import { IVideoSource } from "../types";
 
 interface Props {
   socialFeedIsOpen: boolean;
-}
-
-interface IVideoSource {
-  id: string;
-  status: boolean;
-  title: string;
-  url: string;
+  videoSources: IVideoSource[];
 }
 
 const Container = styled.ul<{ socialFeedIsOpen: boolean }>`
@@ -43,8 +38,10 @@ const Container = styled.ul<{ socialFeedIsOpen: boolean }>`
   }
 `;
 
-const StreamGrid = ({ socialFeedIsOpen }: Props) => {
-  const { data: videoSourcesData, isLoading } = useVideoSources();
+const StreamGrid = ({ socialFeedIsOpen, videoSources }: Props) => {
+  const { data: videoSourcesData, isLoading } = useVideoSources({
+    initialData: { videoSources },
+  });
 
   return (
     <Container socialFeedIsOpen={socialFeedIsOpen}>
