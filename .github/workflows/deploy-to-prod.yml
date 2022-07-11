@@ -1,4 +1,4 @@
-name: "Storms.watch Prod"
+name: "Deploy to Prod"
 on:
   push:
     tags:

@@ -1,4 +1,4 @@
-name: "Storms.watch Staging"
+name: "Deploy to Staging"
 on:
   push:
     branches:

@@ -1,4 +1,4 @@
-name: "Storms.watch Pull Request"
+name: "Deploy Pull Request"
 on: [pull_request]
 
 jobs:
