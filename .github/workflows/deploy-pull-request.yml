@@ -36,7 +36,7 @@ jobs:
         id: deploy
         run: yarn deploy:netlify
           --alias=pr-${{ github.event.pull_request.number }}
-          --message=${{ github.event.pull_request.title }}
+          --message="${{ github.event.pull_request.title }}"
         env:
           MONGO_DB_URI: ${{ secrets.MONGO_DB_URI }}
           ADMIN_PASSPHRASE: ${{ secrets.ADMIN_PASSPHRASE }}

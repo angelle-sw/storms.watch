@@ -39,7 +39,7 @@ jobs:
         id: deploy
         run: yarn deploy:netlify
           --prod
-          --message=${{ github.event.head_commit.message }}
+          --message="${{ github.event.head_commit.message }}"
         env:
           MONGO_DB_URI: ${{ secrets.MONGO_DB_URI }}
           ADMIN_PASSPHRASE: ${{ secrets.ADMIN_PASSPHRASE }}
