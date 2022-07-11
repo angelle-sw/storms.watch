@@ -47,13 +47,13 @@ To get a local copy up and running follow these simple example steps.
 1. Clone the repo
 
    ```sh
-   git clone https://github.com/angelle-sw/storms.watch.git
+   $ git clone https://github.com/angelle-sw/storms.watch.git
    ```
 
 2. Install packages
 
    ```sh
-   yarn install
+   $ yarn install
    ```
 
 3. Enter environment variables in `.env`
@@ -67,13 +67,13 @@ To get a local copy up and running follow these simple example steps.
 4. Set an item in the cookies of the site
 
    ```sh
-    document.cookie="adminPassphrase=<admin-passphrase>"
+   document.cookie="adminPassphrase=<admin-passphrase>"
    ```
 
 5. Run a local development environment
 
    ```sh
-    netlify dev
+   $ netlify dev
    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
