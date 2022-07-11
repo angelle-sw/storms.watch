@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
-import useAdmin from "../hooks/useAdmin";
+import useStormModeStatus from "../hooks/useStormModeStatus";
 import useToggleStormModeStatus from "../hooks/useToggleStormModeStatus";
 import AdminDashboardIcon from "./AdminDashboardIcon";
 import HomeIcon from "./HomeIcon";
@@ -9,7 +9,8 @@ import ToggleStormModeConfirmationModal from "./ToggleStormModeConfirmationModal
 import ToggleStormModeStatusButton from "./ToggleStormModeStatusButton";
 
 type Props = {
-  adminPassphrase: string;
+  isAdmin: boolean;
+  stormModeStatus: boolean;
 };
 
 const Container = styled.div`
@@ -20,10 +21,24 @@ const Container = styled.div`
   width: 100%;
 `;
 
-function NavBar({ adminPassphrase }: Props) {
+function NavBar({ isAdmin, stormModeStatus }: Props) {
   const [confirmationModalOpen, setConfirmationModalOpen] = useState(false);
-  const { data: status, mutate: setStatus } =
-    useToggleStormModeStatus(adminPassphrase);
+  const {
+    data: toggleStormModeStatusData,
+    isLoading: toggleStormModeStatusLoading,
+    isSuccess: toggleStormModeStatusSuccess,
+    mutate: mutateToggleStormModeStatus,
+  } = useToggleStormModeStatus();
+  const { data: stormModeStatusData, refetch: refetchStormModeStatus } =
+    useStormModeStatus({
+      initialData: { stormModeStatus },
+    });
+
+  useEffect(() => {
+    if (toggleStormModeStatusSuccess) {
+      refetchStormModeStatus();
+    }
+  }, [toggleStormModeStatusSuccess, refetchStormModeStatus]);
 
   const openConfirmationModal = () => {
     setConfirmationModalOpen(true);
@@ -34,28 +49,29 @@ function NavBar({ adminPassphrase }: Props) {
   };
 
   const router = useRouter();
-  const { data: adminData } = useAdmin(adminPassphrase);
 
-  if (router.pathname === "/") {
-    return adminData && <AdminDashboardIcon />;
-  }
-
-  if (router.pathname === "/admin") {
+  if (router.pathname === "/" && isAdmin) {
+    return <AdminDashboardIcon />;
+  } else if (router.pathname === "/admin") {
     return (
       <Container>
         <ToggleStormModeStatusButton
           openModal={openConfirmationModal}
-          status={status}
+          status={stormModeStatusData}
+          loading={toggleStormModeStatusLoading}
+          toggleStormModeStatusData={toggleStormModeStatusData}
         />
         <ToggleStormModeConfirmationModal
           closeModal={closeConfirmationModal}
           modalOpen={confirmationModalOpen}
-          status={status}
-          setStatus={setStatus}
+          status={stormModeStatusData}
+          setStatus={mutateToggleStormModeStatus}
         />
         <HomeIcon />
       </Container>
     );
+  } else {
+    return null;
   }
 }
 

@@ -1,7 +1,11 @@
 import { useMutation } from "react-query";
 import axios from "axios";
+import { parse } from "cookie";
 
-const useToggleStormModeStatus = (adminPassphrase: string) => {
+const useToggleStormModeStatus = () => {
+  const adminPassphrase =
+    (typeof document === "object" && parse(document.cookie)?.adminPassphrase) ||
+    "";
   const query = useMutation(async () => {
     const response = await axios.post(
       "/api/toggleStormModeStatus",

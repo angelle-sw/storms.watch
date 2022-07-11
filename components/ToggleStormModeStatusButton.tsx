@@ -1,8 +1,11 @@
+import { useMemo } from "react";
 import styled from "styled-components";
 
 type Props = {
+  loading: boolean;
   openModal: () => void;
   status: boolean;
+  toggleStormModeStatusData: boolean;
 };
 
 const Button = styled.button`
@@ -33,10 +36,32 @@ const Container = styled.span`
   }
 `;
 
-const ToggleStormModeStatus = ({ openModal, status }: Props) => {
+const ToggleStormModeStatus = ({
+  loading,
+  openModal,
+  status,
+  toggleStormModeStatusData,
+}: Props) => {
+  console.log({ toggleStormModeStatusData });
+  const buttonLabel = useMemo(() => {
+    if (loading && (toggleStormModeStatusData || status)) {
+      return "Exiting Storm Mode...";
+    }
+    if (loading && (!toggleStormModeStatusData || !status)) {
+      return "Entering Storm Mode...";
+    }
+    if (toggleStormModeStatusData) {
+      return "Exit Storm Mode";
+    }
+    if (!toggleStormModeStatusData) {
+      return "Enter Storm Mode";
+    } else {
+      return "";
+    }
+  }, [loading, toggleStormModeStatusData, status]);
   return (
     <Container role="button" onClick={() => openModal()}>
-      <Button>{status ? "Exit Storm Mode" : "Enter Storm Mode"}</Button>
+      <Button>{buttonLabel}</Button>
     </Container>
   );
 };
