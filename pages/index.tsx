@@ -11,7 +11,6 @@ import useStormModeStatus from "../hooks/useStormModeStatus";
 import { IVideoSource } from "../types";
 
 type Props = {
-  adminPassphrase: string;
   stormModeStatus: boolean;
   videoSources: IVideoSource[];
 };
@@ -21,8 +20,8 @@ const Content = styled.div`
   width: 100%;
 `;
 
-const Home = ({ adminPassphrase, stormModeStatus, videoSources }: Props) => {
-  const { data: adminData } = useAdmin(adminPassphrase);
+const Home = ({ stormModeStatus, videoSources }: Props) => {
+  const { data: adminData } = useAdmin();
   const { data: stormModeStatusData } = useStormModeStatus({
     initialData: { stormModeStatus },
   });

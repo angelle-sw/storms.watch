@@ -10,8 +10,9 @@ import VideoSources from "../components/VideoSources";
 import useVideoSources from "../hooks/useVideoSources";
 import useUpdateVideoSources from "../hooks/useUpdateVideoSources";
 import useAdmin from "../hooks/useAdmin";
-import { useRouter } from "next/router";
 import { IVideoSource } from "../types";
+import cookies from "next-cookies";
+import axios from "axios";
 
 const Container = styled.div`
   margin-top: 32px;
@@ -43,31 +44,15 @@ const ActionButton = styled.span`
 `;
 
 type Props = {
-  adminPassphrase: string;
   videoSources: IVideoSource[];
 };
 
-const AdminDashboard = ({ adminPassphrase, videoSources }: Props) => {
-  const { data: videoSourceData, isLoading: videoSourceLoading } =
+const AdminDashboard = ({ videoSources }: Props) => {
+  const { data: videoSourceData, isFetching: videoSourceisFetching } =
     useVideoSources({ initialData: { videoSources } });
 
-  const { mutate } = useUpdateVideoSources(adminPassphrase);
-  const [sources, setSources] = useState<IVideoSource[]>([]);
-  const { data: adminData, isLoading: adminDataisLoading } =
-    useAdmin(adminPassphrase);
-  const router = useRouter();
-
-  useEffect(() => {
-    if (videoSourceData) {
-      setSources(videoSourceData);
-    }
-  }, [videoSourceData]);
-
-  useEffect(() => {
-    if (adminData === false) {
-      router.push("/");
-    }
-  }, [adminData, router]);
+  const { mutate } = useUpdateVideoSources();
+  const [sources, setSources] = useState<IVideoSource[]>(videoSources);
 
   const isOriginalOrder = useMemo(
     () => isEqual(videoSourceData, sources),
@@ -81,10 +66,10 @@ const AdminDashboard = ({ adminPassphrase, videoSources }: Props) => {
   };
 
   const resetOrder = async () => {
-    setSources(videoSourceData);
+    setSources(videoSources);
   };
 
-  if (videoSourceLoading || adminDataisLoading || !adminData) {
+  if (videoSourceisFetching) {
     return <div>Loading...</div>;
   }
 
@@ -107,16 +92,38 @@ const AdminDashboard = ({ adminPassphrase, videoSources }: Props) => {
             </ActionButton>
           </OrderControls>
           <VideoSourcesContainer>
-            <VideoSources
-              adminPassphrase={adminPassphrase}
-              setVideoSources={setSources}
-              videoSources={sources}
-            />
+            <VideoSources setVideoSources={setSources} videoSources={sources} />
           </VideoSourcesContainer>
         </DndProvider>
       </Container>
     </>
   );
 };
+
+export async function getServerSideProps(context: any) {
+  const { adminPassphrase } = cookies(context);
+
+  const { API_URL } = process.env;
+
+  if (adminPassphrase) {
+    const { data: isAdmin } = await axios.get(`${API_URL}/api/getAuth`, {
+      headers: {
+        "admin-passphrase": adminPassphrase,
+      },
+    });
+
+    if (isAdmin) {
+      return {
+        props: {},
+      };
+    }
+  }
+
+  return {
+    redirect: {
+      destination: "/",
+    },
+  };
+}
 
 export default AdminDashboard;

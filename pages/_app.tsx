@@ -45,6 +45,18 @@ App.getInitialProps = async ({ ctx }: any) => {
 
   const { API_URL } = process.env;
 
+  let isAdmin;
+
+  if (adminPassphrase) {
+    const { data } = await axios.get(`${API_URL}/api/getAuth`, {
+      headers: {
+        "admin-passphrase": adminPassphrase,
+      },
+    });
+
+    isAdmin = data;
+  }
+
   const { data: videoSources } = await axios.get(
     `${API_URL}/api/getVideoSources`
   );
@@ -54,7 +66,7 @@ App.getInitialProps = async ({ ctx }: any) => {
   );
 
   return {
-    pageProps: { adminPassphrase, stormModeStatus, videoSources },
+    pageProps: { isAdmin, stormModeStatus, videoSources },
   };
 };
 

@@ -12,6 +12,7 @@ const useStormModeStatus = ({ initialData }: InitialData) => {
     "getStormModeStatus",
     async () => {
       const response = await axios.get("/api/getStormModeStatus");
+
       return response.data;
     },
     { initialData: initialData.stormModeStatus }
