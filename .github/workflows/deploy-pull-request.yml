@@ -36,7 +36,7 @@ jobs:
         run: yarn lint
 
       - name: Build
-        run: yarn export
+        run: yarn build
         env:
           MONGO_DB_URI: ${{ secrets.MONGO_DB_URI }}
           ADMIN_PASSPHRASE: ${{ secrets.ADMIN_PASSPHRASE }}
