@@ -32,28 +32,22 @@ jobs:
           path: ${{ github.workspace }}/.next/cache
           key: ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}
 
-      - name: Lint
-        run: yarn lint
-
-      - name: Build
-        run: yarn export
+      - name: Deploy to Netlify
+        id: deploy
+        run: yarn deploy:netlify
+          --alias=pr-${{ github.event.pull_request.number }}
+          --message=${{ github.event.pull_request.title }}
         env:
           MONGO_DB_URI: ${{ secrets.MONGO_DB_URI }}
           ADMIN_PASSPHRASE: ${{ secrets.ADMIN_PASSPHRASE }}
-          API_URL: "https://storms.watch"
-
-      - name: Deploy To Netlify
-        uses: nwtgck/actions-netlify@v1.2.3
-        with:
-          alias: pr-${{ github.event.pull_request.number }}
-          deploy-message: ${{ github.event.commit.message }}
-          enable-pull-request-comment: true
-          functions-dir: ./built-functions
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          netlify-config-path: ./netlify.toml
-          publish-dir: ./.next
-        env:
-          ADMIN_PASSPHRASE: ${{ secrets.ADMIN_PASSPHRASE }}
-          MONGO_DB_URI: ${{ secrets.MONGO_DB_URI }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN  }}
           NETLIFY_SITE_ID: ${{ secrets.STORMS_WATCH_STAGING_NETLIFY_SITE_ID }}
+
+      - name: Comment on Pull Request
+        uses: thollander/actions-comment-pull-request@v1
+        with:
+          message: |
+            :rocket: Deployed on https://pr-${{ github.event.pull_request.number }}--staging-storms-watch.netlify.app
+          comment_includes: |
+            :rocket: Deployed on https://pr-${{ github.event.pull_request.number }}--staging-storms-watch.netlify.app
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -61,7 +61,6 @@ To get a local copy up and running follow these simple example steps.
    ```sh
    MONGO_DB_URI=<mongo-db-uri>
    ADMIN_PASSPHRASE=<admin-passphrase>
-   API_URL=http://localhost:8888
    ```
 
 4. Set an item in the cookies of the site
@@ -88,7 +87,7 @@ To get a local copy up and running follow these simple example steps.
 | `POST` | `/api/toggleStormModeStatus` | --                                                              | `{ admin-passphrase: string; }` | `boolean`                                                        |
 | `GET`  | `/api/getStormModeStatus`    | --                                                              | `{ admin-passphrase: string; }` | `boolean`                                                        |
 | `GET`  | `/api/getVideoSources`       | --                                                              | --                              | `{ id: string; status: boolean; title: string; url: string; }[]` |
-| `GET`  | `/api/getAuth`               | --                                                              | `{ admin-passphrase: string; }` | `boolean`                                                        |
+| `GET`  | `/api/getAdminStatus`        | --                                                              | `{ admin-passphrase: string; }` | `boolean`                                                        |
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 <!-- ROADMAP -->

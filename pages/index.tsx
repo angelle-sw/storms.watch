@@ -6,11 +6,16 @@ import SocialFeedNavMobile from "../components/SocialFeedNavMobile";
 import StreamGrid from "../components/StreamGrid";
 import AdminDashboardIcon from "../components/AdminDashboardIcon";
 import OutOfStormMode from "../components/OutOfStormMode";
-import useAdmin from "../hooks/useAdmin";
-import useStormModeStatus from "../hooks/useStormModeStatus";
 import { IVideoSource } from "../types";
+import cookies from "next-cookies";
+import { getStormModeStatus } from "./api/getStormModeStatus";
+import { getVideoSources } from "./api/getVideoSources";
+import { NextPageContext } from "next";
+import useStormModeStatus from "../hooks/useStormModeStatus";
+import useAdmin from "../hooks/useAdmin";
 
 type Props = {
+  isAdmin: boolean;
   stormModeStatus: boolean;
   videoSources: IVideoSource[];
 };
@@ -20,11 +25,12 @@ const Content = styled.div`
   width: 100%;
 `;
 
-const Home = ({ stormModeStatus, videoSources }: Props) => {
-  const { data: adminData } = useAdmin();
+const Home = ({ isAdmin, stormModeStatus, videoSources }: Props) => {
   const { data: stormModeStatusData } = useStormModeStatus({
     initialData: { stormModeStatus },
   });
+
+  const { data: isAdminData } = useAdmin({ initialData: { isAdmin } });
 
   const [socialFeedIsOpen, setSocialFeedIsOpen] = useState(
     typeof window !== "undefined" ? window.innerWidth >= 880 : true
@@ -40,7 +46,7 @@ const Home = ({ stormModeStatus, videoSources }: Props) => {
           <title>Storms.watch</title>
         </Head>
 
-        {adminData && <AdminDashboardIcon />}
+        {isAdminData && <AdminDashboardIcon />}
 
         <SocialFeedNavMobile
           isOpen={socialFeedIsOpen}
@@ -73,11 +79,25 @@ const Home = ({ stormModeStatus, videoSources }: Props) => {
         <title>Storms.watch</title>
       </Head>
 
-      {adminData && <AdminDashboardIcon />}
+      {isAdminData && <AdminDashboardIcon />}
 
       <OutOfStormMode />
     </>
   );
 };
+
+export async function getServerSideProps(context: NextPageContext) {
+  const { adminPassphrase } = cookies(context);
+
+  const isAdmin = adminPassphrase === process.env.ADMIN_PASSPHRASE;
+
+  const videoSources = await getVideoSources();
+
+  const stormModeStatus = await getStormModeStatus();
+
+  return {
+    props: { isAdmin, stormModeStatus, videoSources },
+  };
+}
 
 export default Home;

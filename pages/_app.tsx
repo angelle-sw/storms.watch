@@ -2,10 +2,8 @@ import React from "react";
 import type { AppProps } from "next/app";
 import styled from "styled-components";
 import { QueryClient, QueryClientProvider } from "react-query";
-import cookies from "next-cookies";
 import GlobalStyle from "../components/GlobalStyle";
 import Header from "../components/Header";
-import axios from "axios";
 
 const queryClient = new QueryClient();
 
@@ -39,35 +37,5 @@ const App = ({ Component, pageProps }: AppProps) => (
     </QueryClientProvider>
   </React.StrictMode>
 );
-
-App.getInitialProps = async ({ ctx }: any) => {
-  const { adminPassphrase } = cookies(ctx);
-
-  const { API_URL } = process.env;
-
-  let isAdmin;
-
-  if (adminPassphrase) {
-    const { data } = await axios.get(`${API_URL}/api/getAuth`, {
-      headers: {
-        "admin-passphrase": adminPassphrase,
-      },
-    });
-
-    isAdmin = data;
-  }
-
-  const { data: videoSources } = await axios.get(
-    `${API_URL}/api/getVideoSources`
-  );
-
-  const { data: stormModeStatus } = await axios.get(
-    `${API_URL}/api/getStormModeStatus`
-  );
-
-  return {
-    pageProps: { isAdmin, stormModeStatus, videoSources },
-  };
-};
 
 export default App;

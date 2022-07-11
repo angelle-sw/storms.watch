@@ -1,20 +1,17 @@
-import { Handler } from "@netlify/functions";
+import type { NextApiRequest, NextApiResponse } from "next";
 import { MongoClient } from "mongodb";
-import { IVideoSource } from "../types";
-require("dotenv").config({ path: ".env" });
+import { IVideoSource } from "../../types";
 
-type Response = {
-  body: string;
-  statusCode: number;
-};
+type Response = IVideoSource[] | string;
 
 const { MONGO_DB_URI, ADMIN_PASSPHRASE } = process.env;
 
 const mongoDBClient = new MongoClient(MONGO_DB_URI as string);
 
-const collectionEnv = process.env.NETLIFY_DEV
-  ? "video-sources-test"
-  : "video-sources";
+const collectionEnv =
+  process.env.NODE_ENV === "development"
+    ? "video-sources-test"
+    : "video-sources";
 
 const insertVideoSources = async (
   videoSources: IVideoSource[]
@@ -36,21 +33,18 @@ const insertVideoSources = async (
   return result;
 };
 
-const handler: Handler = async (event): Promise<Response> => {
-  const { body, headers, httpMethod } = event;
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse<Response>
+) {
+  const { body, headers, method } = req;
 
-  if (httpMethod !== "POST") {
-    return {
-      statusCode: 405,
-      body: "Method not allowed. Use POST.",
-    };
+  if (method !== "POST") {
+    res.status(405).send("Method not allowed. Use POST.");
   }
 
   if (headers["admin-passphrase"] !== ADMIN_PASSPHRASE) {
-    return {
-      statusCode: 401,
-      body: "Unauthorized",
-    };
+    res.status(401).send("Unauthorized");
   }
 
   const videoSources = JSON.parse(body || "");
@@ -58,18 +52,10 @@ const handler: Handler = async (event): Promise<Response> => {
   try {
     const updatedVideoSources = await insertVideoSources(videoSources);
 
-    return {
-      statusCode: 200,
-      body: JSON.stringify(updatedVideoSources),
-    };
+    res.status(200).json(updatedVideoSources);
   } catch (error) {
-    return {
-      statusCode: 500,
-      body: JSON.stringify({
-        error: error instanceof Error && error.message,
-      }),
-    };
+    res
+      .status(500)
+      .json(error instanceof Error ? error.message : "Unexpected error");
   }
-};
-
-export { handler };
+}

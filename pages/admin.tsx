@@ -9,10 +9,12 @@ import HomeIcon from "../components/HomeIcon";
 import VideoSources from "../components/VideoSources";
 import useVideoSources from "../hooks/useVideoSources";
 import useUpdateVideoSources from "../hooks/useUpdateVideoSources";
-import useAdmin from "../hooks/useAdmin";
 import { IVideoSource } from "../types";
 import cookies from "next-cookies";
-import axios from "axios";
+import { getVideoSources } from "./api/getVideoSources";
+import { NextPageContext } from "next";
+import useAdmin from "../hooks/useAdmin";
+import router from "next/router";
 
 const Container = styled.div`
   margin-top: 32px;
@@ -44,12 +46,15 @@ const ActionButton = styled.span`
 `;
 
 type Props = {
+  isAdmin: boolean;
   videoSources: IVideoSource[];
 };
 
-const AdminDashboard = ({ videoSources }: Props) => {
+const AdminDashboard = ({ isAdmin, videoSources }: Props) => {
   const { data: videoSourceData, isFetching: videoSourceisFetching } =
     useVideoSources({ initialData: { videoSources } });
+
+  const { data: isAdminData } = useAdmin({ initialData: { isAdmin } });
 
   const { mutate } = useUpdateVideoSources();
   const [sources, setSources] = useState<IVideoSource[]>(videoSources);
@@ -68,6 +73,12 @@ const AdminDashboard = ({ videoSources }: Props) => {
   const resetOrder = async () => {
     setSources(videoSources);
   };
+
+  useEffect(() => {
+    if (!isAdminData) {
+      router.push("/");
+    }
+  }, [isAdminData]);
 
   if (videoSourceisFetching) {
     return <div>Loading...</div>;
@@ -100,29 +111,23 @@ const AdminDashboard = ({ videoSources }: Props) => {
   );
 };
 
-export async function getServerSideProps(context: any) {
+export async function getServerSideProps(context: NextPageContext) {
   const { adminPassphrase } = cookies(context);
 
-  const { API_URL } = process.env;
+  const isAdmin = adminPassphrase === process.env.ADMIN_PASSPHRASE;
 
-  if (adminPassphrase) {
-    const { data: isAdmin } = await axios.get(`${API_URL}/api/getAuth`, {
-      headers: {
-        "admin-passphrase": adminPassphrase,
+  if (!isAdmin) {
+    return {
+      redirect: {
+        destination: "/",
       },
-    });
-
-    if (isAdmin) {
-      return {
-        props: {},
-      };
-    }
+    };
   }
 
+  const videoSources = await getVideoSources();
+
   return {
-    redirect: {
-      destination: "/",
-    },
+    props: { isAdmin, videoSources },
   };
 }
 

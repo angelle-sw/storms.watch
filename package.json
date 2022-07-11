@@ -4,14 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build:functions": "netlify-lambda build functions",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "export": "yarn build && yarn build:functions"
+    "deploy:netlify": "netlify deploy --build"
   },
   "dependencies": {
-    "@netlify/functions": "^0.7.2",
+    "@netlify/plugin-nextjs": "^4.11.1",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -28,14 +27,12 @@
     "axios": "^0.21.1",
     "babel-plugin-styled-components": "^2.0.7",
     "cookie": "^0.5.0",
-    "dotenv": "^10.0.0",
     "eslint": "8.19.0",
     "eslint-config-next": "12.2.1",
     "http-proxy-middleware": "^2.0.1",
     "immutability-helper": "^3.1.1",
     "lodash": "^4.17.21",
     "mongodb": "^4.1.1",
-    "netlify-lambda": "^2.0.15",
     "next": "12.2.1",
     "next-cookies": "^2.0.3",
     "react": "18.2.0",

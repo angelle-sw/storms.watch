@@ -1,19 +1,16 @@
-import { Handler } from "@netlify/functions";
+import type { NextApiRequest, NextApiResponse } from "next";
 import { MongoClient } from "mongodb";
-require("dotenv").config({ path: ".env" });
 
-type Response = {
-  body: string;
-  statusCode: number;
-};
+type Response = boolean | string;
 
 const { ADMIN_PASSPHRASE, MONGO_DB_URI } = process.env;
 
 const mongoDBClient = new MongoClient(MONGO_DB_URI as string);
 
-const stormModeStatusEnv = process.env.NETLIFY_DEV
-  ? "storm-mode-status-test"
-  : "storm-mode-status";
+const stormModeStatusEnv =
+  process.env.NODE_ENV === "development"
+    ? "storm-mode-status-test"
+    : "storm-mode-status";
 
 const getStormModeStatus = async (): Promise<boolean> => {
   await mongoDBClient.connect();
@@ -45,21 +42,18 @@ const toggleStormModeStatus = async (
   return result;
 };
 
-const handler: Handler = async (event): Promise<Response> => {
-  const { headers, httpMethod } = event;
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse<Response>
+) {
+  const { headers, method } = req;
 
-  if (httpMethod !== "POST") {
-    return {
-      statusCode: 405,
-      body: "Method not allowed. Use POST.",
-    };
+  if (method !== "POST") {
+    res.status(405).send("Method not allowed. Use POST.");
   }
 
   if (headers["admin-passphrase"] !== ADMIN_PASSPHRASE) {
-    return {
-      statusCode: 401,
-      body: "Unauthorized",
-    };
+    res.status(401).send("Unauthorized");
   }
 
   try {
@@ -69,20 +63,10 @@ const handler: Handler = async (event): Promise<Response> => {
       currentStormModeStatus
     );
 
-    return {
-      statusCode: 200,
-      body: JSON.stringify(newStormModeStatus),
-    };
+    res.status(200).json(newStormModeStatus);
   } catch (error) {
-    console.log(error);
-
-    return {
-      statusCode: 500,
-      body: JSON.stringify({
-        error: error instanceof Error && error.message,
-      }),
-    };
+    res
+      .status(500)
+      .json(error instanceof Error ? error.message : "Unexpected error");
   }
-};
-
-export { handler };
+}
