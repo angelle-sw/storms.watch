@@ -1,9 +1,6 @@
 [build]
   command = "yarn build"
-  functions = "built-functions"
   publish = ".next"
 
-[[redirects]]
-  from = "/api/*"
-  to = "/.netlify/functions/:splat"
-  status = 200
+[[plugins]]
+  package = "@netlify/plugin-nextjs"

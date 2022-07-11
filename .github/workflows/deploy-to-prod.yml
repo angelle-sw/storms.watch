@@ -35,26 +35,13 @@ jobs:
           path: ${{ github.workspace }}/.next/cache
           key: ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}
 
-      - name: Lint
-        run: yarn lint
-
-      - name: Build
-        run: yarn export
+      - name: Deploy to Netlify
+        id: deploy
+        run: yarn deploy:netlify
+          --prod
+          --message=${{ github.event.head_commit.message }}
         env:
-          API_URL: "https://storms.watch"
-
-      - name: Deploy To Netlify
-        uses: nwtgck/actions-netlify@v1.2.0
-        with:
-          deploy-message: ${{ github.event.head_commit.message }}
-          enable-commit-comment: false
-          functions-dir: ./built-functions
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          netlify-config-path: ./netlify.toml
-          production-deploy: true
-          publish-dir: ./.next
-        env:
-          ADMIN_PASSPHRASE: ${{ secrets.ADMIN_PASSPHRASE }}
           MONGO_DB_URI: ${{ secrets.MONGO_DB_URI }}
+          ADMIN_PASSPHRASE: ${{ secrets.ADMIN_PASSPHRASE }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN  }}
           NETLIFY_SITE_ID: ${{ secrets.STORMS_WATCH_PROD_NETLIFY_SITE_ID }}
