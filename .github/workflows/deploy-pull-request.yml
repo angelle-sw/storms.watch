@@ -48,7 +48,7 @@ jobs:
           alias: pr-${{ github.event.pull_request.number }}
           deploy-message: ${{ github.event.commit.message }}
           enable-pull-request-comment: true
-          functions-dir: ./built-functions
+          functions-dir: ./functions
           github-token: ${{ secrets.GITHUB_TOKEN }}
           netlify-config-path: ./netlify.toml
           publish-dir: ./.next
