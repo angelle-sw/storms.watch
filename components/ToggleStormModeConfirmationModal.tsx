@@ -1,9 +1,7 @@
-import { useEffect } from "react";
 import { IoMdClose as Close } from "react-icons/io";
 import Modal from "react-modal";
 import { UseMutateFunction } from "react-query";
 import styled from "styled-components";
-import useToggleStormModeStatus from "../hooks/useToggleStormModeStatus";
 import ModalContent from "./ModalContent";
 
 type Props = {

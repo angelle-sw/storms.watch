@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import useAdmin from "../hooks/useAdmin";
 import useToggleStormModeStatus from "../hooks/useToggleStormModeStatus";

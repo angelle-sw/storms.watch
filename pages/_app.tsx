@@ -47,12 +47,8 @@ const App = ({ Component, pageProps }: AppProps) => {
         <DebugContext.Provider value={{ debugFlags, setDebugFlags }}>
           <GlobalStyle />
           <Container>
-            <NavBar
-              adminPassphrase={pageProps.adminPassphrase}
-              stormModeStatus={pageProps.stormModeStatus}
-            />
+            <NavBar adminPassphrase={pageProps.adminPassphrase} />
             <Header />
-
             <Component {...pageProps} />
           </Container>
         </DebugContext.Provider>
