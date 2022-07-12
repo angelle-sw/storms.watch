@@ -4,19 +4,19 @@ import { MongoClient } from "mongodb";
 type Response = boolean | string;
 
 export const getStormModeStatus = async (): Promise<boolean> => {
-  const { MONGO_DB_URI } = process.env;
+  const { DEPLOYMENT_ENVIRONMENT, MONGO_DB_URI } = process.env;
 
   const mongoDBClient = new MongoClient(MONGO_DB_URI as string);
 
-  const stormModeStatusEnv =
-    process.env.ENVIRONMENT === "production"
+  const stormModeStatusCollectionName =
+    DEPLOYMENT_ENVIRONMENT === "production"
       ? "storm-mode-status"
       : "storm-mode-status-test";
 
   await mongoDBClient.connect();
   const database = mongoDBClient.db("storms-watch");
 
-  const collection = database.collection(stormModeStatusEnv);
+  const collection = database.collection(stormModeStatusCollectionName);
 
   const result = (await collection.find({}).project({ _id: 0 }).toArray())[0]
     .stormModeStatus;

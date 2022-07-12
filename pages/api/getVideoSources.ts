@@ -5,12 +5,12 @@ import { IVideoSource } from "../../types";
 type Response = IVideoSource[] | string;
 
 export const getVideoSources = async (): Promise<IVideoSource[]> => {
-  const { MONGO_DB_URI } = process.env;
+  const { DEPLOYMENT_ENVIRONMENT, MONGO_DB_URI } = process.env;
 
   const mongoDBClient = new MongoClient(MONGO_DB_URI || "");
 
-  const collectionEnv =
-    process.env.ENVIRONMENT === "production"
+  const videoSourcesCollectionName =
+    DEPLOYMENT_ENVIRONMENT === "production"
       ? "video-sources"
       : "video-sources-test";
 
@@ -18,7 +18,7 @@ export const getVideoSources = async (): Promise<IVideoSource[]> => {
 
   const database = mongoDBClient.db("storms-watch");
 
-  const collection = database.collection(collectionEnv);
+  const collection = database.collection(videoSourcesCollectionName);
 
   const result = (await collection
     .find({})
