@@ -3,12 +3,12 @@ import axios from "axios";
 import { parse } from "cookie";
 
 type InitialData = {
-  initialData: {
+  initialData?: {
     isAdmin: boolean;
   };
 };
 
-const useAdmin = ({ initialData }: InitialData) => {
+const useAdmin = (config?: InitialData) => {
   const adminPassphrase =
     (typeof document === "object" && parse(document.cookie)?.adminPassphrase) ||
     "";
@@ -24,7 +24,7 @@ const useAdmin = ({ initialData }: InitialData) => {
 
       return response.data;
     },
-    { initialData: initialData.isAdmin }
+    { initialData: config?.initialData?.isAdmin }
   );
 
   return query;

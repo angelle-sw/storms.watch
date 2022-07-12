@@ -87,13 +87,27 @@ const Home = ({ isAdmin, stormModeStatus, videoSources }: Props) => {
 };
 
 export async function getServerSideProps(context: NextPageContext) {
+  const queries = context.query;
+
   const { adminPassphrase } = cookies(context);
 
   const isAdmin = adminPassphrase === process.env.ADMIN_PASSPHRASE;
 
   const videoSources = await getVideoSources();
 
-  const stormModeStatus = await getStormModeStatus();
+  const stormModeStatus =
+    queries.stormModeStatus !== undefined && isAdmin
+      ? queries.stormModeStatus === "true"
+      : await getStormModeStatus();
+
+  if (queries.stormModeStatus && !isAdmin) {
+    return {
+      props: { isAdmin, stormModeStatus, videoSources },
+      redirect: {
+        destination: "/",
+      },
+    };
+  }
 
   return {
     props: { isAdmin, stormModeStatus, videoSources },

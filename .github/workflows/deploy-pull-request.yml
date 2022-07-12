@@ -42,7 +42,7 @@ jobs:
           ADMIN_PASSPHRASE: ${{ secrets.ADMIN_PASSPHRASE }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN  }}
           NETLIFY_SITE_ID: ${{ secrets.STORMS_WATCH_STAGING_NETLIFY_SITE_ID }}
-          ENVIRONMENT: development
+          ENVIRONMENT: "development"
 
       - name: Comment on Pull Request
         uses: thollander/actions-comment-pull-request@v1

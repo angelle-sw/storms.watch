@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useRouter } from "next/router";
 import { FaSlidersH } from "react-icons/fa";
+import useDebugFlags from "../hooks/useDebugFlags";
 
 const Container = styled.span`
   position: absolute;
@@ -19,9 +20,13 @@ const Container = styled.span`
 
 const AdminDashboardIcon = () => {
   const router = useRouter();
+  const debugFlags = useDebugFlags();
 
   return (
-    <Container role="button" onClick={() => router.push("/admin")}>
+    <Container
+      role="button"
+      onClick={() => router.push({ pathname: "/admin", query: debugFlags })}
+    >
       <FaSlidersH size={32} />
     </Container>
   );
