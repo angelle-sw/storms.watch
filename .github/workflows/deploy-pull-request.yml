@@ -38,11 +38,8 @@ jobs:
           --alias=pr-${{ github.event.pull_request.number }}
           --message="${{ github.event.pull_request.title }}"
         env:
-          MONGO_DB_URI: ${{ secrets.MONGO_DB_URI }}
-          ADMIN_PASSPHRASE: ${{ secrets.ADMIN_PASSPHRASE }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN  }}
           NETLIFY_SITE_ID: ${{ secrets.STORMS_WATCH_STAGING_NETLIFY_SITE_ID }}
-          ENVIRONMENT: "development"
 
       - name: Comment on Pull Request
         uses: thollander/actions-comment-pull-request@v1
