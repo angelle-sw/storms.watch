@@ -4,12 +4,12 @@ import { IVideoSource } from "../../types";
 
 type Response = IVideoSource[] | string;
 
-const { MONGO_DB_URI, ADMIN_PASSPHRASE } = process.env;
+const { ADMIN_PASSPHRASE, DEPLOYMENT_ENVIRONMENT, MONGO_DB_URI } = process.env;
 
 const mongoDBClient = new MongoClient(MONGO_DB_URI as string);
 
-const collectionEnv =
-  process.env.ENVIRONMENT === "production"
+const videoSourcesCollectionName =
+  DEPLOYMENT_ENVIRONMENT === "production"
     ? "video-sources"
     : "video-sources-test";
 
@@ -19,7 +19,7 @@ const insertVideoSources = async (
   await mongoDBClient.connect();
   const database = mongoDBClient.db("storms-watch");
 
-  const collection = database.collection(collectionEnv);
+  const collection = database.collection(videoSourcesCollectionName);
 
   await collection.deleteMany({});
 
