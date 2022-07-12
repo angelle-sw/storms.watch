@@ -9,7 +9,8 @@ const { MONGO_DB_URI, ADMIN_PASSPHRASE } = process.env;
 const mongoDBClient = new MongoClient(MONGO_DB_URI as string);
 
 const collectionEnv =
-  process.env.ENVIRONMENT === "production"
+  process.env.ENVIRONMENT === "production" ||
+  process.env.NODE_ENV === "production"
     ? "video-sources"
     : "video-sources-test";
 

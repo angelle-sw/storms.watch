@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useRouter } from "next/router";
 import { FaHome } from "react-icons/fa";
+import useDebugFlags from "../hooks/useDebugFlags";
 
 const Container = styled.span`
   position: absolute;
@@ -19,9 +20,13 @@ const Container = styled.span`
 
 const HomeIcon = () => {
   const router = useRouter();
+  const debugFlags = useDebugFlags();
 
   return (
-    <Container role="button" onClick={() => router.push("/")}>
+    <Container
+      role="button"
+      onClick={() => router.push({ pathname: "/", query: debugFlags })}
+    >
       <FaHome size={32} />
     </Container>
   );

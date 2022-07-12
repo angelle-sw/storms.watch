@@ -8,7 +8,8 @@ const { ADMIN_PASSPHRASE, MONGO_DB_URI } = process.env;
 const mongoDBClient = new MongoClient(MONGO_DB_URI as string);
 
 const stormModeStatusEnv =
-  process.env.ENVIRONMENT === "production"
+  process.env.ENVIRONMENT === "production" ||
+  process.env.NODE_ENV === "production"
     ? "storm-mode-status"
     : "storm-mode-status-test";
 

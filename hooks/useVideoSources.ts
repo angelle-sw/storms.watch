@@ -3,12 +3,12 @@ import axios from "axios";
 import { IVideoSource } from "../types";
 
 type InitialData = {
-  initialData: {
+  initialData?: {
     videoSources: IVideoSource[];
   };
 };
 
-const useVideoSources = ({ initialData }: InitialData) => {
+const useVideoSources = (config: InitialData) => {
   const query = useQuery(
     "getVideoSources",
     async () => {
@@ -16,7 +16,7 @@ const useVideoSources = ({ initialData }: InitialData) => {
 
       return videoSources;
     },
-    { initialData: initialData.videoSources }
+    { initialData: config?.initialData?.videoSources }
   );
 
   return query;

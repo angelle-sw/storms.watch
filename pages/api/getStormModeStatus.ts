@@ -9,7 +9,8 @@ export const getStormModeStatus = async (): Promise<boolean> => {
   const mongoDBClient = new MongoClient(MONGO_DB_URI as string);
 
   const stormModeStatusEnv =
-    process.env.ENVIRONMENT === "production"
+    process.env.ENVIRONMENT === "production" ||
+    process.env.NODE_ENV === "production"
       ? "storm-mode-status"
       : "storm-mode-status-test";
 

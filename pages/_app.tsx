@@ -1,11 +1,23 @@
-import React from "react";
+import React, { createContext, useState } from "react";
 import type { AppProps } from "next/app";
 import styled from "styled-components";
 import { QueryClient, QueryClientProvider } from "react-query";
 import GlobalStyle from "../components/GlobalStyle";
 import Header from "../components/Header";
 
+type IDebugContext = {
+  debugFlags: {
+    stormModeStatus?: boolean;
+  };
+  setDebugFlags: (flags: { [key: string]: any }) => void;
+};
+
 const queryClient = new QueryClient();
+
+export const DebugContext = createContext<IDebugContext>({
+  debugFlags: {},
+  setDebugFlags: () => {},
+});
 
 const Container = styled.div`
   display: flex;
@@ -25,17 +37,23 @@ const Container = styled.div`
   }
 `;
 
-const App = ({ Component, pageProps }: AppProps) => (
-  <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <GlobalStyle />
-      <Container>
-        <Header />
+const App = ({ Component, pageProps }: AppProps) => {
+  const [debugFlags, setDebugFlags] = useState({});
 
-        <Component {...pageProps} />
-      </Container>
-    </QueryClientProvider>
-  </React.StrictMode>
-);
+  return (
+    <React.StrictMode>
+      <QueryClientProvider client={queryClient}>
+        <DebugContext.Provider value={{ debugFlags, setDebugFlags }}>
+          <GlobalStyle />
+          <Container>
+            <Header />
+
+            <Component {...pageProps} />
+          </Container>
+        </DebugContext.Provider>
+      </QueryClientProvider>
+    </React.StrictMode>
+  );
+};
 
 export default App;
