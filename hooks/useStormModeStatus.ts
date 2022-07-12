@@ -1,13 +1,19 @@
 import { useQuery } from "react-query";
 import axios from "axios";
+import useDebugFlags from "./useDebugFlags";
+import useAdmin from "./useAdmin";
 
 type InitialData = {
-  initialData: {
+  initialData?: {
     stormModeStatus: boolean;
   };
 };
 
-const useStormModeStatus = ({ initialData }: InitialData) => {
+const useStormModeStatus = (config?: InitialData) => {
+  const debugFlags = useDebugFlags();
+
+  const { data: isAdminData } = useAdmin();
+
   const query = useQuery(
     "getStormModeStatus",
     async () => {
@@ -15,8 +21,15 @@ const useStormModeStatus = ({ initialData }: InitialData) => {
 
       return response.data;
     },
-    { initialData: initialData.stormModeStatus }
+    {
+      initialData: config?.initialData?.stormModeStatus,
+      enabled: debugFlags?.stormModeStatus === undefined || !isAdminData,
+    }
   );
+
+  if (debugFlags?.stormModeStatus !== undefined && isAdminData) {
+    return { data: debugFlags.stormModeStatus };
+  }
 
   return query;
 };

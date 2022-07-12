@@ -40,7 +40,6 @@ To get a local copy up and running follow these simple example steps.
 
 - node
 - yarn
-- netlify cli
 
 ### Installation
 
@@ -72,7 +71,7 @@ To get a local copy up and running follow these simple example steps.
 5. Run a local development environment
 
    ```sh
-   $ netlify dev
+   $ yarn dev
    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -88,6 +87,18 @@ To get a local copy up and running follow these simple example steps.
 | `GET`  | `/api/getStormModeStatus`    | --                                                              | `{ admin-passphrase: string; }` | `boolean`                                                        |
 | `GET`  | `/api/getVideoSources`       | --                                                              | --                              | `{ id: string; status: boolean; title: string; url: string; }[]` |
 | `GET`  | `/api/getAdminStatus`        | --                                                              | `{ admin-passphrase: string; }` | `boolean`                                                        |
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- DEBUGGING -->
+
+## Debugging
+
+Use a supported url query param to override the database values
+
+| Key               | Value     | Description                            |
+| ----------------- | --------- | -------------------------------------- |
+| `stormModeStatus` | `boolean` | Forces the app in or out of storm mode |
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 <!-- ROADMAP -->
