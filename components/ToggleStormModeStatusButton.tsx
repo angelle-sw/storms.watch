@@ -42,7 +42,6 @@ const ToggleStormModeStatus = ({
   status,
   toggleStormModeStatusData,
 }: Props) => {
-  console.log({ toggleStormModeStatusData });
   const buttonLabel = useMemo(() => {
     if (loading && (toggleStormModeStatusData || status)) {
       return "Exiting Storm Mode...";
