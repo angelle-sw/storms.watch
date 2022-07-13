@@ -28,7 +28,7 @@ const useStormModeStatus = (config?: InitialData) => {
   );
 
   if (debugFlags?.stormModeStatus !== undefined && isAdminData) {
-    return { data: debugFlags.stormModeStatus };
+    return { data: debugFlags.stormModeStatus, refetch: () => {} };
   }
 
   return query;

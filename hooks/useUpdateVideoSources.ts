@@ -8,8 +8,8 @@ const useUpdateVideoSources = () => {
     (typeof document === "object" && parse(document.cookie)?.adminPassphrase) ||
     "";
 
-  const query = useMutation((sources: IVideoSource[]) => {
-    const response = axios.post("/api/postVideoSources", sources, {
+  const query = useMutation(async (sources: IVideoSource[]) => {
+    const response = await axios.post("/api/postVideoSources", sources, {
       headers: {
         "admin-passphrase": adminPassphrase,
       },
